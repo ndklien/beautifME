@@ -34,10 +34,6 @@ class Product(models.Model):
 
     skin_cond = models.CharField(max_length=5, choices=SKINCOND_CHOICE)
 
-    # Binh chon yeu/ghet spham
-    vote_down = models.IntegerField(default=0)
-    vote_up = models.IntegerField(default=0)
-
     # Loai san pham: SRM, Toner, v.v.
     CATEGORY_CHOICE = [
         ('MAKEUP_RM', 'Makeup Remover'),
@@ -54,6 +50,10 @@ class Product(models.Model):
     ]
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICE)
 
+    # Binh chon yeu/ghet spham
+    vote_down = models.IntegerField(default=0)
+    vote_up = models.IntegerField(default=0)
+
     def __str__(self):
         return self.product_name
 
@@ -63,7 +63,7 @@ class Comment(models.Model):
     product = models.ForeignKey('Product', on_delete=models.CASCADE) 
 
     #comment cua user nao
-    owner_comment = models.ForeignKey(User)
+    owner_comment = models.ForeignKey(User, on_delete=models.CASCADE)
 
     #Tua de cua comment
     title = models.CharField(max_length=255, blank=False, null=False)
@@ -72,6 +72,7 @@ class Comment(models.Model):
     content = models.TextField()
     #thoi gian dang bai
     pub_date = models.DateTimeField(default=timezone.datetime.now())
+    
     # Binh chon yeu/ghet binh luan
     vote_down = models.IntegerField(default=0)
     vote_up = models.IntegerField(default=0)
