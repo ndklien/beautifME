@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -16,17 +17,42 @@ class Product(models.Model):
     price = models.IntegerField(default=0)
 
     # Spham phu hop voi loai da nao (da dau, da kho, v.v.)
-    skintype = models.ValueRange()
+    SKINTYPE_CHOICE = [
+        ('DRY', 'Dry Skin'), 
+        ('OIL', 'Oliy Skin'), 
+        ('COMBI', 'Combination Skin'),
+    ]
+
+    skintype = models.CharField(max_length=5, choices=SKINTYPE_CHOICE)
 
     # Spham phu hop voi tinh trang da nao (bi mun, lao hoa, v.v.)
-    skin_cond = models.CharField(max_length=50)
+    SKINCOND_CHOICE = [
+        ('SEN', 'Sensitive Skin'),
+        ('ACNE', 'Acne Skin'), 
+        ('AGE', 'Aging Skin'),
+    ]
+
+    skin_cond = models.CharField(max_length=5, choices=SKINCOND_CHOICE)
 
     # Binh chon yeu/ghet spham
     vote_down = models.IntegerField(default=0)
     vote_up = models.IntegerField(default=0)
 
     # Loai san pham: SRM, Toner, v.v.
-    category = models.CharField(max_length=50, blank=False, null=False)
+    CATEGORY_CHOICE = [
+        ('MAKEUP_RM', 'Makeup Remover'),
+        ('CLEANSE', 'Cleanser'),
+        ('TONER', 'Toner'),
+        ('SERUM', 'Serum'),
+        ('MOIST', 'Moisturizer'),
+        ('LOTION', 'Lotion'),
+        ('MASK', 'Mask'),
+        ('EYE', 'Eye Care'),
+        ('SUN', 'Sun Care'),
+        ('EXFOL', 'Exfoliators'),
+        ('LIP', 'Lip Treatment'),
+    ]
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICE)
 
     def __str__(self):
         return self.product_name
@@ -37,7 +63,8 @@ class Comment(models.Model):
     product = models.ForeignKey('Product', on_delete=models.CASCADE) 
 
     #comment cua user nao
-    
+    owner_comment = models.ForeignKey(User)
+
     #Tua de cua comment
     title = models.CharField(max_length=255, blank=False, null=False)
 
