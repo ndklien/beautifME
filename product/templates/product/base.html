@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> BeautifyLabo: {% block title %}{% endblock %}</title>
+        <link type="text/css" rel="stylesheet" href="{% static 'product/base.css' %}">
+    </head>
+ 
+    <body>
+        <div class="topnav">
+            <a href="{% url 'homepage' %}">Home</a>
+            <a href="">Products</a>
+            <a href="">News</a>
+            <a>About</a>
+            <div style="float: right;">
+                <a href="{% url 'register' %}">Register</a>
+                <a>Login</a>
+            </div>
+        </div>
+        
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
