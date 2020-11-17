@@ -57,7 +57,7 @@ ROOT_URLCONF = 'IE104_SC.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,3 +125,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = [
     
 ]
+LOGIN_REDIRECT_URL = 'register'

@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 #For registration
 from .forms import RegisterForm
 
+#For login and logout
+
 # Create your views here.
 
 #Registration function
