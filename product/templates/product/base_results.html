@@ -1,0 +1,16 @@
+{% extends 'product/base.html'%}
+
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+    <h1>Result{{ product_name|pluralize }}</h1>
+    <ul>
+        {% for product in object_list %}
+        <li>
+            {{ product.product_name }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

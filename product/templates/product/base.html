@@ -14,6 +14,9 @@
             <a href="">News</a>
             <a>About</a>
             <div style="float: right;">
+                <form method="GET" action="{% url 'search_results' %}">
+                    <input name="q" type="text" placeholder="Search here">
+                </form>
                 <a href="{% url 'register' %}">Register</a>
                 <a href="{% url 'login' %}">Login</a>
             </div>

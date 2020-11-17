@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import product.views as productV, news.views as newsV, accounts.views as accountV
+
 from django.contrib.auth import views as authV
 urlpatterns = [
     path('', productV.Homepage, name='homepage'),
@@ -25,4 +26,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', accountV.registration, name='register'),
     path('login/', authV.LoginView.as_view(template_name="accounts/login.html"), name='login'),
+    path('search/', productV.SearchResults.as_view(), name='search_results')
 ]
