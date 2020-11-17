@@ -23,5 +23,6 @@ urlpatterns = [
     path('product/', include('product.urls')), 
     path('news/', include('news.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('register/', accountV.registration, name='register')
+    path('register/', accountV.registration, name='register'),
+    path('search/', productV.SearchRequest.as_view(), name='search_results'),
 ]
