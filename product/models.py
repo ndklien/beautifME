@@ -13,14 +13,14 @@ class Product(models.Model):
     # Giai thich ve spham
     description = models.TextField()
 
-    # Gia spham
-    price = models.IntegerField(default=0)
+
 
     # Spham phu hop voi loai da nao (da dau, da kho, v.v.)
     SKINTYPE_CHOICE = [
         ('DRY', 'Dry Skin'), 
-        ('OIL', 'Oliy Skin'), 
+        ('OIL', 'Oliy Skin'),
         ('COMBI', 'Combination Skin'),
+        ('ALL', 'All Skin Type'),
     ]
 
     skintype = models.CharField(max_length=5, choices=SKINTYPE_CHOICE)
