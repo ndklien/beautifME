@@ -10,14 +10,55 @@ from django.contrib.auth.models import User
 
 class Product(models.Model):
     # Ten spham
-    product_name = models.CharField(max_length=255, blank=False, null=False)
+    product_name = models.CharField(max_length=50, blank=False, null=False)
+
+    #ten hang KEY 3 CHU DAU
+    BRANDING = [
+        ('KIE', "Kielh's"),
+        ('INN', 'Innisfree'),
+        ('BIO', 'Biore'),
+        ("BUR", "Burberry"),
+        ('CET', 'Cetaphil'),
+        ('CER', 'Cerave'),
+        ('CLI', 'Clinique'),
+        ('COO', 'Cocoon'),
+        ('DHC', 'DHC'),
+        ('EST', 'Estee Lauder'),
+        ('ACN', 'Acnes'),
+        ('HAD', 'Hada Labo'),
+        ('HUX', 'Huxley'),
+        ('LAR', 'La roche Posay'),
+        ('LAN', 'Lancome'),
+        ('LOR', 'Loreal'),
+        ('MIS', 'Missha'),
+        ('MUR', 'Murad'),
+        ('NEU', 'Neutrogena'),
+        ('OMI', 'OMI'),
+        ('OHU', 'Ohui'),
+        ('PAU', "Paula's Choice"),
+        ('SEN', 'Senka'),
+        ('SIM', 'Simple'),
+        ('SOM', 'Sum by Mi'),
+        ('SUL', 'Sulwhasoo'),
+        ('THA', 'Thayes'),
+        ('VAS', 'Vaseline')
+        ('SK2', 'SKII'),
+        ('LAM', 'La Mer'),
+        ('ELE', 'Drunk Elephant'), 
+        ('FRE', 'Fresh'),
+        ('TAT', 'Tatcha'),
+        ('ORD', 'The Ordinary'),
+        ('GLO', 'Glossier'),
+    ]
+
+    branding_name = models.CharField(max_length=3, choices=BRANDING)
+
+    #tom tat spham
+    summary = models.CharField(max_length=100, blank=False, null=False)
 
     # Giai thich ve spham
     description = models.TextField()
 
-<<<<<<< HEAD
-
-=======
     #dung tich san pham
     product_size_in_ml = models.IntegerField(default=0, null=False) 
 
@@ -26,17 +67,13 @@ class Product(models.Model):
 
     # Gia spham
     price = models.IntegerField(default=0)
->>>>>>> dcc9ae3e75ff779f7bc0ed17f2049ee1f83a5f78
 
     # Spham phu hop voi loai da nao (da dau, da kho, v.v.)
     SKINTYPE_CHOICE = [
         ('DRY', 'Dry Skin'), 
         ('OIL', 'Oliy Skin'),
         ('COMBI', 'Combination Skin'),
-<<<<<<< HEAD
-=======
         ('NORM', 'Normal Skin'),
->>>>>>> dcc9ae3e75ff779f7bc0ed17f2049ee1f83a5f78
         ('ALL', 'All Skin Type'),
     ]
 
