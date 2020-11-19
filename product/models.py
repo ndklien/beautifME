@@ -3,6 +3,8 @@ from django.utils import timezone
 import datetime
 from django.contrib.auth.models import User
 
+#pip install Pillow for image import
+
 # Create your models here.
 
 
@@ -13,13 +15,28 @@ class Product(models.Model):
     # Giai thich ve spham
     description = models.TextField()
 
+<<<<<<< HEAD
 
+=======
+    #dung tich san pham
+    product_size_in_ml = models.IntegerField(default=0, null=False) 
+
+    #hinh minh hoa spham
+    product_img = models.ImageField(upload_to='product/images/')
+
+    # Gia spham
+    price = models.IntegerField(default=0)
+>>>>>>> dcc9ae3e75ff779f7bc0ed17f2049ee1f83a5f78
 
     # Spham phu hop voi loai da nao (da dau, da kho, v.v.)
     SKINTYPE_CHOICE = [
         ('DRY', 'Dry Skin'), 
         ('OIL', 'Oliy Skin'),
         ('COMBI', 'Combination Skin'),
+<<<<<<< HEAD
+=======
+        ('NORM', 'Normal Skin'),
+>>>>>>> dcc9ae3e75ff779f7bc0ed17f2049ee1f83a5f78
         ('ALL', 'All Skin Type'),
     ]
 
@@ -32,7 +49,7 @@ class Product(models.Model):
         ('AGE', 'Aging Skin'),
     ]
 
-    skin_cond = models.CharField(max_length=5, choices=SKINCOND_CHOICE)
+    skin_cond = models.CharField(max_length=5, choices=SKINCOND_CHOICE, null=True)
 
     # Loai san pham: SRM, Toner, v.v.
     CATEGORY_CHOICE = [

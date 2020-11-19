@@ -12,6 +12,7 @@ SKINTYPE_CHOICE = [
         ('DRY', 'Dry Skin'), 
         ('OIL', 'Oliy Skin'), 
         ('COMBI', 'Combination Skin'),
+        ('NORM', 'Normal Skin')
 ]
 
 SKINCOND_CHOICE = [
