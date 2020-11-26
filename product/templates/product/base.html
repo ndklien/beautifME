@@ -3,13 +3,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> BeautifyLabo: {% block title %}{% endblock %}</title>
+        <title> BeautifyLabo {% block title %}{% endblock %}</title>
         <link type="text/css" rel="stylesheet" href="{% static 'product/base.css' %}">
     </head>
  
     <body>
         <div class="topnav">
             <a href="{% url 'homepage' %}">Home</a>
+            <a href="{% url 'recommend' %}">Recommend</a>
             <a href="">Products</a>
             <a href="">News</a>
             <a>About</a>

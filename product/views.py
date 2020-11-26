@@ -23,3 +23,7 @@ class SearchResults(generic.ListView):
             Q(description__icontains=query)
         )
 
+def Recommendation(request):
+    return render(request, 'product/base_recommend.html')
+
+
