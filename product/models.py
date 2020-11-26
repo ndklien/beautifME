@@ -41,7 +41,7 @@ class Product(models.Model):
         ('SOM', 'Sum by Mi'),
         ('SUL', 'Sulwhasoo'),
         ('THA', 'Thayes'),
-        ('VAS', 'Vaseline')
+        ('VAS', 'Vaseline'),
         ('SK2', 'SKII'),
         ('LAM', 'La Mer'),
         ('ELE', 'Drunk Elephant'), 
