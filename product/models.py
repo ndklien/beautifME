@@ -33,14 +33,18 @@ class Product(models.Model):
         ('MIS', 'Missha'),
         ('MUR', 'Murad'),
         ('NEU', 'Neutrogena'),
-        ('OMI', 'OMI'),
+        ('OMI', 'Omi'),
         ('OHU', 'Ohui'),
         ('PAU', "Paula's Choice"),
         ('SEN', 'Senka'),
         ('SIM', 'Simple'),
         ('SOM', 'Sum by Mi'),
         ('SUL', 'Sulwhasoo'),
+<<<<<<< HEAD
         ('THA', 'Thayes'),
+=======
+        ('THA', "Thayer's"),
+>>>>>>> f581494ef6cf3704b4e0ac938bc3aa15185ba988
         ('VAS', 'Vaseline'),
         ('SK2', 'SKII'),
         ('LAM', 'La Mer'),
