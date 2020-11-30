@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,17 +12,24 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> 
     </head>
     <body>
+
+        <!--Header part-->
+
         <div class="head">
             <!--Logo -->
             <div class="logo">
-                <img class="imglogo" src="{% static 'product/img/Artboard 1@0.5x.png' %}"/>
+                <a href="{% url 'homepage' %}">
+                    <img class="imglogo" src="{% static 'product/img/Artboard 1@0.5x.png' %}"/>
+                </a>
             </div>
 
             <!--Search bar-->
             <div class="search">
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-lg" placeholder="Search" />
+                        <form method="GET" action="{% url 'search_results' %}">
+                            <input type="text" name="q" class="form-control input-lg" placeholder="Search" />
+                        </form>
                         <span class="input-group-btn">
                             <button class="btn btn-info btn-lg" type="button">
                                 <i class="glyphicon glyphicon-search"></i>
@@ -34,18 +42,24 @@
             <!--Login/Logout -->
             <div class="login">
                 <p>
-                    <a href="">Log in</a>
-                    <a href="">Sign in</a>
+                    <a href="{% url 'login' %}">Log in</a>
+                    <a href="{% url 'register' %}">Sign up</a>
                 </p>
             </div>
         </div>
         <div>
             <nav id="cbp-hrmenu" class="cbp-hrmenu">
+
+                <!--Vertical Menu-->
                 <ul>
+
+                    <!--Brands -->
                     <li>
                         <a class="Title" href="#">Brands</a>
                         <div class="cbp-hrsub">
                             <div class="cbp-hrsub-inner"> 
+
+                                <!--Brand.1-->
                                 <div>
                                     <h4>Trending</h4>
                                     <ul>
@@ -57,8 +71,10 @@
                                         <li><a href="#">The Ordinary</a></li>
                                     </ul>
                                 </div>
+
+                                <!--Brand.2-->
                                 <div>
-                                    <h4>High end</h4>
+                                    <h4>High-end</h4>
                                     <ul>
                                         <li><a href="#">Burberry</a></li>
                                         <li><a href="#">Lancome</a></li>
@@ -67,8 +83,10 @@
                                         <li><a href="#">Drunk Elephant</a></li>
                                     </ul>
                                 </div>
+
+                                <!--Brand.3-->
                                 <div>
-                                    <h4>Drug Store</h4>
+                                    <h4>Drugstore</h4>
                                     <ul>
                                         <li><a href="#">Innisfree</a></li>
                                         <li><a href="#">Biore</a></li>
@@ -82,10 +100,14 @@
                             </div><!-- /cbp-hrsub-inner -->
                         </div><!-- /cbp-hrsub -->
                     </li>
+
+                    <!--Products-->
                     <li>
                         <a class="Title" href="#">Products</a>
                         <div class="cbp-hrsub">
                             <div class="cbp-hrsub-inner">
+
+                                <!--Cleansing items-->
                                 <div>
                                     <h4>Cleansing</h4>
                                     <ul>
@@ -101,6 +123,8 @@
                                         <li><a href="#">More</a></li>
                                     </ul>
                                 </div>
+
+                                <!--Skincare Products-->
                                 <div>
                                     <h4>Toner</h4>
                                     <ul>
@@ -116,6 +140,8 @@
                                         <li><a href="#">More</a></li>
                                     </ul>
                                 </div>
+
+                                <!--Suncare Products-->
                                 <div>
                                     <h4>Sun care</h4>
                                     <ul>
@@ -130,18 +156,31 @@
                             </div><!-- /cbp-hrsub-inner -->
                         </div><!-- /cbp-hrsub -->
                     </li>
+
+                    <!--Recommend-->
                     <li>
                         <a class="Title" href="#">Recommend</a>
                     </li>
+
+                    <!--News-->
                     <li>
                         <a class="Title" href="#">News</a>
                     </li>
+
+                    <!--About-->
                     <li>
                         <a class="Title" href="#">About</a>
                     </li>
                 </ul>
             </nav>
         </div>
+
+        <!--Body part-->
+        {% block content %}
+
+        {% endblock content %}
+
+        <!--Javascript -->
         <script src="{% static 'product/JS/add.js' %}" type="text/javascript"></script>
         <script src="{% static 'product/JS/header.js' %}" type="text/javascript"></script>
         <script>
@@ -149,6 +188,6 @@
                 cbpHorizontalMenu.init();
             });
         </script>
-    
+
     </body>
 </html>
