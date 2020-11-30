@@ -2,16 +2,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Head</title>
+        <title>Beautif{% block title %}{% endblock title %}</title>
+        
+        <link rel="icon" href="{% static 'product/img/icon.png' %}" />
+
         <link type="text/css" rel="stylesheet" href="{% static 'product/header.css' %}">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> 
     </head>
     <body>
         <div class="head">
+            <!--Logo -->
             <div class="logo">
-                <img class="imglogo" src="{% static 'product/img/Logo.png' %}"/>
+                <img class="imglogo" src="{% static 'product/img/Artboard 1@0.5x.png' %}"/>
             </div>
+
+            <!--Search bar-->
             <div class="search">
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">
@@ -24,6 +30,8 @@
                     </div>
                 </div>
             </div>
+
+            <!--Login/Logout -->
             <div class="login">
                 <p>
                     <a href="">Log in</a>
@@ -31,6 +39,7 @@
                 </p>
             </div>
         </div>
+        <div>
             <nav id="cbp-hrmenu" class="cbp-hrmenu">
                 <ul>
                     <li>
@@ -93,7 +102,7 @@
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4>Tonner</h4>
+                                    <h4>Toner</h4>
                                     <ul>
                                         <li><a href="#">Thayers</a></li>
                                         <li><a href="#">Huxley Toner Extract It</a></li>
@@ -108,7 +117,7 @@
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4>Sun cream</h4>
+                                    <h4>Sun care</h4>
                                     <ul>
                                         <li><a href="#">Senka Perfect UV Milk</a></li>
                                         <li><a href="#">Anessa</a></li>
@@ -132,14 +141,14 @@
                     </li>
                 </ul>
             </nav>
-    </div>
-    <script src="{% static 'product/JS/add.js' %}" type="text/javascript"></script>
-    <script src="{% static 'product/JS/header.js' %}" type="text/javascript"></script>
-    <script>
-        $(function() {
-            cbpHorizontalMenu.init();
-        });
-    </script>
+        </div>
+        <script src="{% static 'product/JS/add.js' %}" type="text/javascript"></script>
+        <script src="{% static 'product/JS/header.js' %}" type="text/javascript"></script>
+        <script>
+            $(function() {
+                cbpHorizontalMenu.init();
+            });
+        </script>
     
     </body>
 </html>
