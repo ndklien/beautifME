@@ -36,26 +36,31 @@
 .head{
     width: 100%;
     float: left;
-    height: 170px;
-
+    height: 130px;
 }
 .logo{
     width: 20%;
     float: left;
-    height: 100px;
+	height: 100px;
+	padding-left: 20px;
 }
 .search{
-    width: 60%;
-    float: left;
-    height: 100px;
+	width: 58%;
+	float: left;
+	height: 100px;
 }
-.login{
-    width: 20%;
-    float: right;
+div.login{
+	width: 22%;
+	float: right;
     height: 100px;
     padding-top: 55px;
-    padding-left: 150px;
+	padding-left: 150px;
 }
+
+div.login p{
+	font-size: larger;
+}
+
 .login a{
     color: black;
 }
@@ -63,13 +68,14 @@ p{
     padding: 60px auto ;
 }
 .imglogo{
-    width: 300px;
+	width: 280px;
+	margin-left: 10px;
 }
 /* General Demo Style */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 @font-face {
-	font-family: 'fontawesome';
+	font-family: 'fontawesome' ;
 	src:url('../fonts/fontawesome.eot');
 	src:url('../fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/fontawesome.svg#fontawesome') format('svg'),
@@ -92,7 +98,7 @@ p{
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 
 body {
-    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-family: /*'Lato'*/ Helvetica, Arial, sans-serif;
     color:#a75535;
     margin-top: 0;
 }
@@ -278,7 +284,9 @@ a:hover {
 	}
 }
 
-
+input.form-control.input-lg {
+	margin-top: 3px;
+}
 
 
 
