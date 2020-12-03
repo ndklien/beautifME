@@ -111,6 +111,10 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
 
+    def brand_display(self):
+        return self.get_branding_name_display()
+
+
 
 class Comment(models.Model):
     #comment thuoc product nao
