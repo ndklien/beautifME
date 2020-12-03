@@ -7,6 +7,7 @@ from django.db.models import Q
 
 from . import views
 from .models import Product
+from brand.models import Brand
 
 # Create your views here.
 def Homepage(request):
@@ -45,20 +46,14 @@ def productDetail(request, question_id):
 
 """ Print all brands """
 class BrandListView(generic.ListView):
-    model = Product
+    model = Brand
     template_name = 'product/base_brandList.html'
     context_object_name = 'brands_list'
 
     def get_queryset(self):
-        products = Product.objects.all()
-        brandList = []
-        for p in products:
-            name = p.get_branding_name_display()
-            if name not in brandList:
-                brandList.append(name)
-            else:
-                pass
+        brandList = Brand.objects.all()
         return brandList
+        
 
 
 """Print all product in xxx brand """

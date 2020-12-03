@@ -3,6 +3,8 @@ from django.utils import timezone
 import datetime
 from django.contrib.auth.models import User
 
+from brand.models import Brand
+
 #pip install Pillow for image import
 
 # Create your models here.
@@ -13,45 +15,7 @@ class Product(models.Model):
     product_name = models.CharField(max_length=50, blank=False, null=False)
 
     #ten hang KEY 3 CHU DAU
-    BRANDING = [
-        ('KIE', "Kielh's"),
-        ('INN', 'Innisfree'),
-        ('BIO', 'Biore'),
-        ("BUR", "Burberry"),
-        ('CET', 'Cetaphil'),
-        ('CER', 'Cerave'),
-        ('CLI', 'Clinique'),
-        ('COO', 'Cocoon'),
-        ('DHC', 'DHC'),
-        ('EST', 'Estee Lauder'),
-        ('ACN', 'Acnes'),
-        ('HAD', 'Hada Labo'),
-        ('HUX', 'Huxley'),
-        ('LAR', 'La roche Posay'),
-        ('LAN', 'Lancome'),
-        ('LOR', 'Loreal'),
-        ('MIS', 'Missha'),
-        ('MUR', 'Murad'),
-        ('NEU', 'Neutrogena'),
-        ('OMI', 'Omi'),
-        ('OHU', 'Ohui'),
-        ('PAU', "Paula's Choice"),
-        ('SEN', 'Senka'),
-        ('SIM', 'Simple'),
-        ('SOM', 'Sum by Mi'),
-        ('SUL', 'Sulwhasoo'),
-        ('THA', "Thayer's"),
-        ('VAS', 'Vaseline'),
-        ('SK2', 'SKII'),
-        ('LAM', 'La Mer'),
-        ('ELE', 'Drunk Elephant'), 
-        ('FRE', 'Fresh'),
-        ('TAT', 'Tatcha'),
-        ('ORD', 'The Ordinary'),
-        ('GLO', 'Glossier'),
-    ]
-
-    branding_name = models.CharField(max_length=3, choices=BRANDING)
+    brand = models.ForeignKey('brand.Brand', on_delete=models.CASCADE)
 
     #tom tat spham
     summary = models.CharField(max_length=100, blank=False, null=False)
