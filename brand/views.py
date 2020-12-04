@@ -10,7 +10,12 @@ class BrandList(generic.ListView):
     context_object_name = 'brand_list'
 
     def get_queryset(self):
-        return Brand.objects.all()
+        brands = Brand.objects.all()
+        brandsNameArr = []
+        for brand in brands:
+            name = brand.get_branding_name_display()
+            brandsNameArr.append(name)
+        return brandsNameArr
 
 class BrandPList(generic.ListView):
     model = Brand

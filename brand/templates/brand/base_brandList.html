@@ -5,5 +5,9 @@
 {% block title %}{% endblock title %}
 
 {% block content %}
-    <p>Brand List</p>
+<ul>
+    {% for brand in brand_list %}
+    <li><a href="#">{{ brand }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock content %}
