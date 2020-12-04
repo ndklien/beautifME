@@ -50,7 +50,7 @@ class Product(models.Model):
         ('AGE', 'Aging Skin'),
     ]
 
-    skin_cond = models.CharField(max_length=5, choices=SKINCOND_CHOICE, null=True)
+    skin_cond = models.CharField(max_length=5, choices=SKINCOND_CHOICE, null=True, blank=True)
 
     # Loai san pham: SRM, Toner, v.v.
     CATEGORY_CHOICE = [
@@ -74,9 +74,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
-
-    def brand_display(self):
-        return self.get_branding_name_display()
 
 
 

@@ -17,5 +17,7 @@ class BrandPList(generic.ListView):
     template_name = 'brand/base_brandPList.html'
     context_object_name = 'brandp_list'
 
-    def get_queryset(self):
-        pass
+    def get_queryset(self, brand_id):
+        brand = Brand.objects.get(pk=brand_id)
+        return brand
+        
