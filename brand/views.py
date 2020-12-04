@@ -11,18 +11,17 @@ class BrandList(generic.ListView):
 
     def get_queryset(self):
         brands = Brand.objects.all()
-        brandsNameArr = []
+        return brands
+        """ brandsNameArr = []
         for brand in brands:
             name = brand.get_branding_name_display()
             brandsNameArr.append(name)
-        return brandsNameArr
+        return brandsNameArr """
 
-class BrandPList(generic.ListView):
-    model = Brand
-    template_name = 'brand/base_brandPList.html'
-    context_object_name = 'brandp_list'
-
-    def get_queryset(self, brand_id):
-        brand = Brand.objects.get(pk=brand_id)
-        return brand
+def BrandPList(request, brand_id):
+    brandSelected = Brand.objects.get(pk=brand_id)
+    context = {
+        'brand': brandSelected, 
+    }
+    return render(request, 'brand/base_brandPList.html', context)
         

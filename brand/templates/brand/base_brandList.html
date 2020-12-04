@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
     {% for brand in brand_list %}
-    <li><a href="#">{{ brand }}</a></li>
+    <li><a href="/brands/{{ brand.id }}/">{{ brand.get_branding_name_display }}</a></li>
     {% endfor %}
 </ul>
 {% endblock content %}
