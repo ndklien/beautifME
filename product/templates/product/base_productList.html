@@ -6,13 +6,13 @@
 
 
 {% block content %}
-    {% if user.is_authenticated %}
+    <!-- {% if user.is_authenticated %} -->
         <ul>
             {% for product in product_list %}
-                <li>{{ product }}</li>
+                <li><a href="/product/{{ product.id }}">{{ product }}</a></li>
             {% endfor %}
         </ul>
-    {% else %}
+<!--     {% else %}
         <p>You're not logged in. Click here to <a href="{% url 'login' %}?next={{ request.path }}">Login</a></p>
-    {% endif %}
+    {% endif %} -->
 {% endblock content %}

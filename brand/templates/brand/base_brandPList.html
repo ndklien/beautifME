@@ -6,8 +6,8 @@
 
 {% block content %}
     <ul>
-        {% for product in brandp_list %}
-        <li>{{ product }}</li>
+        {% for product in products %}
+        <li><a href="/product/{{ product.id }}/">{{ product }}</a></li>
         {% endfor %}
     </ul>
 {% endblock content %}
