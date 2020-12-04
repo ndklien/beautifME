@@ -5,5 +5,9 @@
 {% block title %}{% endblock title %}
 
 {% block content %}
-    <p>Brand List</p>
+<ul>
+    {% for brand in brand_list %}
+    <li><a href="/brands/{{ brand.id }}/">{{ brand.get_branding_name_display }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock content %}
