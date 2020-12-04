@@ -39,13 +39,15 @@ class ProductListView(generic.ListView):
 """ Print product details """
 def productDetail(request, product_id):
     product = Product.objects.get(pk=product_id)
-    comments = Comment.objects.all()
+    comments = Comment.objects.all() 
     productComment = []
     for comment in comments:
         if comment.product_id == product_id:
             productComment.append(comment)
+
     context = {
-        'product': product,
-        'comments': comment,
+        'product': product, """Sản phẩm"""
+        'comments': comment, """Bình luận của sản phẩm đó"""
     }
     return render(request, 'product/base_productDetail.html', context)
+
