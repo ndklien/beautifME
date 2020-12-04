@@ -6,8 +6,9 @@ from django.views import generic
 from django.db.models import Q
 
 from . import views
-from .models import Product
+from .models import Product, Comment
 from brand.models import Brand
+from django.contrib.auth.models import User
 
 # Create your views here.
 def Homepage(request):
@@ -38,7 +39,13 @@ class ProductListView(generic.ListView):
 """ Print product details """
 def productDetail(request, product_id):
     product = Product.objects.get(pk=product_id)
+    comments = Comment.objects.all()
+    productComment = []
+    for comment in comments:
+        if comment.product_id == product_id:
+            productComment.append(comment)
     context = {
         'product': product,
+        'comments': comment,
     }
     return render(request, 'product/base_productDetail.html', context)

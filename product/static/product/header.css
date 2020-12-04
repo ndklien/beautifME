@@ -218,6 +218,7 @@ a:hover {
 
 .cbp-hrmenu .cbp-hrsub-inner > div a {
 	line-height: 2em;
+	margin-left: 5px;
 }
 
 .cbp-hrsub h4 {
@@ -272,6 +273,7 @@ a:hover {
 
 	.cbp-hrsub h4 {
 		padding-top: 0.6em;
+		font-weight: bolder;
 	}
 
 }
