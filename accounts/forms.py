@@ -26,7 +26,10 @@ class RegisterForm(UserCreationForm):
     #user skin condition
     skincondition = forms.CharField(max_length=5, widget=forms.Select(choices=SKINCOND_CHOICE))
 
+    #user avater
+    userImg = forms.ImageField()
+
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2',
-                  'fullName', 'birth', 'gender', 'skintype', 'skincondition']
+                  'fullName', 'birth', 'gender', 'skintype', 'skincondition', 'userImg']
