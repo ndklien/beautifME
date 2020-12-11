@@ -137,3 +137,6 @@ LOGIN_REDIRECT_URL = 'register'
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+
+import django_heroku
+django_heroku.settings(locals())
