@@ -1,0 +1,1 @@
+web: gunicorn ie104_sc.wsgi --log-file -
