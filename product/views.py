@@ -10,6 +10,8 @@ from .models import Product, Comment
 from brand.models import Brand
 from django.contrib.auth.models import User
 
+from .filters import ProductFilter 
+
 # Create your views here.
 def Homepage(request):
     return render(request, 'product/base.html')
@@ -50,4 +52,16 @@ def productDetail(request, product_id):
         'comments': productComment, #Bình luận của sản phẩm đó"""
     }
     return render(request, 'product/base_productDetail.html', context)
+
+"""Recommendation views"""
+def recommendList(request):
+    cleanse = Product.objects.filter(category='CLEANSE')
+
+    cleanseFilter = ProductFilter(request.GET, queryset=cleanse)
+
+    context = {
+        'cleansingP': cleanseFilter,
+    }
+
+    return render(request, 'product/base_recommend.html', context)
 
