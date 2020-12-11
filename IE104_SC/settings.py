@@ -26,8 +26,9 @@ SECRET_KEY = '-gy#@j8=v*gv6*jaf)+i3190c(lbbs&zd^8#v297u3v=c(sb_n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ie104-sc.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['ie104-sc.herokuapp.com']
 
+# '127.0.0.1'
 
 # Application definition
 
@@ -137,3 +138,4 @@ LOGIN_REDIRECT_URL = 'register'
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+
