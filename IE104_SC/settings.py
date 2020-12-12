@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'django_filters',
     'bootstrap',
     'fontawesome',
+    'django_icons',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +93,7 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -141,3 +145,8 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
+DJANGO_ICONS = {
+    "ICONS": {
+        "edit": {"name": "far fa-pencil"},
+    },
+}
