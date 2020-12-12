@@ -86,14 +86,29 @@ WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'beautif_1',
+        'USER': 'ndklien', 
+        'PASSWORD': 'Liennguyen01', 
+        'HOST': 'database-2.cwdbkonmeioa.ap-southeast-1.rds.amazonaws.com',
+        'PORT': '5432', 
     }
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+# Allocate database
+AWS_S3_HOST = 'S3.ap-southeast-1c.amazonaws.com'
+AWS_S3_REGION_NAME = 'ap-southeast-1c'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
