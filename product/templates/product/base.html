@@ -4,16 +4,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+<<<<<<< HEAD
         <title>{% block title %}{% endblock title %} Beautif</title>
         
         <link rel="icon" href="{% static 'product/img/icon.png' %}" />
 
         <link type="text/css" rel="stylesheet" href="{% static 'product/header.css' %}">
+<<<<<<< HEAD
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>  -->
+=======
         <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">  -->
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
         <script defer src="{% static 'fontawesome/js/all.min.js' %}"></script>
+>>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
+=======
+        <title> BeautifyLabo {% block title %}{% endblock %}</title>
+        <link type="text/css" rel="stylesheet" href="{% static 'product/base.css' %}">
+>>>>>>> 0743bd1d190116e291a5cf00f24a6f918ada0ac8
     </head>
     <body>
+<<<<<<< HEAD
 
         <!--Header part-->
 
@@ -47,6 +58,20 @@
                     <a href="{% url 'login' %}">Log in</a>
                     <a href="{% url 'register' %}">Sign up</a>
                 </p>
+=======
+        <div class="topnav">
+            <a href="{% url 'homepage' %}">Home</a>
+            <a href="{% url 'recommend' %}">Recommend</a>
+            <a href="">Products</a>
+            <a href="">News</a>
+            <a>About</a>
+            <div style="float: right;">
+                <form method="GET" action="{% url 'search_results' %}">
+                    <input name="q" type="text" placeholder="Search here">
+                </form>
+                <a href="{% url 'register' %}">Register</a>
+                <a href="{% url 'login' %}">Login</a>
+>>>>>>> 0743bd1d190116e291a5cf00f24a6f918ada0ac8
             </div>
         </div>
         <div>
@@ -161,7 +186,11 @@
 
                     <!--Recommend-->
                     <li>
+<<<<<<< HEAD
+                        <a class="Title" href="{% url 'Recommend' %}">Recommend</a>
+=======
                         <a class="Title" href="{% url 'recommend' %}">Recommend</a>
+>>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
                     </li>
 
                     <!--News-->

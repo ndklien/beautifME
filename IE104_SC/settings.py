@@ -46,10 +46,13 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'brand.apps.BrandConfig',
     'django_filters',
+<<<<<<< HEAD
+=======
     'bootstrap',
     'fontawesome',
     'django_icons',
     'storages',
+>>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
 ]
 
 MIDDLEWARE = [
