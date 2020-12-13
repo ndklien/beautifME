@@ -9,17 +9,14 @@
         {{ moistP.form }}
         <input type="submit" value="Enter" id="filterButton"></button>
     </form>
-    <ul>
-    {% for product in moistP.qs %}
-        <li>
-            {{ product }}
-            <img src="{{ product.product_img }}" />
-        </li>
-    {% endfor %}
-    </ul>
-
+    <div id="FilterResult">
+        <ul>
+            {% for p in moistP.qs %}
+            <li>
+                {{ p }}
+                <img src="{{ p.product_img }}" />
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock content %}
-
-{% block javascript %}
-    <script src="{% static 'product/js/recommend.js' %}" ></script>
-{% endblock javascript %}
