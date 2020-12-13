@@ -42,7 +42,7 @@ class Brand(models.Model):
 
     branding_name = models.CharField(max_length=3, choices=BRANDING)
 
-    brand_img = models.ImageField(upload_to='brand/static/brand/images/')
+    brand_img = models.ImageField(upload_to='brand/images/')
 
     brandDescript = models.TextField()
 

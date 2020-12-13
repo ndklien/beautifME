@@ -6,10 +6,8 @@
     <head>
         <title>{% block title %}{% endblock title %} Beautif</title>
         <link rel="icon" href="{% static 'product/img/icon.png' %}" />
-
-        <link type="text/css" rel="stylesheet" href="{% static 'product/header.css' %}">
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-        <link type="text/css" rel="stylesheet" href="{% static 'product/header.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'product/css/header.css' %}">
     </head>
     <body>
         <body>
@@ -33,8 +31,7 @@
                             </form>
                             <span class="input-group-btn">
                                 <button class="btn btn-info btn-lg" type="button">
-                                    {% icon 'search' %}
-                                </button>
+                                {% icon 'search' extraclass='glyphicon' %}
                             </span>
                         </div>
                     </div>
