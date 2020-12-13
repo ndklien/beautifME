@@ -14,10 +14,10 @@ def registration(request):
         if form.is_valid():
             form.save()
         
-        return redirect('product/base.html')
+        return redirect('product/base_home.html')
     else:
         form = RegisterForm()
     context = {
         "form": form,
     }
-    return render(request, 'product/base_home.html', context)
+    return render(request, 'product/register.html', context)
