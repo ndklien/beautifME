@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 {% extends 'product/base.html'%}
+=======
+{% extends 'product/base.html' %}
+>>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
 
 {% load static %}
 
 {% block title %}{% endblock title %}
 
 {% block content %}
+<<<<<<< HEAD
     <form action="" method="GET">
         {{filterForm.form.as_p}}
     <input type="submit" value="Recommend" />
@@ -39,3 +44,20 @@
         {% endfor %} 
     </ul> 
 {% endblock content %}
+=======
+    <form method="GET">
+        {{ moistP.form }}
+        <input type="submit" value="Enter" id="filterButton"></button>
+    </form>
+    <div id="FilterResult">
+        <ul>
+            {% for p in moistP.qs %}
+            <li>
+                {{ p }}
+                <img src="{{ p.product_img }}" />
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}
+>>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
