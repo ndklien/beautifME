@@ -29,9 +29,5 @@ urlpatterns = [
     path('login/', authV.LoginView.as_view(template_name="accounts/login.html"), name='login'),
     path('search/', productV.SearchResults.as_view(), name='search_results'),
     path('brand/', include('brand.urls')),
-<<<<<<< HEAD
-    path('recommend/', productV.Recommend, name='Recommend'),
-=======
     path('recommend/', productV.recommendList, name='recommend'),
->>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
 ]
