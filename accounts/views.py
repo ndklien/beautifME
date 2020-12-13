@@ -20,4 +20,4 @@ def registration(request):
     context = {
         "form": form,
     }
-    return render(request, 'product/register.html', context)
+    return render(request, 'accounts/register.html', context)
