@@ -27,7 +27,7 @@ class Brand(models.Model):
         ('PAU', "Paula's Choice"),
         ('SEN', 'Senka'),
         ('SIM', 'Simple'),
-        ('SOM', 'Sum by Mi'),
+        ('SOM', 'Some by Mi'),
         ('SUL', 'Sulwhasoo'),
         ('THA', "Thayer's"),
         ('VAS', 'Vaseline'),
