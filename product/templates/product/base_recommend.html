@@ -1,23 +1,13 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 {% extends 'product/base.html'%}
-=======
-{% extends 'product/base.html' %}
->>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
-=======
-{% extends 'product/base.html'%}
->>>>>>> 0743bd1d190116e291a5cf00f24a6f918ada0ac8
 
 {% load static %}
 
 {% block title %}{% endblock title %}
 
 {% block content %}
-<<<<<<< HEAD
-<<<<<<< HEAD
     <form action="" method="GET">
         {{filterForm.form.as_p}}
-    <input type="submit" value="Recommend" />
+        <input type="submit" value="Recommend" />
     </form> 
     <ul>
         {% for c in cleanserArr %}
@@ -49,47 +39,3 @@
         {% endfor %} 
     </ul> 
 {% endblock content %}
-=======
-    <form method="GET">
-        {{ moistP.form }}
-        <input type="submit" value="Enter" id="filterButton"></button>
-    </form>
-    <div id="FilterResult">
-        <ul>
-            {% for p in moistP.qs %}
-            <li>
-                {{ p }}
-                <img src="{{ p.product_img }}" />
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-{% endblock content %}
->>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
-=======
-    <form action="" method="GET">
-        <h2>SKINTYPE</h2>
-            <input  type="checkbox" id="type1" name="dry_skin" value="DRY"/>
-            <label for="type1">Dry Skin</label>
-            <input  type="checkbox" id="type2" name="oily_skin" value="OIL"/>
-            <label for="type2">Oily Skin</label>
-            <input  type="checkbox" id="type3" name="combination_skin" value="COMBI"/>
-            <label for="type3">Combination Skin</label>
-            <input  type="checkbox" id="type4" name="normal_skin" value="NORM"/>
-            <label for="type4">Normal Skin</label>
-            <input  type="checkbox" id="type5" name="all_skin" value="ALL"/>
-            <label for="type5">All Skin Type</label><br>
-
-        <h2>SKINCONDITON</h2>
-            <input  type="checkbox" id="cond1" name="sensitive_skin" value="SEN"/>
-            <label for="cond1">Sensitive Skin</label>
-            <input  type="checkbox" id="cond2" name="acne_skin" value="ACNE"/>
-            <label for="cond1">Acne Skin</label>
-            <input  type="checkbox" id="cond3" name="aging_skin" value="AGE"/>
-            <label for="cond3">Aging Skin</label><br>
-        <br>
-        <input type="button" value="Recommend">
-    </form>
-
-{% endblock content %}
->>>>>>> 0743bd1d190116e291a5cf00f24a6f918ada0ac8

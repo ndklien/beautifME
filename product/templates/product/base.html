@@ -4,224 +4,230 @@
 <!DOCTYPE html>
 <html>
     <head>
-<<<<<<< HEAD
         <title>{% block title %}{% endblock title %} Beautif</title>
-        
         <link rel="icon" href="{% static 'product/img/icon.png' %}" />
 
         <link type="text/css" rel="stylesheet" href="{% static 'product/header.css' %}">
-<<<<<<< HEAD
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>  -->
-=======
-        <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">  -->
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-        <script defer src="{% static 'fontawesome/js/all.min.js' %}"></script>
->>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
-=======
-        <title> BeautifyLabo {% block title %}{% endblock %}</title>
-        <link type="text/css" rel="stylesheet" href="{% static 'product/base.css' %}">
->>>>>>> 0743bd1d190116e291a5cf00f24a6f918ada0ac8
+        <link type="text/css" rel="stylesheet" href="{% static 'product/header.css' %}">
     </head>
     <body>
-<<<<<<< HEAD
+        <body>
 
-        <!--Header part-->
-
-        <div class="head">
-            <!--Logo -->
-            <div class="logo">
-                <a href="{% url 'homepage' %}">
-                    <img class="imglogo" src="{% static 'product/img/Artboard 1@0.5x.png' %}"/>
-                </a>
-            </div>
-
-            <!--Search bar-->
-            <div class="search">
-                <div id="custom-search-input">
-                    <div class="input-group col-md-12">
-                        <form method="GET" action="{% url 'search_results' %}">
-                            <input type="text" name="q" class="form-control input-lg" placeholder="Search" />
-                        </form>
-                        <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" type="button">
-                                {% icon 'search' extraclass='glyphicon glyphicon-search' %}
-                            </button>
-                        </span>
+            <!--Header part-->
+    
+            <div class="head">
+                <!--Logo -->
+                <div class="logo">
+                    <a href="/">
+                        <img class="imglogo" src="/static/product/img/Artboard%201%400.5x.png"/>
+                    </a>
+                </div>
+    
+                <!--Search bar-->
+                <div class="search">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <form method="GET" action="/search/">
+                                <input type="text" name="q" class="form-control input-lg" placeholder="Search" />
+                            </form>
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-lg" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
                     </div>
                 </div>
+    
+                <!--Login/Logout -->
+                <div class="login">
+                    <p>
+                        <a href="/login/">Log in</a>
+                        <a href="/register/">Sign up</a>
+                    </p>
+                </div>
             </div>
-
-            <!--Login/Logout -->
-            <div class="login">
-                <p>
-                    <a href="{% url 'login' %}">Log in</a>
-                    <a href="{% url 'register' %}">Sign up</a>
-                </p>
-=======
-        <div class="topnav">
-            <a href="{% url 'homepage' %}">Home</a>
-            <a href="{% url 'recommend' %}">Recommend</a>
-            <a href="">Products</a>
-            <a href="">News</a>
-            <a>About</a>
-            <div style="float: right;">
-                <form method="GET" action="{% url 'search_results' %}">
-                    <input name="q" type="text" placeholder="Search here">
-                </form>
-                <a href="{% url 'register' %}">Register</a>
-                <a href="{% url 'login' %}">Login</a>
->>>>>>> 0743bd1d190116e291a5cf00f24a6f918ada0ac8
+            <div>
+                <nav id="cbp-hrmenu" class="cbp-hrmenu">
+    
+                    <!--Vertical Menu-->
+                    <ul>
+    
+                        <!--Brands -->
+                        <li>
+                            <a class="Title" href="/brand/">Brands</a>
+                            <div class="cbp-hrsub">
+                                <div class="cbp-hrsub-inner"> 
+    
+                                    <!--Brand.1-->
+                                    <div>
+                                        <h4>Trending</h4>
+                                        <ul>
+                                            <li><a href="">Kielh's</a></li>
+                                            <li><a href="#">Paula's Choice</a></li>
+                                            <li><a href="#">Thayes</a></li>
+                                            <li><a href="#">Cocoon</a></li>
+                                            <li><a href="#">Huxley</a></li>
+                                            <li><a href="#">The Ordinary</a></li>
+                                        </ul>
+                                    </div>
+    
+                                    <!--Brand.2-->
+                                    <div>
+                                        <h4>High-end</h4>
+                                        <ul>
+                                            <li><a href="#">Burberry</a></li>
+                                            <li><a href="#">Lancome</a></li>
+                                            <li><a href="#">Sulwhasoo</a></li>
+                                            <li><a href="#">La Mer</a></li>
+                                            <li><a href="#">Drunk Elephant</a></li>
+                                        </ul>
+                                    </div>
+    
+                                    <!--Brand.3-->
+                                    <div>
+                                        <h4>Drugstore</h4>
+                                        <ul>
+                                            <li><a href="#">Innisfree</a></li>
+                                            <li><a href="#">Biore</a></li>
+                                            <li><a href="#">Cetaphil</a></li>
+                                            <li><a href="#">Cerave</a></li>
+                                            <li><a href="#">DHC</a></li>
+                                            <li><a href="#">Hada Labo</a></li>
+                                            <li><a href="#">Senka</a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /cbp-hrsub-inner -->
+                            </div><!-- /cbp-hrsub -->
+                        </li>
+    
+                        <!--Products-->
+                        <li>
+                            <a class="Title" href="/product/">Products</a>
+                            <div class="cbp-hrsub">
+                                <div class="cbp-hrsub-inner">
+    
+                                    <!--Cleansing items-->
+                                    <div>
+                                        <h4>Cleansing</h4>
+                                        <ul>
+                                            <li><a href="#">Bioderma Sébium H2O</a></li>
+                                            <li><a href="#">Ohui Miracle Moisture Cleansing Cream</a></li>
+                                            <li><a href="#">More</a></li>
+                                        </ul>
+                                        <h4>Cleanser</h4>
+                                        <ul>
+                                            <li><a href="#">CeraVe Hydrating Facial Cleanser</a></li>
+                                            <li><a href="#">La Roche-Posay Toleriane Cleanser</a></li>
+                                            <li><a href="#">La Mer The Cleansing Oil</a></li>
+                                            <li><a href="#">More</a></li>
+                                        </ul>
+                                    </div>
+    
+                                    <!--Skincare Products-->
+                                    <div>
+                                        <h4>Toner</h4>
+                                        <ul>
+                                            <li><a href="#">Thayers</a></li>
+                                            <li><a href="#">Huxley Toner Extract It</a></li>
+                                            <li><a href="#">More</a></li>
+                                        </ul>
+                                        <h4>Cream</h4>
+                                        <ul>
+                                            <li><a href="#">Neutrogena Hydro Boost Water</a></li>
+                                            <li><a href="#">Klairs Rich Moist Soothing Cream</a></li>
+                                            <li><a href="#">Innisfree Jeju Cherry Blossom Cream</a></li>
+                                            <li><a href="#">More</a></li>
+                                        </ul>
+                                    </div>
+    
+                                    <!--Suncare Products-->
+                                    <div>
+                                        <h4>Sun care</h4>
+                                        <ul>
+                                            <li><a href="#">Senka Perfect UV Milk</a></li>
+                                            <li><a href="#">Anessa</a></li>
+                                            <li><a href="#">Biore UV Aqua Rich Watery Essence</a></li>
+                                            <li><a href="#">Bioderma Photoderm Nude Touch</a></li>
+                                            <li><a href="#">Innisfree Tone-Up No-Sebum</a></li>
+                                            <li><a href="#">More</a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /cbp-hrsub-inner -->
+                            </div><!-- /cbp-hrsub -->
+                        </li>
+    
+                        <!--Recommend-->
+                        <li>
+                            <a class="Title" href="/recommend/">Recommend</a>
+                        </li>
+    
+                        <!--News-->
+                        <li>
+                            <a class="Title" href="#">News</a>
+                        </li>
+    
+                        <!--About-->
+                        <li>
+                            <a class="Title" href="#">About</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
+    
+            <!--Body part-->
+            
+        <form method="GET">
+            <tr><th><label for="id_skin_cond">Skin cond:</label></th><td><select name="skin_cond" id="id_skin_cond">
+      <option value="" selected>---------</option>
+    
+      <option value="SEN">Sensitive Skin</option>
+    
+      <option value="ACNE">Acne Skin</option>
+    
+      <option value="AGE">Aging Skin</option>
+    
+    </select></td></tr>
+    <tr><th><label for="id_skintype">Skintype:</label></th><td><select name="skintype" id="id_skintype">
+      <option value="" selected>---------</option>
+    
+      <option value="DRY">Dry Skin</option>
+    
+      <option value="OIL">Oliy Skin</option>
+    
+      <option value="COMBI">Combination Skin</option>
+    
+      <option value="NORM">Normal Skin</option>
+    
+      <option value="ALL">All Skin Type</option>
+    
+    </select></td></tr>
+            <input type="submit" value="Enter" id="filterButton"></button>
+        </form>
+        <div id="FilterResult">
+            <ul>
+                
+                <li>
+                    Crème de la Mer
+                    <img src="product/static/product/images/LaMer_cream.jpg" />
+                </li>
+                
+            </ul>
         </div>
-        <div>
-            <nav id="cbp-hrmenu" class="cbp-hrmenu">
-
-                <!--Vertical Menu-->
-                <ul>
-
-                    <!--Brands -->
-                    <li>
-                        <a class="Title" href="{% url 'brand:brand-list' %}">Brands</a>
-                        <div class="cbp-hrsub">
-                            <div class="cbp-hrsub-inner"> 
-
-                                <!--Brand.1-->
-                                <div>
-                                    <h4>Trending</h4>
-                                    <ul>
-                                        <li><a href="">Kielh's</a></li>
-                                        <li><a href="#">Paula's Choice</a></li>
-                                        <li><a href="#">Thayes</a></li>
-                                        <li><a href="#">Cocoon</a></li>
-                                        <li><a href="#">Huxley</a></li>
-                                        <li><a href="#">The Ordinary</a></li>
-                                    </ul>
-                                </div>
-
-                                <!--Brand.2-->
-                                <div>
-                                    <h4>High-end</h4>
-                                    <ul>
-                                        <li><a href="#">Burberry</a></li>
-                                        <li><a href="#">Lancome</a></li>
-                                        <li><a href="#">Sulwhasoo</a></li>
-                                        <li><a href="#">La Mer</a></li>
-                                        <li><a href="#">Drunk Elephant</a></li>
-                                    </ul>
-                                </div>
-
-                                <!--Brand.3-->
-                                <div>
-                                    <h4>Drugstore</h4>
-                                    <ul>
-                                        <li><a href="#">Innisfree</a></li>
-                                        <li><a href="#">Biore</a></li>
-                                        <li><a href="#">Cetaphil</a></li>
-                                        <li><a href="#">Cerave</a></li>
-                                        <li><a href="#">DHC</a></li>
-                                        <li><a href="#">Hada Labo</a></li>
-                                        <li><a href="#">Senka</a></li>
-                                    </ul>
-                                </div>
-                            </div><!-- /cbp-hrsub-inner -->
-                        </div><!-- /cbp-hrsub -->
-                    </li>
-
-                    <!--Products-->
-                    <li>
-                        <a class="Title" href="{% url 'product:product-list' %}">Products</a>
-                        <div class="cbp-hrsub">
-                            <div class="cbp-hrsub-inner">
-
-                                <!--Cleansing items-->
-                                <div>
-                                    <h4>Cleansing</h4>
-                                    <ul>
-                                        <li><a href="#">Bioderma Sébium H2O</a></li>
-                                        <li><a href="#">Ohui Miracle Moisture Cleansing Cream</a></li>
-                                        <li><a href="#">More</a></li>
-                                    </ul>
-                                    <h4>Cleanser</h4>
-                                    <ul>
-                                        <li><a href="#">CeraVe Hydrating Facial Cleanser</a></li>
-                                        <li><a href="#">La Roche-Posay Toleriane Cleanser</a></li>
-                                        <li><a href="#">La Mer The Cleansing Oil</a></li>
-                                        <li><a href="#">More</a></li>
-                                    </ul>
-                                </div>
-
-                                <!--Skincare Products-->
-                                <div>
-                                    <h4>Toner</h4>
-                                    <ul>
-                                        <li><a href="#">Thayers</a></li>
-                                        <li><a href="#">Huxley Toner Extract It</a></li>
-                                        <li><a href="#">More</a></li>
-                                    </ul>
-                                    <h4>Cream</h4>
-                                    <ul>
-                                        <li><a href="#">Neutrogena Hydro Boost Water</a></li>
-                                        <li><a href="#">Klairs Rich Moist Soothing Cream</a></li>
-                                        <li><a href="#">Innisfree Jeju Cherry Blossom Cream</a></li>
-                                        <li><a href="#">More</a></li>
-                                    </ul>
-                                </div>
-
-                                <!--Suncare Products-->
-                                <div>
-                                    <h4>Sun care</h4>
-                                    <ul>
-                                        <li><a href="#">Senka Perfect UV Milk</a></li>
-                                        <li><a href="#">Anessa</a></li>
-                                        <li><a href="#">Biore UV Aqua Rich Watery Essence</a></li>
-                                        <li><a href="#">Bioderma Photoderm Nude Touch</a></li>
-                                        <li><a href="#">Innisfree Tone-Up No-Sebum</a></li>
-                                        <li><a href="#">More</a></li>
-                                    </ul>
-                                </div>
-                            </div><!-- /cbp-hrsub-inner -->
-                        </div><!-- /cbp-hrsub -->
-                    </li>
-
-                    <!--Recommend-->
-                    <li>
-<<<<<<< HEAD
-                        <a class="Title" href="{% url 'Recommend' %}">Recommend</a>
-=======
-                        <a class="Title" href="{% url 'recommend' %}">Recommend</a>
->>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
-                    </li>
-
-                    <!--News-->
-                    <li>
-                        <a class="Title" href="#">News</a>
-                    </li>
-
-                    <!--About-->
-                    <li>
-                        <a class="Title" href="#">About</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <!--Body part-->
-        {% block content %}
-
-        {% endblock content %}
-
-        <!--Javascript -->
-        {% block javascript %}
-        {% endblock javascript %}
-        <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
-        <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-        <script src="{% static 'product/header.js' %}"></script>
-        <script>
-            $(function() {
-                cbpHorizontalMenu.init();
-            });
-        </script>
+    
+    
+            <!--Javascript -->
+            
+            
+            <script src="/static/bootstrap/js/jquery.min.js"></script>
+            <script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="/static/product/header.js"></script>
+            <script>
+                $(function() {
+                    cbpHorizontalMenu.init();
+                });
+            </script>
 
     </body>
 </html>

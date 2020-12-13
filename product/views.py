@@ -9,14 +9,7 @@ from . import views
 from .models import Product, Comment
 from brand.models import Brand
 from django.contrib.auth.models import User
-<<<<<<< HEAD
-from .forms import Recommend
 from .filters import ProductFilter
-=======
-
-from .filters import ProductFilter 
-
->>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
 # Create your views here.
 def Homepage(request):
     return render(request, 'product/base.html')
@@ -32,8 +25,6 @@ class SearchResults(generic.ListView):
             Q(product_name__icontains=query) |
             Q(description__icontains=query)
         )
-
-<<<<<<< HEAD
 
 """ Print all products """
 class ProductListView(generic.ListView):
@@ -54,9 +45,8 @@ def productDetail(request, product_id):
             productComment.append(comment)
 
     context = {
-<<<<<<< HEAD
         'product': product, #"""Sản phẩm"""
-        'comments': comment #"""Bình luận của sản phẩm đó"""
+        'comments': productComment #"""Bình luận của sản phẩm đó"""
     }
     return render(request, 'product/base_productDetail.html', context)
 
@@ -104,31 +94,3 @@ def Recommend_result(result):
         else:
             break
     return arr
-
-
-
-=======
-        'product': product, #Sản phẩm
-        'comments': productComment, #Bình luận của sản phẩm đó"""
-    }
-    return render(request, 'product/base_productDetail.html', context)
-
-"""Recommendation views"""
-def recommendList(request):
-    moist = Product.objects.filter(category='MOIST')
-
-    moistFilter = ProductFilter(request.GET, queryset=moist)
-
-    context = {
-        'moistP': moistFilter,
-    }
-
-    return render(request, 'product/base_recommend.html', context)
-
->>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
-=======
-def Recommendation(request):
-    return render(request, 'product/base_recommend.html')
-
-
->>>>>>> 0743bd1d190116e291a5cf00f24a6f918ada0ac8
