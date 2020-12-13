@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'bootstrap',
     'fontawesome',
     'django_icons',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -165,3 +166,13 @@ DJANGO_ICONS = {
         "edit": {"name": "far fa-pencil"},
     },
 }
+
+# S3 BUCKET CONFIG
+
+# AWS_ACCESS_KEY_ID = 'AKIAZF47KZX6XNFHILH3'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'ndklien-bucket-1'
+
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
