@@ -33,6 +33,7 @@ class SearchResults(generic.ListView):
             Q(description__icontains=query)
         )
 
+<<<<<<< HEAD
 
 """ Print all products """
 class ProductListView(generic.ListView):
@@ -125,3 +126,9 @@ def recommendList(request):
     return render(request, 'product/base_recommend.html', context)
 
 >>>>>>> d784b27e8124ccc2361736b21f6f0ffccab1524d
+=======
+def Recommendation(request):
+    return render(request, 'product/base_recommend.html')
+
+
+>>>>>>> 0743bd1d190116e291a5cf00f24a6f918ada0ac8
