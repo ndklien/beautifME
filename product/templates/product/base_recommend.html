@@ -15,7 +15,7 @@
         {% for c in cleanserArr %}
         <li>
             <a href="/product/{{ c.id }}">{{ c }}</a>
-            <img src="{{ c.product_img }}" />
+            <img src="{{ c.product_img.url }}" />
         </li>
         {% endfor %} 
     </ul>
@@ -24,8 +24,8 @@
     <ul>
         {% for r in removerArr %}
         <li>
-            <a href="/product/{{ r.id }}"></a>{{r}}
-            <img src="{{ r.product_img }}" />
+            <a href="/product/{{ r.id }}">{{r}}</a>
+            <img src="{{ r.product_img.url }}" />
         </li>
         {% endfor %} 
     </ul>
@@ -35,7 +35,7 @@
         {% for m in moistArr %}
         <li>
             <a href="/product/{{ m.id }}">{{ m }}</a>
-            <img src="{{ m.product_img }}"/>
+            <img src="{{ m.product_img.url }}"/>
         </li>
         {% endfor %} 
     </ul>
@@ -46,7 +46,7 @@
         <li>
             <a href="/product/{{ s.id }}">{{ s }}</a>
             <br/>
-            <img src="{{ s.product_img }}"/>
+            <img src="{% static '{{ s.product_img.url }}' %}"/>
         </li>
         {% endfor %} 
     </ul> 
