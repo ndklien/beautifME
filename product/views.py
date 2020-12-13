@@ -55,12 +55,12 @@ def productDetail(request, product_id):
 
 """Recommendation views"""
 def recommendList(request):
-    cleanse = Product.objects.filter(category='CLEANSE')
+    moist = Product.objects.filter(category='MOIST')
 
-    cleanseFilter = ProductFilter(request.GET, queryset=cleanse)
+    moistFilter = ProductFilter(request.GET, queryset=moist)
 
     context = {
-        'cleansingP': cleanseFilter,
+        'moistP': moistFilter,
     }
 
     return render(request, 'product/base_recommend.html', context)

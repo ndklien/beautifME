@@ -183,8 +183,11 @@
         {% endblock content %}
 
         <!--Javascript -->
+        {% block javascript %}
+        {% endblock javascript %}
         <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
         <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'product/header.js' %}"></script>
         <script>
             $(function() {
                 cbpHorizontalMenu.init();
