@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 from .filters import ProductFilter
 # Create your views here.
 def Homepage(request):
-    return render(request, 'product/base.html')
+    return render(request, 'product/base_home.html')
 
 """Search toolbar"""
 class SearchResults(generic.ListView):
