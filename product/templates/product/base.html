@@ -33,7 +33,7 @@
                             </form>
                             <span class="input-group-btn">
                                 <button class="btn btn-info btn-lg" type="button">
-                                    <i class="fa fa-search"></i>
+                                    {% icon 'search' %}
                                 </button>
                             </span>
                         </div>
@@ -177,49 +177,9 @@
             </div>
     
             <!--Body part-->
-            
-        <form method="GET">
-            <tr><th><label for="id_skin_cond">Skin cond:</label></th><td><select name="skin_cond" id="id_skin_cond">
-      <option value="" selected>---------</option>
-    
-      <option value="SEN">Sensitive Skin</option>
-    
-      <option value="ACNE">Acne Skin</option>
-    
-      <option value="AGE">Aging Skin</option>
-    
-    </select></td></tr>
-    <tr><th><label for="id_skintype">Skintype:</label></th><td><select name="skintype" id="id_skintype">
-      <option value="" selected>---------</option>
-    
-      <option value="DRY">Dry Skin</option>
-    
-      <option value="OIL">Oliy Skin</option>
-    
-      <option value="COMBI">Combination Skin</option>
-    
-      <option value="NORM">Normal Skin</option>
-    
-      <option value="ALL">All Skin Type</option>
-    
-    </select></td></tr>
-            <input type="submit" value="Enter" id="filterButton"></button>
-        </form>
-        <div id="FilterResult">
-            <ul>
-                
-                <li>
-                    Crème de la Mer
-                    <img src="product/static/product/images/LaMer_cream.jpg" />
-                </li>
-                
-            </ul>
-        </div>
-    
-    
+            {% block content %}
+            {% endblock %}
             <!--Javascript -->
-            
-            
             <script src="/static/bootstrap/js/jquery.min.js"></script>
             <script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
             <script src="/static/product/header.js"></script>

@@ -9,32 +9,44 @@
         {{filterForm.form.as_p}}
         <input type="submit" value="Recommend" />
     </form> 
+
+    {# Cleanser List #}
     <ul>
         {% for c in cleanserArr %}
         <li>
-            {{ c }}
+            <a href="/product/{{ c.id }}">{{ c }}</a>
+            <img src="{{ c.product_img }}" />
         </li>
         {% endfor %} 
     </ul>
     
+    {# Makeup Remover List #}
     <ul>
         {% for r in removerArr %}
         <li>
-            {{r}}
-        </li>
-        {% endfor %} 
-    </ul> 
-    <ul>
-        {% for m in moistArr %}
-        <li>
-            {{m}}
+            <a href="/product/{{ r.id }}"></a>{{r}}
+            <img src="{{ r.product_img }}" />
         </li>
         {% endfor %} 
     </ul>
+    
+    {# Moisturizer List #}
+    <ul>
+        {% for m in moistArr %}
+        <li>
+            <a href="/product/{{ m.id }}">{{ m }}</a>
+            <img src="{{ m.product_img }}"/>
+        </li>
+        {% endfor %} 
+    </ul>
+
+    {# Sun cream List #}
     <ul>
         {% for s in sunArr %}
         <li>
-            {{s}}
+            <a href="/product/{{ s.id }}">{{ s }}</a>
+            <br/>
+            <img src="{{ s.product_img }}"/>
         </li>
         {% endfor %} 
     </ul> 
