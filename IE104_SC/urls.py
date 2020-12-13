@@ -29,4 +29,5 @@ urlpatterns = [
     path('login/', authV.LoginView.as_view(template_name="accounts/login.html"), name='login'),
     path('search/', productV.SearchResults.as_view(), name='search_results'),
     path('brand/', include('brand.urls')),
+    path('recommend/', productV.Recommend, name='Recommend'),
 ]

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'product.apps.ProductConfig',
     'accounts.apps.AccountsConfig',
     'brand.apps.BrandConfig',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

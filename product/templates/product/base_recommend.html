@@ -1,0 +1,41 @@
+{% extends 'product/base.html'%}
+
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+    <form action="" method="GET">
+        {{filterForm.form.as_p}}
+    <input type="submit" value="Recommend" />
+    </form> 
+    <ul>
+        {% for c in cleanserArr %}
+        <li>
+            {{ c }}
+        </li>
+        {% endfor %} 
+    </ul>
+    
+    <ul>
+        {% for r in removerArr %}
+        <li>
+            {{r}}
+        </li>
+        {% endfor %} 
+    </ul> 
+    <ul>
+        {% for m in moistArr %}
+        <li>
+            {{m}}
+        </li>
+        {% endfor %} 
+    </ul>
+    <ul>
+        {% for s in sunArr %}
+        <li>
+            {{s}}
+        </li>
+        {% endfor %} 
+    </ul> 
+{% endblock content %}

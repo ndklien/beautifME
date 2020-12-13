@@ -9,7 +9,8 @@ from . import views
 from .models import Product, Comment
 from brand.models import Brand
 from django.contrib.auth.models import User
-
+from .forms import Recommend
+from .filters import ProductFilter
 # Create your views here.
 def Homepage(request):
     return render(request, 'product/base.html')
@@ -46,8 +47,55 @@ def productDetail(request, product_id):
             productComment.append(comment)
 
     context = {
-        'product': product, """Sản phẩm"""
-        'comments': comment, """Bình luận của sản phẩm đó"""
+        'product': product, #"""Sản phẩm"""
+        'comments': comment #"""Bình luận của sản phẩm đó"""
     }
     return render(request, 'product/base_productDetail.html', context)
+
+# recommend product
+
+def Recommend(request):
+    if request.method == 'GET':
+        cleanser = Product.objects.filter(category="CLEANSE")
+        remover = Product.objects.filter(category="MAKEUP_RM")
+        moist = Product.objects.filter(category="MOIST")
+        sun = Product.objects.filter(category="SUN")
+
+        cleanserFilter = ProductFilter(request.GET, queryset=cleanser)
+        removerFilter = ProductFilter(request.GET, queryset=remover)
+        moistFilter = ProductFilter(request.GET, queryset=moist)
+        sunFilter = ProductFilter(request.GET, queryset=sun) 
+
+        cleanserArr = Recommend_result(cleanserFilter)
+                
+        removerArr = Recommend_result(removerFilter)
+                
+        moistArr = Recommend_result(moistFilter)
+
+        sunArr = Recommend_result(sunFilter)
+                
+        context = {
+            'filterForm': cleanserFilter,
+            'cleanserArr': cleanserArr,
+            'removerArr': removerArr,
+            'moistArr': moistArr,
+            'sunArr': sunArr,
+            
+            }
+    
+    return render(request, 'product/base_recommend.html', context)
+
+# Hiển thị ba sản phẩm trong recommend
+def Recommend_result(result):
+    arr = []
+    count = 0
+    for c in result.qs:
+        if count < 3 :
+            arr.append(c)
+            count +=1
+        else:
+            break
+    return arr
+
+
 
