@@ -108,8 +108,8 @@ DATABASES = {
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Allocate database
-AWS_S3_HOST = 'S3.ap-southeast-1c.amazonaws.com'
-AWS_S3_REGION_NAME = 'ap-southeast-1c'
+AWS_S3_HOST = 'S3.ap-southeast-1.amazonaws.com'
+AWS_S3_REGION_NAME = 'ap-southeast-1'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -169,10 +169,12 @@ DJANGO_ICONS = {
 
 # S3 BUCKET CONFIG
 
-# AWS_ACCESS_KEY_ID = 'AKIAZF47KZX6XNFHILH3'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'ndklien-bucket-1'
+AWS_ACCESS_KEY_ID = 'AKIAZF47KZX6XNFHILH3'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'ndklien-bucket-1'
 
-# AWS_S3_FILE_OVERWRITE = False
-# AWS_DEFAULT_ACL = None
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
