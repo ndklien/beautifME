@@ -31,6 +31,8 @@ class ProductListView(generic.ListView):
     model = Product
     template_name = 'product/base_productList.html'
     context_object_name = 'product_list'
+    paginate_by = 9
+
 
     def get_queryset(self):
         return Product.objects.all()
@@ -83,7 +85,7 @@ def Recommend(request):
     
     return render(request, 'product/base_recommend.html', context)
 
-# Hiển thị ba sản phẩm trong recommend
+""" Hiển thị ba sản phẩm trong recommend """
 def Recommend_result(result):
     arr = []
     count = 0
