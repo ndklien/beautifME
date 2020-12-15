@@ -1,0 +1,53 @@
+{% extends 'product/base.html' %}
+
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+    <form action="" method="GET">
+        {{filterForm.form.as_p}}
+        <input type="submit" value="Recommend" />
+    </form> 
+
+    {# Cleanser List #}
+    <ul>
+        {% for c in cleanserArr %}
+        <li>
+            <a href="/product/{{ c.id }}">{{ c }}</a>
+            <img src="{{ c.product_img.url }}" />
+        </li>
+        {% endfor %} 
+    </ul>
+    
+    {# Makeup Remover List #}
+    <ul>
+        {% for r in removerArr %}
+        <li>
+            <a href="/product/{{ r.id }}">{{r}}</a>
+            <img src="{{ r.product_img.url }}" />
+        </li>
+        {% endfor %} 
+    </ul>
+    
+    {# Moisturizer List #}
+    <ul>
+        {% for m in moistArr %}
+        <li>
+            <a href="/product/{{ m.id }}">{{ m }}</a>
+            <img src="{{ m.product_img.url }}"/>
+        </li>
+        {% endfor %} 
+    </ul>
+
+    {# Sun cream List #}
+    <ul>
+        {% for s in sunArr %}
+        <li>
+            <a href="/product/{{ s.id }}">{{ s }}</a>
+            <br/>
+            <img src="{% static '{{ s.product_img.url }}' %}"/>
+        </li>
+        {% endfor %} 
+    </ul> 
+{% endblock content %}

@@ -27,7 +27,7 @@ class Brand(models.Model):
         ('PAU', "Paula's Choice"),
         ('SEN', 'Senka'),
         ('SIM', 'Simple'),
-        ('SOM', 'Sum by Mi'),
+        ('SOM', 'Some by Mi'),
         ('SUL', 'Sulwhasoo'),
         ('THA', "Thayer's"),
         ('VAS', 'Vaseline'),
@@ -41,6 +41,9 @@ class Brand(models.Model):
     ]
 
     branding_name = models.CharField(max_length=3, choices=BRANDING)
+
+    brand_img = models.ImageField(upload_to='brand/images/')
+
     brandDescript = models.TextField()
 
     def __str__(self):

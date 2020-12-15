@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +28,9 @@ SECRET_KEY = '-gy#@j8=v*gv6*jaf)+i3190c(lbbs&zd^8#v297u3v=c(sb_n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['beautif-app.herokuapp.com', '127.0.0.1']
 
+# '127.0.0.1'
 
 # Application definition
 
@@ -41,6 +45,11 @@ INSTALLED_APPS = [
     'product.apps.ProductConfig',
     'accounts.apps.AccountsConfig',
     'brand.apps.BrandConfig',
+    'django_filters',
+    'bootstrap',
+    'fontawesome',
+    'django_icons',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'IE104_SC.urls'
@@ -77,13 +87,29 @@ WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'beautif_1',
+        'USER': 'ndklien', 
+        'PASSWORD': 'Liennguyen01', 
+        'HOST': 'database-2.cwdbkonmeioa.ap-southeast-1.rds.amazonaws.com',
+        'PORT': '5432', 
     }
 }
 
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+# Allocate database
+AWS_S3_HOST = 'S3.ap-southeast-1.amazonaws.com'
+AWS_S3_REGION_NAME = 'ap-southeast-1'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -121,13 +147,34 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
 
-STATICFILES_DIR = [
-    
-]
+STATICFILES_DIR = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 LOGIN_REDIRECT_URL = 'register'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+
+DJANGO_ICONS = {
+    "ICONS": {
+        "edit": {"name": "far fa-pencil"},
+    },
+}
+
+# S3 BUCKET CONFIG
+
+AWS_ACCESS_KEY_ID = 'AKIAZF47KZX6XNFHILH3'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'ndklien-bucket-1'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

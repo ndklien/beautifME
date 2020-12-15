@@ -31,7 +31,9 @@ class addAccountsForm(forms.Form):
     skintype = models.CharField(max_length=5, choices=SKINTYPE_CHOICE)
 
     #user skin condition
-    skincondition = models.CharField(max_length=5, choices=SKINCOND_CHOICE)
+    skincondition = models.CharField(max_length=5, choices=SKINCOND_CHOICE, null=True, blank=True)
+
+    userImg = models.ImageField(upload_to='accounts/images/')
 
     def __str__(self):
         return User.__str__(self)
