@@ -46,8 +46,8 @@ def productDetail(request, product_id):
             productComment.append(comment)
 
     context = {
-        'product': product, """Sản phẩm"""
-        'comments': comment, """Bình luận của sản phẩm đó"""
+        'product': product, 
+        'comments': Productcomment, 
     }
     return render(request, 'product/base_productDetail.html', context)
 
