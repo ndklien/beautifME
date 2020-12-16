@@ -30,7 +30,7 @@ class Product(models.Model):
     product_img = models.ImageField(upload_to='product/images/')
 
     # Gia spham
-    price = models.IntegerField(default=0)
+    price = models.FloatField(default=0)
 
     # Spham phu hop voi loai da nao (da dau, da kho, v.v.)
     SKINTYPE_CHOICE = [
