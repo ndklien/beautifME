@@ -38,11 +38,21 @@ class Brand(models.Model):
         ('TAT', 'Tatcha'),
         ('ORD', 'The Ordinary'),
         ('GLO', 'Glossier'),
+        ('BDM', 'Bioderma'),
     ]
 
     branding_name = models.CharField(max_length=3, choices=BRANDING)
 
     brand_img = models.ImageField(upload_to='brand/images/')
+
+    #Branding Category: Trending, Highend, Drugstore
+    BRAND_CAT = [
+        ('TREN', 'On Trending'), 
+        ('HIGH', 'high-end Products'),
+        ('DRUG', 'Drugstore Products'),
+    ]
+
+    brand_cat = models.CharField(max_length=4, choices=BRAND_CAT, null=True, blank=True)
 
     brandDescript = models.TextField()
 
