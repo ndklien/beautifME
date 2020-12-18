@@ -26,7 +26,7 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', accountV.registration, name='register'),
-    path('login/', authV.LoginView.as_view(template_name="accounts/login.html"), name='login'),
+    path('login/', accountV.login_user, name='login'),
     path('search/', productV.SearchResults.as_view(), name='search_results'),
     path('brand/', include('brand.urls')),
     path('recommend/', productV.Recommend, name='recommend'),

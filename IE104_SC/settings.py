@@ -155,7 +155,7 @@ STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-LOGIN_REDIRECT_URL = 'register'
+LOGOUT_REDIRECT_URL = '/login'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
