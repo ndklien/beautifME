@@ -83,6 +83,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 
+""" SQLite3 database with localhost """
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -94,16 +95,32 @@ WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 #     }
 # }
 
+
+""" Localhost database through PgAdmin 4 - Postgres """
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'beautif_1',
         'USER': 'ndklien', 
         'PASSWORD': 'Liennguyen01', 
-        'HOST': 'database-2.cwdbkonmeioa.ap-southeast-1.rds.amazonaws.com',
+        'HOST': 'database-1.cwdbkonmeioa.ap-southeast-1.rds.amazonaws.com',
         'PORT': '5432', 
     }
 }
+
+""" Localhost database PostgresSQL on PgAdmin4 """
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres', 
+#         'PASSWORD': 'L', 
+#         'HOST': 'localhost',
+#         'PORT': '5435', 
+#     }
+# }
 
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
@@ -169,8 +186,8 @@ DJANGO_ICONS = {
 
 # S3 BUCKET CONFIG
 
-AWS_ACCESS_KEY_ID = 'AKIAZF47KZX6XNFHILH3'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAZF47KZX6Y42M3N6Z'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'ndklien-bucket-1'
 
 AWS_S3_FILE_OVERWRITE = False
