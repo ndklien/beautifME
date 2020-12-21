@@ -1,11 +1,16 @@
 {% extends "product/base.html" %}
+{% load static %}
 
-{% block title %}: Login{% endblock title %}
+{% block title %}Login | {% endblock title %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+    <p>You have been logged in. If you wish to logout,<a href="{% url 'logout' %}">click here</a>.</p>
+    {% else %}
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit" class="submitButton">Login</button>
     </form>
+    {% endif %}
 {% endblock content %}

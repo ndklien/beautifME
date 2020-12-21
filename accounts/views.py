@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views import generic
+
+from django.contrib.auth import logout
 
 #For registration
 from .forms import RegisterForm
@@ -10,14 +13,23 @@ from .forms import RegisterForm
 #Registration function
 def registration(request):
     if request.method == "POST":
-        form = RegisterForm(request)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-        
-        return redirect('product/base_home.html')
+        return redirect('')
     else:
         form = RegisterForm()
-    context = {
+        context = {
         "form": form,
-    }
-    return render(request, 'accounts/register.html', context)
+        }
+        return render(request, 'accounts/register.html', context)
+    
+    
+""" Return website when logged out."""
+class LogoutView(generic.View):
+
+    template_name = 'accounts/logout.html'
+
+    def get(self, request):
+        response = logout(request)
+        return render(response, self.template_name)
