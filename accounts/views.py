@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views import generic
+
+from django.contrib.auth import logout
 
 #For registration
 from django.contrib.auth.forms import PasswordChangeForm
@@ -18,50 +21,20 @@ def registration(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-        
-        return redirect('product/base.html')
+        return redirect('')
     else:
         form = RegisterForm()
-    context = {
+        context = {
         "form": form,
-    }
-    return render(request, 'accounts/register.html', context)
-
-def login_user(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(request,
-                                username = cd['username'],
-                                password = cd['password'])
-
-            if user is not None:
-                login(request, user)
-                return render(request, 'product/base_home.html',{'user': user})
-            else:
-                return HttpResponse('Fail! Please try again!')
-
-    else: 
-        form = LoginForm()
+        }
+        return render(request, 'accounts/register.html', context)
     
-    return render(request, 'accounts/login.html',{'form': form})
-
-def change_password(request):
-    if request.method == 'POST':
-        form = PasswordChangeForm(data=request.POST, user=request.user)
-
-        if form.is_valid():
-            form.save()
-            update_session_auth_hash(request, form.user)
-            return render(request, 'accounts/changepass_success.html')
-        else:
-            return render(request, 'accounts/change_password.html', {'form': form})
-    else:
-        form = PasswordChangeForm(user=request.user)
-
-        args = {'form': form}
-        return render(request, 'accounts/change_password.html', args)
-
     
+""" Return website when logged out."""
+class LogoutView(generic.View):
+
+    template_name = 'accounts/logout.html'
+
+    def get(self, request):
+        response = logout(request)
+        return render(response, self.template_name)

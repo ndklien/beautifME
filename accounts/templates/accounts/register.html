@@ -1,11 +1,15 @@
 {% extends "product/base.html" %}
 
-{% block title %}: Register{% endblock title %}
+{% block title %}Register | {% endblock title %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+    <p>You have been logged in. If you wish to register, <a href="{% url 'logout' %}">Click here</a>.</p>
+    {% else %}
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="submitButton">Countinue</button>
     </form>
+    {% endif %}
 {% endblock content %}
