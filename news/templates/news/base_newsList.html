@@ -1,0 +1,13 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block title %}News | {% endblock %}
+
+{% block content %}
+    <ul>
+        {% for news in news_list %}
+            <li>{{ news }}</li>
+        {% endfor %}
+    </ul>
+    
+{% endblock content %}
