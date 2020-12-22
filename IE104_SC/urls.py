@@ -30,4 +30,5 @@ urlpatterns = [
     path('search/', productV.SearchResults.as_view(), name='search_results'),
     path('brand/', include('brand.urls')),
     path('recommend/', productV.Recommend, name='recommend'),
+    path('change_password/',accountV.change_password, name='chang_password')
 ]

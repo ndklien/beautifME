@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 
 #For registration
-from .forms import RegisterForm,LoginForm 
+from django.contrib.auth.forms import PasswordChangeForm
+from .forms import RegisterForm,LoginForm, EditProfileForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-from .models import User
+from django.contrib.auth import update_session_auth_hash
+from django.urls import reverse
+
 #For login and logout
 
 # Create your views here.
@@ -12,7 +15,7 @@ from .models import User
 #Registration function
 def registration(request):
     if request.method == "POST":
-        form = RegisterForm(request)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
         
@@ -44,5 +47,21 @@ def login_user(request):
         form = LoginForm()
     
     return render(request, 'accounts/login.html',{'form': form})
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return render(request, 'accounts/changepass_success.html')
+        else:
+            return render(request, 'accounts/change_password.html', {'form': form})
+    else:
+        form = PasswordChangeForm(user=request.user)
+
+        args = {'form': form}
+        return render(request, 'accounts/change_password.html', args)
 
     
