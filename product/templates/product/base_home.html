@@ -6,4 +6,25 @@
 
 {% block content %}
     <p>This is our Homepage.</p>
+    <h3>Products: </h3>
+    <ul>
+        {% for product in products %}
+        <li>{{ product }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>News: </h3>
+    <ul>
+        {% for article in news %}
+        <li>{{ article }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Brands: </h3>
+    <ul>
+        {% for brand in brands %}
+        <li>{{ brand.get_branding_name_display }}</li>
+        {% endfor %}
+    </ul>
+    
 {% endblock content %}

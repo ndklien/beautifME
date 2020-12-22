@@ -1,18 +1,56 @@
 from django.shortcuts import render
 
+# views related
 from django.views import generic
+from . import views
 
 #simple search ussing q
 from django.db.models import Q
 
-from . import views
+# import models
 from .models import Product, Comment
 from brand.models import Brand
+from news.models import News
 from django.contrib.auth.models import User
+
 from .filters import ProductFilter
+
 # Create your views here.
+
+""" Define number of objects preview on Home page """
+def defineLength(object):
+    if len(object) < 8:
+        return len(object)
+    else:
+        return 8
+
+
 def Homepage(request):
-    return render(request, 'product/base_home.html')
+    """ Products """
+    products = Product.objects.all()
+    selectedProd = []
+    for i in range(defineLength(products)):
+        selectedProd.append(products[i])
+
+    """ News """
+    news = News.objects.all()
+    selectedNews = []
+    for i in range(defineLength(news)):
+        selectedNews.append(news[i])
+
+    """ Brand """
+    brands = Brand.objects.all()
+    selectedBrand = []
+    for i in range(defineLength(brands)):
+        selectedBrand.append(brands[i])
+
+    context = {
+        'products': selectedProd,
+        'news': selectedNews,
+        'brands': selectedBrand,
+    }
+
+    return render(request, 'product/base_home.html', context)
 
 """Search toolbar"""
 class SearchResults(generic.ListView):
@@ -32,7 +70,6 @@ class ProductListView(generic.ListView):
     template_name = 'product/base_productList.html'
     context_object_name = 'product_list'
     paginate_by = 9
-
 
     def get_queryset(self):
         return Product.objects.all()
