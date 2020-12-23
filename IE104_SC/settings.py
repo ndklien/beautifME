@@ -83,10 +83,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 
-""" SQLite3 database with localhost """
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+""" SQLite3 database with localhost """
 
 # DATABASES = {
 #     'default': {
@@ -94,6 +94,7 @@ WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 
 
 """ Localhost database through PgAdmin 4 - Postgres """
@@ -172,7 +173,7 @@ STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-LOGIN_REDIRECT_URL = 'register'
+LOGOUT_REDIRECT_URL = '/login'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']

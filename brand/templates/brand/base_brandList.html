@@ -2,18 +2,42 @@
 
 {% load static %}
 
-{% block title %}{% endblock title %}
-
+{% block title %}Brand{% endblock title %}
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'brand/css/listBrand.css' %}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock header %}
 {% block content %}
-<ul>
-    {% for brand in page_obj %}
-    <li>
-        <a href="/brand/{{ brand.id }}/">{{ brand.get_branding_name_display }}</a>
-        <br/>
-        <img src="{{ brand.brand_img.url }}" />
-    </li>
-    {% endfor %}
-</ul>
+
+
+
+<div class="container">
+    <h3 class="h3">Brands </h3>
+    <hr/>
+    <div class="row">
+        {% for brand in page_obj %}
+            <!-- <li><a href="/product/{{ product.id }}">{{ product }}</a></li> -->
+            <a href="/brand/{{ brand.id }}">
+                <div class="column">
+                    <div class="product-grid6">
+                        <div class="product-image6">
+                            <img class="pic-1"
+                            src="{{ brand.brand_img.url }}" />
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">{{brand.get_branding_name_display}}</a></h3>   
+                        </div>
+                        <ul class="social">
+                            <h3 class="title"><a href="#">{{brand.get_branding_name_display}}</a></h3>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
 
 <div class="pagination" >
     <span class="step-links">

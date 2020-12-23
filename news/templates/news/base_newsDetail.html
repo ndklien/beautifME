@@ -1,8 +1,20 @@
 {% extends 'product/base.html' %}
+
 {% load static %}
 
-{% block title %}{{ current_news }} | {% endblock title %}
+{% block title %}Brand{% endblock title %}
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'news/css/listNews.css' %}">
 
+{% endblock header %}
 {% block content %}
-<h1>{{ current_news }}</h1>
+{% if current_news %}
+        <div class="listnews">
+            <p class="detail_title">{{current_news.title}}</p>
+            <p class="time">{{current_news.pub_date}}</p>
+            <img class="detail_img" src="{{ current_news.news_img.url }}">
+            <p class="sumary">{{current_news.summary}}</p>
+            <div class="detail_content">{{current_news.content}}</div>
+        </div>
+    {% endif %}
 {% endblock content %}

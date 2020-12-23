@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-
 from django import forms
-
+from django.utils import timezone
+from django.db.models.signals import post_save
 GENDER_CHOICE = [
         ('M', 'Male'), 
         ('F', 'Female')
@@ -21,7 +21,7 @@ SKINCOND_CHOICE = [
         ('AGE', 'Aging Skin'),
 ]
 
-# Create your models here.
+#add to user profileS
 class UserAccount(models.Model):
         #connect with django user account
         id_user = models.ForeignKey(User, on_delete=models.CASCADE)

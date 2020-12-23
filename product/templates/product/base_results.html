@@ -4,13 +4,41 @@
 
 {% block title %}Results{% endblock title %}
 
+
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'product/css/listProduct.css' %}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock header %}
+
 {% block content %}
-    <h1>Result{{ product_name|pluralize }}</h1>
-    <ul>
+<div class="container">
+    <h3 class="h3">Result{{ product_name|pluralize }}</h3>
+    <hr/>
+    <div class="row">
         {% for product in object_list %}
-        <li>
-            {{ product.product_name }}
-        </li>
+            <!-- <li><a href="/product/{{ product.id }}">{{ product }}</a></li> -->
+            <a href="/product/{{ product.id }}">
+                <div class="column">
+                    <div class="product-grid6">
+                        <div class="product-image6">
+                            <img class="pic-1"
+                            src="{{ product.product_img.url }}" />
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">{{product.product_name}}</a></h3>
+                            <div class="price">{{product.price}}$ </div>
+                        </div>
+                        <ul class="social">
+                            <h3 class="title"><a href="#">{{product.product_name}}</a></h3>
+                        </ul>
+                    </div>
+                </div>
+            </a>
         {% endfor %}
-    </ul>
+    </div>
+</div>
+
+
 {% endblock content %}

@@ -15,5 +15,3 @@ class ProductFilter(django_filters.FilterSet):
         # at sturtup user doen't push Submit button, and QueryDict (in data) is empty
         if self.data == {}:
             self.queryset = self.queryset.none()
-
-
