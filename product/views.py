@@ -18,36 +18,52 @@ from .filters import ProductFilter
 # Create your views here.
 
 """ Define number of objects preview on Home page """
-def defineLength(object):
-    if len(object) < 8:
+def defineLength(object, number):
+    if len(object) < number:
         return len(object)
     else:
-        return 8
+        return number
 
 
 def Homepage(request):
     """ Products """
     products = Product.objects.all()
-    selectedProd = []
-    for i in range(defineLength(products)):
-        selectedProd.append(products[i])
+    selectedProd_1 = []
+    selectedProd_2 = []
+    for i in range(defineLength(products, 4)):
+        selectedProd_1.append(products[i])
+    
+    for i in range(5, 5 + defineLength(products, 4)):
+        selectedProd_2.append(products[i])
 
     """ News """
     news = News.objects.all()
-    selectedNews = []
-    for i in range(defineLength(news)):
-        selectedNews.append(news[i])
+    selectedNews_1 = []
+    selectedNews_2 = []
+
+    for i in range(defineLength(news, 4)):
+        selectedNews_1.append(news[i])
+
+    for i in range(5, 5 + defineLength(news, 4)):
+        selectedNews_2.append(news[i])
 
     """ Brand """
     brands = Brand.objects.all()
-    selectedBrand = []
-    for i in range(defineLength(brands)):
-        selectedBrand.append(brands[i])
+    selectedBrand_1 = []
+    selectedBrand_2 = []
+    for i in range(defineLength(brands, 4)):
+        selectedBrand_1.append(brands[i])
+
+    for i in range(4, 5 + defineLength(brands, 4)):
+        selectedBrand_2.append(brands[i])
 
     context = {
-        'products': selectedProd,
-        'news': selectedNews,
-        'brands': selectedBrand,
+        'productList1': selectedProd_1,
+        'productList2': selectedProd_2,
+        'newsList1': selectedNews_1,
+        'newsList2': selectedNews_2,
+        'brandList1': selectedBrand_1,
+        'brandList2': selectedBrand_2,
     }
 
     return render(request, 'product/base_home.html', context)
@@ -69,7 +85,7 @@ class ProductListView(generic.ListView):
     model = Product
     template_name = 'product/base_productList.html'
     context_object_name = 'product_list'
-    paginate_by = 9
+    paginate_by = 12
 
     def get_queryset(self):
         return Product.objects.all()
