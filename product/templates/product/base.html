@@ -39,6 +39,12 @@
     
                 <!--Login/Logout -->
                 <div class="login">
+                    {% if user.is_authenticated %}
+                    <p>
+                        <a href=#>{{user.username}}</a>
+                        <a href="{% url 'logout' %}">Log out</a>
+                    </p>
+                    {% else %}
                     <p>
                         {% if user.is_authenticated %}
                         <a href="{% url 'accounts:accounts-preview' %}">Hello, {{ request.user }}</a>
@@ -49,6 +55,7 @@
                         <a href="{% url 'register' %}">Sign up</a>
                         {% endif%}
                     </p>
+                    {% endif %}
                 </div>
             </div>
             <div>

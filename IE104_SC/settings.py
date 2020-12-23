@@ -43,13 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
     'product.apps.ProductConfig',
-    'accounts.apps.AccountsConfig',
     'brand.apps.BrandConfig',
     'django_filters',
     'bootstrap',
     'fontawesome',
     'django_icons',
     'storages',
+     'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -88,12 +88,7 @@ WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+
 
 
 """ Localhost database through PgAdmin 4 - Postgres """
@@ -172,7 +167,7 @@ STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-LOGIN_REDIRECT_URL = 'register'
+LOGOUT_REDIRECT_URL = '/login'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
