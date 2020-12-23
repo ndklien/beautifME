@@ -91,5 +91,6 @@ def view_editProfile(request):
     }
     return render(request, 'accounts/accounts_preview.html', context)
 
-
+def aboutView(request):
+    return render(request, 'accounts/about.html')
     

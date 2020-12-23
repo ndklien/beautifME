@@ -43,13 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
     'product.apps.ProductConfig',
+    'accounts.apps.AccountsConfig',
     'brand.apps.BrandConfig',
     'django_filters',
     'bootstrap',
     'fontawesome',
     'django_icons',
     'storages',
-     'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -83,11 +83,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 
-""" SQLite3 database with localhost """
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+""" SQLite3 database with localhost """
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 

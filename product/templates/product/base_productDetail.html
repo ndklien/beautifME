@@ -3,9 +3,23 @@
 {% load static %}
 
 {% block title %}{{ product }} |{% endblock title %}
+{% block header %}
+	<link type="text/css" rel="stylesheet" href="{% static 'product/css/productDetail.css' %}">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+	<!-- comment -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+{% endblock header%}
+
 
 {% block content %}
-    <h1>{{ product }}</h1>
+    <!-- <h1>{{ product }}</h1>
     <p>{{ comments }}</p>
     <p>
         {% if user.is_authenticated %}
@@ -13,5 +27,117 @@
         {% else %}
         <p>You're not logged in. Click here to <a href="{% url 'login' %}?next={{ request.path }}">Login</a></p>
         {% endif %}
-    </p>
+	</p> -->
+	<ul class="breadcrumb">
+		<li><a href="#">Home</a></li>
+		<li><a href="/product">Products</a></li>
+		<li>{{ product.product_name }}</li>
+	</ul>
+    <div class="container">
+		<div class="card">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="columnImg">
+						<div class="detailImg">
+							<div class="detailImg" id="pic-1"><img src="{{ product.product_img.url }}"  /></div>
+						</div>
+					</div>
+					<div class="columnDetail">
+						<h3 class="product-title">{{ product.product_name }}</h3>
+						<div class="rating">
+							<div class="stars">
+								<span class="iconify" data-icon="ant-design:like-filled" data-inline="false"
+									style="color: #a75535; height: 30px; width: 70px;"></span>
+								<span class="iconify" data-icon="ant-design:dislike-filled" data-inline="false"
+									style="color: #a75535; height: 30px; width: 50px;"></span>
+							</div>
+							<div class="stars">
+								<span class="iconify" style="width: 80px; padding-left: 30px; ">{{ product.vote_up }}</span>
+								<span class="iconify">{{ product.vote_down }}</span>
+							</div>
+						</div>
+						<p class="product-description">{{ product.summary }}</p>
+						<h4 class="price">Price: <span>${{ product.price }}</span></h4>
+						</p>
+						<h5 class="sizes">Category:
+							<span class="size" data-toggle="tooltip" title="small">{{ product.get_category_display }}</span>
+						</h5>
+						<h5 class="sizes">Sizes:
+							<span class="size" data-toggle="tooltip" title="small">{{ product.product_size_in_ml }} ml</span>
+						</h5>
+						<h5 class="sizes">Skin type:
+							<span class="size" data-toggle="tooltip" title="small">{{ product.get_skintype_display }}</span>
+						</h5>
+						<h5 class="sizes">Skin condition:
+							<span class="size" data-toggle="tooltip" title="small">{{ product.get_skin_cond_display }}</span>
+						</h5>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tabs_div">
+			<ul>
+				<li>Description</li>
+			</ul>
+			<div>
+				{{ product.description }}
+			</div>
+		</div>
+		<link rel="stylesheet" type="text/css"
+			href="http://www.shieldui.com/shared/components/latest/css/light-glow/all.min.css" />
+		<script type="text/javascript"
+			src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+
+		<script type="text/javascript">
+			jQuery(function ($) {
+				$(".tabs_div").shieldTabs();
+			});
+		</script>
+		<h1>Comment</h1>
+		<div class="widget-area no-padding blank">
+			<div class="status-upload">
+				<form>
+					<textarea placeholder="Write your comment"></textarea>
+
+					<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+				</form>
+			</div><!-- Status Upload  -->
+		</div><!-- Widget Area -->
+		<!-- Comment -->
+		<div class="container bootdey">
+			<div class="col-md-12 bootstrap snippets">
+				<div class="panel">
+					<div class="panel-body">
+						<!-- Newsfeed Content -->
+						<!--===================================================-->
+                        {% for comment in comments %}
+						<div class="media-block">
+							<div class="media-left" href="#"><img class="img-circle img-sm" alt="Profile Picture"
+									src="https://bootdey.com/img/Content/avatar/avatar1.png"></div>
+                              
+                                <div class="media-body">
+                                    <div class="mar-btm">
+                                        <p class="btn-link text-semibold media-heading box-inline">{{ user.get_username }}</p>
+                                        <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> {{ comment.pub_date }}</p>
+                                    </div>
+                                    <p>{{ comment.content }}</p>
+                                    <div class="pad-ver">
+                                        <span class="tag tag-sm"><i class="fa fa-heart text-danger"></i> {{ comment.vote_up }} </span>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-default btn-hover-success" ><i
+                                                    class="fa fa-thumbs-up"></i></button>
+                                            <button class="btn btn-sm btn-default btn-hover-danger"><i
+                                                    class="fa fa-thumbs-down"></i></button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            {% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock content %}

@@ -137,12 +137,12 @@ def Recommend(request):
     
     return render(request, 'product/base_recommend.html', context)
 
-""" Hiển thị ba sản phẩm trong recommend """
+""" Hiển thị bốn sản phẩm trong recommend """
 def Recommend_result(result):
     arr = []
     count = 0
     for c in result.qs:
-        if count < 3 :
+        if count < 4 :
             arr.append(c)
             count +=1
         else:
