@@ -1,0 +1,27 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block title %} Accounts | {% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h4>YOUR PROFILE</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {% for attr in form %}
+                <tr>
+                    <td>{{ attr.label }}</td>
+                    <td>{{ attr }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <input type="submit" value="Confirm" />
+        </form>
+        <div>
+            {{ message }}
+        </div>
+    {% else %}
+        <p>Please login to continue.</p>
+    {% endif %}
+{% endblock content %}
