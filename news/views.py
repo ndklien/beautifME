@@ -1,15 +1,25 @@
 from django.shortcuts import render
+from django.views import generic
+
 from . import views
 from .models import News
 
 # Create your views here.
-def listNews(request):
-    list_news = News.objects.all()
-    context = {"listnews": list_news}
-    return render(request, "news/base_newsList.html", context)
+""" List of news in the News section """
+class NewsListView(generic.ListView):
+    model = News
+    template_name = 'news/base_newsList.html'
+    context_object_name = 'news_list'
+    paginate_by = 5
 
-def detailNews(request, news_id):
-    t=News.objects.get(pk=news_id)
-    return render(request, "news/base_newsDetail.html", {"t": t})
+    def get_queryset(self):
+        return News.objects.all()
 
 
+""" One Article preview """
+def NewsDetail(request, news_id):
+    current_news = News.objects.get(pk=news_id)
+    context = {
+        'current_news': current_news,
+    }
+    return render(request, 'news/base_newsDetail.html', context)

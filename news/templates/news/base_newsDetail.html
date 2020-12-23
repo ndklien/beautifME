@@ -8,13 +8,13 @@
 
 {% endblock header %}
 {% block content %}
-{% if t %}
+{% if current_news %}
         <div class="listnews">
-            <p class="detail_title">{{t.title}}</p>
-            <p class="time">{{t.pub_date}}</p>
-            <img class="detail_img" src="/img/skin-philosophy.webp">
-            <p class="sumary">{{t.summary}}</p>
-            <div class="detail_content">{{t.content}}</div>
+            <p class="detail_title">{{current_news.title}}</p>
+            <p class="time">{{current_news.pub_date}}</p>
+            <img class="detail_img" src="{{ current_news.news_img.url }}">
+            <p class="sumary">{{current_news.summary}}</p>
+            <div class="detail_content">{{current_news.content}}</div>
         </div>
     {% endif %}
 {% endblock content %}

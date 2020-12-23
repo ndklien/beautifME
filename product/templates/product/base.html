@@ -33,10 +33,6 @@
                     <form method="GET" action="/search/">
                         <input type="text" name="q" class="form-control input-lg" placeholder="Search" />
                     </form>
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                            {% icon 'search' extraclass='glyphicon' %}
-                    </span>
                 </div>
             </div>
         </div>
@@ -181,7 +177,7 @@
 
                 <!--About-->
                 <li>
-                    <a class="Title" href="#">About</a>
+                    <a class="Title" href="{% url 'about' %}">About</a>
                 </li>
             </ul>
         </nav>

@@ -1,35 +1,25 @@
 #For registration
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-
+from django.core.exceptions import ValidationError
 from django import forms
-from .models import addAccountsForm, GENDER_CHOICE, SKINCOND_CHOICE, SKINTYPE_CHOICE
+from functools import partial
+from .models import UserAccount
+
+DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 
 #Add more fields in the Registration Form for User
+# Registration Form 
 class RegisterForm(UserCreationForm):
-    #user email
-    email = forms.EmailField()
-
-    #user fullname
-    fullName = forms.CharField(max_length=50)
-
-    #user gender: call choices from accounts.models.py
-    gender = forms.CharField(max_length=2, widget=forms.Select(choices=GENDER_CHOICE))
-
-    #user date of birth
-    birth = forms.DateField()
-
-    #user skintype
-    skintype = forms.CharField(max_length=5, widget=forms.Select(choices=SKINTYPE_CHOICE))
-
-    #user skin condition
-    skincondition = forms.CharField(max_length=5, widget=forms.Select(choices=SKINCOND_CHOICE))
-
-    #user avater
-    userImg = forms.ImageField()
-
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2',
-                  'fullName', 'birth', 'gender', 'skintype', 'skincondition', 'userImg']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+
+class profileForm(forms.ModelForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name')

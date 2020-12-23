@@ -8,8 +8,8 @@
 {% endblock header %}
 {% block content %}
 <div class="listnews">
-    {% if listnews %}
-        {% for news in listnews %}
+    {% if news_list %}
+        {% for news in news_list %}
             <div class="news">
                 <div class="includeimg">
                     <a href="/news/{{ news.id }}">

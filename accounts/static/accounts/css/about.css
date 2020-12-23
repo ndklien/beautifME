@@ -6,7 +6,7 @@
   box-sizing:border-box;
 }
 
-body {
+.about-body {
   background-color:#fff;
   font-family:"Century Gothic";
   min-height:100vh;
@@ -15,12 +15,12 @@ body {
   align-items:center;
 }
 
-hr {
+.about-hr {
   border: 1px solid #a75535;
   margin-bottom: 150px;
 }
 
-section {
+.about-section {
   margin-top: 20px;
   margin-bottom: 120px;
 }
@@ -38,7 +38,7 @@ section {
 }
 
 
-.title {
+.about-title {
   text-align:center;
   text-transform:capitalize;
   color: #a75535;
@@ -84,7 +84,7 @@ section {
   background: #fff;
 }
 
-h1 {
+.about-h1 {
   font-family: 'Exo 2';
   font-size: 40px;
 }

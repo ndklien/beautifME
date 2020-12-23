@@ -1,19 +1,71 @@
 from django.shortcuts import render
 
+# views related
 from django.views import generic
+from . import views
 
 #simple search ussing q
 from django.db.models import Q
 
-from . import views
+# import models
 from .models import Product, Comment
 from brand.models import Brand
 from news.models import News
 from django.contrib.auth.models import User
+
 from .filters import ProductFilter
+
 # Create your views here.
+
+""" Define number of objects preview on Home page """
+def defineLength(object, number):
+    if len(object) < number:
+        return len(object)
+    else:
+        return number
+
 def Homepage(request):
-    return render(request, 'product/base_home.html')
+    """ Products """
+    products = Product.objects.all()
+    selectedProd_1 = []
+    selectedProd_2 = []
+    for i in range(defineLength(products, 4)):
+        selectedProd_1.append(products[i])
+    
+    for i in range(5, 5 + defineLength(products, 4)):
+        selectedProd_2.append(products[i])
+
+    """ News """
+    news = News.objects.all()
+    selectedNews_1 = []
+    selectedNews_2 = []
+
+    for i in range(defineLength(news, 4)):
+        selectedNews_1.append(news[i])
+
+    for i in range(5, 5 + defineLength(news, 4)):
+        selectedNews_2.append(news[i])
+
+    """ Brand """
+    brands = Brand.objects.all()
+    selectedBrand_1 = []
+    selectedBrand_2 = []
+    for i in range(defineLength(brands, 4)):
+        selectedBrand_1.append(brands[i])
+
+    for i in range(4, 5 + defineLength(brands, 4)):
+        selectedBrand_2.append(brands[i])
+
+    context = {
+        'productList1': selectedProd_1,
+        'productList2': selectedProd_2,
+        'newsList1': selectedNews_1,
+        'newsList2': selectedNews_2,
+        'brandList1': selectedBrand_1,
+        'brandList2': selectedBrand_2,
+    }
+
+    return render(request, 'product/base_home.html', context)
 
 """Search toolbar"""
 class SearchResults(generic.ListView):
@@ -32,8 +84,7 @@ class ProductListView(generic.ListView):
     model = Product
     template_name = 'product/base_productList.html'
     context_object_name = 'product_list'
-    paginate_by = 9
-
+    paginate_by = 12
 
     def get_queryset(self):
         return Product.objects.all()
@@ -97,53 +148,3 @@ def Recommend_result(result):
         else:
             break
     return arr
-
-def defineLength(object, number):
-    if len(object) < number:
-        return len(object)
-    else:
-        return number
-
-
-def Homepage(request):
-    """ Products """
-    products = Product.objects.all()
-    selectedProd_1 = []
-    selectedProd_2 = []
-    for i in range(defineLength(products, 4)):
-        selectedProd_1.append(products[i])
-    
-    for i in range(5, 5+defineLength(products, 4)):
-        selectedProd_2.append(products[i])
-
-    """ News """
-    news = News.objects.all()
-    selectedNews_1 = []
-    selectedNews_2 = []
-    for i in range(defineLength(news, 4)):
-        selectedNews_1.append(news[i])
-
-    for i in range(5, 5+defineLength(news, 4)):
-        selectedNews_2.append(news[i])
-
-    """ Brand """
-    brands = Brand.objects.all()
-    selectedBrand_1 = []
-    selectedBrand_2 = []
-    for i in range(defineLength(brands, 4)):
-        selectedBrand_1.append(brands[i])
-
-    for i in range(5, 5+defineLength(brands, 4)):
-        selectedBrand_2.append(brands[i])
-
-    context = {
-        'productList1': selectedProd_1,
-        'productList2': selectedProd_2,
-        'newsList1': selectedNews_1,
-        'newsList2': selectedNews_2,
-
-        'brandList1': selectedBrand_1,
-        'brandList2': selectedBrand_2,
-    }
-
-    return render(request, 'product/base_home.html', context)
