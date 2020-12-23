@@ -6,13 +6,6 @@
     {% if user.is_authenticated %}
         <p>You have been logged in. If you wish to logout, <a href="{% url 'logout' %}">click here</a>.</p>
     {% else %}
-<<<<<<< HEAD
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="submitButton">Countinue</button>
-    </form>
-=======
         <form method='POST'>
             {% csrf_token %}
             <table>
@@ -32,6 +25,5 @@
         <div>
             {{ message }}
         </div>
->>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe
     {% endif %}
 {% endblock content %}

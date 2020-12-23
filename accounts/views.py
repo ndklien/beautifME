@@ -3,35 +3,23 @@ from django.views import generic
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponse
 
-<<<<<<< HEAD
 from django.http import HttpResponse
 from django.contrib.auth import update_session_auth_hash
 from django.urls import reverse
-=======
 from django.contrib.auth import logout
 from django.contrib.auth import login, authenticate
->>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe
 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from .models import UserAccount
 #For registration
-<<<<<<< HEAD
-from django.contrib.auth.models import User
 
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.forms import PasswordChangeForm
-from .forms import RegisterForm,LoginForm, EditProfileForm
-from django.contrib.auth import authenticate, login
-
-from django.contrib.auth import logout
+from .forms import RegisterForm, profileForm
 from django import forms
 
-
 #For login and logout
-=======
 from .forms import RegisterForm, profileForm
->>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe
 
 # Create your views here.
 

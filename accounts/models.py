@@ -21,46 +21,7 @@ SKINCOND_CHOICE = [
         ('AGE', 'Aging Skin'),
 ]
 
-# Create your models here.
-<<<<<<< HEAD
-# class addAccountsForm(models.Model):
-
-#     #user gender
-#     gender = models.CharField(max_length=2, choices=GENDER_CHOICE)
-
-#     #user skintype
-#     skintype = models.CharField(max_length=5, choices=SKINTYPE_CHOICE)
-
-#     #user skin condition
-#     skincondition = models.CharField(max_length=5, choices=SKINCOND_CHOICE, null=True, blank=True)
-
-#     userImg = models.ImageField(upload_to='accounts/images/')
-
-#     def __str__(self):
-#         return User.__str__(self)
-
-class UserProfile(models.Model):
-        user = models.OneToOneField(User,on_delete=models.CASCADE)
-        #user gender
-        gender = models.CharField(max_length=2, choices=GENDER_CHOICE)
-
-        #user skintype
-        skintype = models.CharField(max_length=5, choices=SKINTYPE_CHOICE)
-
-        #user skin condition
-        skincondition = models.CharField(max_length=5, choices=SKINCOND_CHOICE, null=True, blank=True)
-
-        userImg = models.ImageField(upload_to='accounts/images/')
-        
-        USERNAME_FIELD = 'userImg'
-
 #add to user profileS
-def create_profile(sender, **kwargs):
-    if kwargs['created']:
-        user_profile = UserProfile.objects.create(user=kwargs['instance'])
-
-post_save.connect(create_profile, sender=User)
-=======
 class UserAccount(models.Model):
         #connect with django user account
         id_user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -73,4 +34,3 @@ class UserAccount(models.Model):
  
         def __str__(self):
                 return User.__str__(self)
->>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe
