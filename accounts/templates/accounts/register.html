@@ -4,12 +4,34 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <p>You have been logged in. If you wish to register, <a href="{% url 'logout' %}">Click here</a>.</p>
+        <p>You have been logged in. If you wish to logout, <a href="{% url 'logout' %}">click here</a>.</p>
     {% else %}
+<<<<<<< HEAD
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="submitButton">Countinue</button>
     </form>
+=======
+        <form method='POST'>
+            {% csrf_token %}
+            <table>
+                {% for attr in form %}
+                <tr>
+                    <td>{{ attr.label }}</td>
+                    <td>{{ attr }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="Register"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div>
+            {{ message }}
+        </div>
+>>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe
     {% endif %}
 {% endblock content %}

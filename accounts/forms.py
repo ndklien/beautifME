@@ -4,33 +4,29 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django import forms
+<<<<<<< HEAD
 from .models import GENDER_CHOICE, SKINCOND_CHOICE, SKINTYPE_CHOICE
+=======
+from functools import partial
+from .models import UserAccount
+
+DateInput = partial(forms.DateInput, {'class': 'datepicker'})
+>>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe
 
 #Add more fields in the Registration Form for User
+# Registration Form 
 class RegisterForm(UserCreationForm):
-    #user email
-    email = forms.EmailField()
-
-    #user fullname
-    fullName = forms.CharField(max_length=50)
-
-    #user gender: call choices from accounts.models.py
-    gender = forms.CharField(max_length=2, widget=forms.Select(choices=GENDER_CHOICE))
-
-    #user date of birth
-    birth = forms.DateField()
-
-    #user skintype
-    skintype = forms.CharField(max_length=5, widget=forms.Select(choices=SKINTYPE_CHOICE))
-
-    #user skin condition
-    skincondition = forms.CharField(max_length=5, widget=forms.Select(choices=SKINCOND_CHOICE))
-
-    #user avater
-    userImg = forms.ImageField()
-
     class Meta:
         model = User
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+
+class profileForm(forms.ModelForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    class Meta:
+        model = User
+<<<<<<< HEAD
         fields = ['username', 'email', 'password1', 'password2',
                   'fullName', 'birth', 'gender', 'skintype', 'skincondition', 'userImg']
 
@@ -46,3 +42,6 @@ class EditProfileForm(UserChangeForm):
         fields = (
             'password',
         )
+=======
+        fields = ('username', 'email', 'first_name', 'last_name')
+>>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe

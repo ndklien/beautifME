@@ -1,11 +1,22 @@
 from django.shortcuts import render, redirect
 from django.views import generic
+from django.urls import reverse, reverse_lazy
+from django.http import HttpResponse
 
+<<<<<<< HEAD
 from django.http import HttpResponse
 from django.contrib.auth import update_session_auth_hash
 from django.urls import reverse
+=======
+from django.contrib.auth import logout
+from django.contrib.auth import login, authenticate
+>>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe
 
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.models import User
+from .models import UserAccount
 #For registration
+<<<<<<< HEAD
 from django.contrib.auth.models import User
 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
@@ -18,25 +29,33 @@ from django import forms
 
 
 #For login and logout
+=======
+from .forms import RegisterForm, profileForm
+>>>>>>> 095fb8ca72d7a430fb26576d9c1934e7dfa5adbe
 
 # Create your views here.
 
 #Registration function
 def registration(request):
-    if request.method == "POST":
+    form = RegisterForm()
+    message = ''
+
+    if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('')
-    else:
-        form = RegisterForm()
-        context = {
+            message = 'Register succeed.'
+        else:
+            message = 'Register failed.'
+
+    context = {
         "form": form,
-        }
-        return render(request, 'accounts/register.html', context)
+        'message': message,
+    }
+    return render(request, 'accounts/register.html', context)
     
-    
-""" Return website when logged out."""
+
+# Return website when logged out.
 class LogoutView(generic.View):
 
     template_name = 'accounts/logout.html'
@@ -44,14 +63,6 @@ class LogoutView(generic.View):
     def get(self, request):
         response = logout(request)
         return render(response, self.template_name)
-
-class ProfileView(generic.View):
-
-    template_name = 'accounts/profile.html'
-
-    def get(self, request):
-        return render(response, self.template_name)
-
 
 def change_password(request):
     if request.method == 'POST':
@@ -69,24 +80,28 @@ def change_password(request):
         args = {'form': form}
         return render(request, 'accounts/change_password.html', args)
 
-def login_user(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(request,
-                                username = cd['username'],
-                                password = cd['password'])
-
-            if user is not None:
-                login(request, user)
-                return render(request, 'product/base_home.html',{'user': user})
-            else:
-                return HttpResponse('Fail! Please try again!')
-
-    else: 
-        form = LoginForm()
-
-    return render(request, 'accounts/login.html',{'form': form})
  
+# View and Edit user Profile
+
+def view_editProfile(request):
+    # profile = request.user
+    # profile.first_name = request.POST.get('first_name')
+    # profile.last_name = request.POST.get('last_name')
+    message = ''
+    if request.method == 'POST':
+        form = profileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            message = 'Save succeed.'
+        else:
+            message = 'Save failed.'
+    else:
+        form = profileForm(instance=request.user)
+    context = {
+        'form': form,
+        'message': message,
+    }
+    return render(request, 'accounts/accounts_preview.html', context)
+
+
+    
