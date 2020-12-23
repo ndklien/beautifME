@@ -1,0 +1,179 @@
+{% extends 'product/base.html' %}
+
+{% load static %}
+
+{% block title %}{% endblock title %}
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'product/css/recommend.css' %}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock header %}
+
+{% block content %}
+<div class="formRecommend">
+    <form action="" method="GET">
+        {{filterForm.form.as_p}}
+        <input type="submit" value="Recommend"  class="buttonRecommend"/>
+    </form>
+</div>
+<div class="container">
+    <div class="timeline">
+        {# Cleanser List #}
+        <div class="timeline-section">
+            <div class="timeline-date">
+                Cleansing
+            </div>
+            <div class="row">
+                {% for c in cleanserArr %}
+                <a href="/product/{{ c.id }}">
+                    <div class="column">
+                        <div class="product-grid6">
+                            <div class="product-image6">
+
+                                <img class="pic-1" src="{{ c.product_img.url }}" />
+
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title">{{c.product_name}}</h3>
+                                <div class="price">${{c.price}}
+
+                                </div>
+                            </div>
+                            <ul class="social">
+
+                                <h3 class="title">{{c.product_name}}</h3>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+                <!-- </li> -->
+                {% endfor %}
+            </div>
+        </div>
+
+        {# Makeup Remover List #}
+        <div class="timeline-section">
+            <div class="timeline-date">
+                Cleanser
+            </div>
+            <div class="row">
+                <!-- <ul>
+                    {% for r in removerArr %}
+                    <li>
+                        <a href="/product/{{ r.id }}">{{r}}</a>
+                        <img src="{{ r.product_img.url }}" />
+                    </li>
+                    {% endfor %}
+                </ul> -->
+                {% for r in removerArr %}
+                <a href="/product/{{ r.id }}">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid6">
+                            <div class="product-image6">
+
+                                <img class="pic-1" src="{{ r.product_img.url }}" />
+
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title">{{r.product_name}}</h3>
+                                <div class="price">${{r.price}}
+
+                                </div>
+                            </div>
+                            <ul class="social">
+
+                                <h3 class="title">{{c.product_name}}</h3>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {# Moisturizer List #}
+        <!-- <ul>
+            {% for m in moistArr %}
+            <li>
+                <a href="/product/{{ m.id }}">{{ m }}</a>
+                <img src="{{ m.product_img.url }}" />
+            </li>
+            {% endfor %}
+        </ul> -->
+        <div class="timeline-section">
+            <div class="timeline-date">
+                Cream
+            </div>
+            <div class="row">
+                {% for m in moistArr %}
+                <a href="/product/{{ m.id }}">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid6">
+                            <div class="product-image6">
+
+                                <img class="pic-1" src="{{ m.product_img.url }}" />
+
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title">{{m.product_name}}</h3>
+                                <div class="price">${{m.price}}
+
+                                </div>
+                            </div>
+                            <ul class="social">
+
+                                <h3 class="title">{{m.product_name}}</h3>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+                <!-- </li> -->
+                {% endfor %}
+            </div>
+        </div>
+
+        {# Sun cream List #}
+        <div class="timeline-section">
+            <div class="timeline-date">
+                Sun Cream
+            </div>
+            <div class="row">
+                {% for s in sunArr %}
+                <a href="/product/{{ s.id }}">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid6">
+                            <div class="product-image6">
+
+                                <img class="pic-1" src="{{ s.product_img.url }}" />
+
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title">{{s.product_name}}</h3>
+                                <div class="price">${{s.price}}
+
+                                </div>
+                            </div>
+                            <ul class="social">
+
+                                <h3 class="title">{{s.product_name}}</h3>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+                <!-- </li> -->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <ul>
+            {% for s in sunArr %}
+            <li>
+                <a href="/product/{{ s.id }}">{{ s }}</a>
+                <br />
+                <img src="{% static '{{ s.product_img.url }}' %}" />
+            </li>
+            {% endfor %}
+        </ul> -->
+{% endblock content %}

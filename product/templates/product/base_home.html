@@ -1,0 +1,285 @@
+{% extends 'product/base.html' %}
+
+{% load static %}
+
+{% block title %}Home | {% endblock title %}
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'product/css/base_home.css' %}">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+{% endblock header %}
+
+{% block content %}
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="{% static 'product/img/img1.jpg' %}" class="SlideImg">
+
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="{% static 'product/img/img2.jpg' %}" class="SlideImg">
+
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="{% static 'product/img/img3.jpg' %}" class="SlideImg">
+
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<script src="{% static 'product/js/base_home.js' %}"></script>
+
+<!-- Carousel -->
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-9">
+                <h3>
+                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span>
+                    Hot Products
+                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span>
+                </h3>
+            </div>
+            <div class="col-md-3">
+                <!-- Controls -->
+                <div class="controls pull-right hidden-xs">
+                    <a class="left fa fa-chevron-left btn btd-success" href="#carousel-example1"
+                        data-slide="prev"></a><a class="right fa fa-chevron-right btn btd-success"
+                        href="#carousel-example1" data-slide="next"></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="carousel-example1" class="carousel slide hidden-xs" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        {% for product in productList1 %}
+                        <a href="/product/{{ product.id }}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid6">
+                                    <div class="product-image6">
+
+                                        <img class="pic-1" src="{{ product.product_img.url }}">
+
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title">{{product.product_name}}</h3>
+                                        <div class="price">${{product.price}}</div>
+                                    </div>
+                                    <ul class="social">
+                                        <h3 class="title">{{product.product_name}}</h3>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        {%for product in productList2%}
+                        <a href="/product/{{ product.id }}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid6">
+                                    <div class="product-image6">
+
+                                        <img class="pic-1" src="{{ product.product_img.url }}">
+
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title">{{product.product_name}}</h3>
+                                        <div class="price">${{product.price}}
+                                        </div>
+                                    </div>
+                                    <ul class="social">
+                                        <h3 class="title">{{product.product_name}}</h3>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hot Brand -->
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-9">
+                <h3>
+                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span>
+                    Hot Brands
+                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span>
+                </h3>
+            </div>
+            <div class="col-md-3">
+                <!-- Controls -->
+                <div class="controls pull-right hidden-xs">
+                    <a class="left fa fa-chevron-left btn btd-success" href="#carousel-example2"
+                        data-slide="prev"></a><a class="right fa fa-chevron-right btn btd-success"
+                        href="#carousel-example2" data-slide="next"></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="carousel-example2" class="carousel slide hidden-xs" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        {% for brand in brandList1 %}
+                        <a href="/brand/{{ brand.id }}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid6">
+                                    <div class="product-image6">
+                                        <img class="pic-1" src="{{ brand.brand_img.url }}">
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title">{{brand.get_branding_name_display}}</h3>
+                                        <ul class="social">
+                                            <h3 class="title">{{brand.get_branding_name_display}}</h3>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        {% for brand in brandList2 %}
+                        <a href="/brand/{{ brand.id }}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid6">
+                                    <div class="product-image6">
+
+                                        <img class="pic-1" src="{{ brand.brand_img.url }}">
+
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title">{{brand.get_branding_name_display}}</h3>
+                                    </div>
+                                    <ul class="social">
+                                        <h3 class="title">{{brand.get_branding_name_display}}</h3>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        
+    </div>
+</div>
+<!-- Hot News -->
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-9">
+                <h3>
+                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span>
+                    Hot News
+                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span>
+                </h3>
+            </div>
+            <div class="col-md-3">
+                <!-- Controls -->
+                <div class="controls pull-right hidden-xs">
+                    <a class="left fa fa-chevron-left btn btd-success" href="#carousel-example2"
+                        data-slide="prev"></a><a class="right fa fa-chevron-right btn btd-success"
+                        href="#carousel-example3" data-slide="next"></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="carousel-example3" class="carousel slide hidden-xs" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        {% for news in newsList1 %}
+                        <a href="/news/{{ news.id }}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid6">
+                                    <div class="product-image6">
+                                        <img class="pic-1" src="{{ news.news_img.url }}">
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title">{{news.title}}</h3>
+                                        <ul class="social">
+                                            <h3 class="title">{{news.title}}</h3>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        {% for news in newsList2 %}
+                        <a href="/news/{{ news.id }}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid6">
+                                    <div class="product-image6">
+
+                                        <img class="pic-1" src="{{ news.news_img.url }}">
+
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title">{{news.title}}</h3>
+                                    </div>
+                                    <ul class="social">
+                                        <h3 class="title">{{news.title}}</h3>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        
+    </div>
+</div>
+{% endblock content %}

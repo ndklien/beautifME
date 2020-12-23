@@ -1,0 +1,20 @@
+{% extends 'product/base.html' %}
+
+{% load static %}
+
+{% block title %}Brand{% endblock title %}
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'news/css/listNews.css' %}">
+
+{% endblock header %}
+{% block content %}
+{% if t %}
+        <div class="listnews">
+            <p class="detail_title">{{t.title}}</p>
+            <p class="time">{{t.pub_date}}</p>
+            <img class="detail_img" src="/img/skin-philosophy.webp">
+            <p class="sumary">{{t.summary}}</p>
+            <div class="detail_content">{{t.content}}</div>
+        </div>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'product/base.html' %}
+
+{% load static %}
+
+{% block title %}Brand{% endblock title %}
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'news/css/listNews.css' %}">
+{% endblock header %}
+{% block content %}
+<div class="listnews">
+    {% if listnews %}
+        {% for news in listnews %}
+            <div class="news">
+                <div class="includeimg">
+                    <a href="/news/{{ news.id }}">
+                        <img class="img" src="{{ news.news_img.url }}" />
+                    </a>
+                </div>
+                <div class="infor">
+                    <a class="title_news" href="/news/{{ news.id }}">{{news.title}}</a>
+                    <p class="time">{{news.pub_date}}</p>
+                    <p>{{news.summary}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif  %}
+    </div>
+{% endblock content %}
