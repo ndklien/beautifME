@@ -24,7 +24,6 @@ def defineLength(object, number):
     else:
         return number
 
-
 def Homepage(request):
     """ Products """
     products = Product.objects.all()
