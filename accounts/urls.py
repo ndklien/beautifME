@@ -1,8 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-import views
+from .views import aboutView
 
 app_name = 'accounts'
-
-
-

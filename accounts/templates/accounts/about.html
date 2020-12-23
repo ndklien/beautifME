@@ -1,0 +1,61 @@
+{% extends "product/base.html" %}
+{% load static %}
+
+{% block title %}: Login{% endblock title %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'accounts/css/about.css' %}">
+{% endblock header %}
+{% block content %}
+<section>
+
+    <!-- Title About us -->
+    <h1 class="title">All Skin Concerns. All Skin Tones. All Skin Types.</h1>
+
+    <!-- Description -->
+    <div class="about_us">
+        <p>
+            When it comes to caring for your skin, there's no room for one-size-fits-all. 
+            We are dedicated to providing a personalized and expert-based approach to skin care. 
+            Backed by top dermatologists, estheticians, and the beauty industry experts, 
+            Beautif aims to offer skin care advice you can trust to take care of your skin—no matter the type, tone, or concern. 
+            We'll keep you up-to-date with the latest innovations in skin care, bring you insights on the newest studies, 
+            and share the best products and routines to help you achieve your healthiest-looking skin ever.
+        </p>
+    </div>
+    <div class="about_us" id="about_us1">400+ US Researchers and Scientists. $1B on R&D. 501+ Patents.</div>
+
+    <hr/>
+
+    <!-- Title Out team -->
+    <h1 class="title">Meet the editors</h1>
+  
+    <div class="team-row">
+        <div class="member">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8FuEJbKwDdaz1h387130xmYkAIQbZpahhbQ&usqp=CAU" alt="">
+            <h2>Kieu Lien</h2>
+            <p>Senior Editorial Director</p>
+            
+        </div>
+
+        <div class="member">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8FuEJbKwDdaz1h387130xmYkAIQbZpahhbQ&usqp=CAU" alt="">
+            <h2>Thanh Mai</h2>
+            <p>Senior Beauty Editor</p>
+        </div>
+
+        <div class="member">
+            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+            <h2>Loc Nguyen</h2>
+            <p>Senior Social Media Editor</p>
+        </div>
+        
+        <div class="member">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8FuEJbKwDdaz1h387130xmYkAIQbZpahhbQ&usqp=CAU" alt="">
+          <h2>Vy Ngo</h2>
+          <p>Content Director</p>
+      </div>
+        
+    </div>
+</section>
+{% endblock content %}

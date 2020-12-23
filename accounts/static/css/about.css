@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2|Yatra+One');
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  background-color:#fff;
+  font-family:"Century Gothic";
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+hr {
+  border: 1px solid #a75535;
+  margin-bottom: 150px;
+}
+
+section {
+  margin-top: 20px;
+  margin-bottom: 120px;
+}
+
+.about_us {
+  margin-top: 100px;
+  text-align: center;
+  width: 1000px;
+  color: #a75535;
+}
+
+#about_us1 {
+  margin-top: 30px;
+  margin-bottom: 250px;
+}
+
+
+.title {
+  text-align:center;
+  text-transform:capitalize;
+  color: #a75535;
+  margin:10px 0;
+  position:relative;
+}
+
+
+
+.team-row {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:40px 0;
+  margin-top: 50px;
+}
+
+.member {
+  
+  flex:1 1 250px;
+  text-align:center;
+  margin:20px;
+  padding:20px 10px;
+  cursor:pointer;
+  max-width:220px;
+  transition:all 0.3s;
+  
+}
+
+.member img {
+  display:block;
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  border:2px solid  #e9e5fa;
+  border-radius:50%;
+  margin: 0 auto;
+  
+}
+
+.member:hover {
+  transform:translateY(-20px);
+  background: #fff;
+}
+
+h1 {
+  font-family: 'Exo 2';
+  font-size: 40px;
+}
+
+.member h2 {
+  text-transform:uppercase;
+  font-size:24px;
+  color: #77574a;
+  margin:15px 0;
+  font-family: 'Exo 2';
+  
+}
+
+.member p {
+  font-size:15px;
+  color: #a75535;
+  line-height:1.6;
+}
+

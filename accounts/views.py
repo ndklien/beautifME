@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views import generic
 
 #For registration
 from .forms import RegisterForm
@@ -21,3 +22,9 @@ def registration(request):
         "form": form,
     }
     return render(request, 'accounts/register.html', context)
+
+
+# About us view
+
+def aboutView(request):
+    return render(request, 'accounts/about.html')
