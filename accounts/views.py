@@ -1,31 +1,40 @@
 from django.shortcuts import render, redirect
 from django.views import generic
+from django.urls import reverse, reverse_lazy
+from django.http import HttpResponse
 
 from django.contrib.auth import logout
+from django.contrib.auth import login, authenticate
 
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.models import User
+from .models import UserAccount
 #For registration
-from .forms import RegisterForm
-
-#For login and logout
+from .forms import RegisterForm, profileForm
 
 # Create your views here.
 
 #Registration function
 def registration(request):
-    if request.method == "POST":
+    form = RegisterForm()
+    message = ''
+
+    if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('')
-    else:
-        form = RegisterForm()
-        context = {
+            message = 'Register succeed.'
+        else:
+            message = 'Register failed.'
+
+    context = {
         "form": form,
-        }
-        return render(request, 'accounts/register.html', context)
+        'message': message,
+    }
+    return render(request, 'accounts/register.html', context)
     
-    
-""" Return website when logged out."""
+
+# Return website when logged out.
 class LogoutView(generic.View):
 
     template_name = 'accounts/logout.html'
@@ -33,3 +42,28 @@ class LogoutView(generic.View):
     def get(self, request):
         response = logout(request)
         return render(response, self.template_name)
+
+# View and Edit user Profile
+
+def view_editProfile(request):
+    # profile = request.user
+    # profile.first_name = request.POST.get('first_name')
+    # profile.last_name = request.POST.get('last_name')
+    message = ''
+    if request.method == 'POST':
+        form = profileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            message = 'Save succeed.'
+        else:
+            message = 'Save failed.'
+    else:
+        form = profileForm(instance=request.user)
+    context = {
+        'form': form,
+        'message': message,
+    }
+    return render(request, 'accounts/accounts_preview.html', context)
+
+
+    

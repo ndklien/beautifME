@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-import views
+from .views import view_editProfile
 
 app_name = 'accounts'
 
-
+urlpatterns = [
+    path('', view_editProfile, name='accounts-preview'),
+]
 
