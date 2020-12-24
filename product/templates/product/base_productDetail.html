@@ -94,6 +94,8 @@
 				$(".tabs_div").shieldTabs();
 			});
 		</script>
+
+		{% if user.is_authenticated %}
 		<h1>Comment</h1>
 		<div class="widget-area no-padding blank">
 			<div class="status-upload">
@@ -104,6 +106,10 @@
 				</form>
 			</div><!-- Status Upload  -->
 		</div><!-- Widget Area -->
+		{% else %}
+		<p>You haven't logged in to comment. <a href="{% url 'login' %}">Click here</a> to login.</p>
+		{% endif %}
+
 		<!-- Comment -->
 		<div class="container bootdey">
 			<div class="col-md-12 bootstrap snippets">
@@ -140,4 +146,5 @@
 			</div>
 		</div>
 	</div>
+
 {% endblock content %}
