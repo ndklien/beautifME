@@ -15,7 +15,7 @@
 	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 	<!-- comment -->
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-{% endblock header%}
+{% endblock header %}
 
 
 {% block content %}
@@ -95,8 +95,8 @@
 			});
 		</script>
 
-		{% if user.is_authenticated %}
 		<h1>Comment</h1>
+		{% if user.is_authenticated %}
 		<div class="widget-area no-padding blank">
 			<div class="status-upload">
 				<form>
@@ -107,8 +107,6 @@
 			</div><!-- Status Upload  -->
 		</div><!-- Widget Area -->
 		{% else %}
-		<br/>
-		<br/>
 		<p>You haven't logged in to comment. <a href="{% url 'login' %}">Click here</a> to login.</p>
 		{% endif %}
 
