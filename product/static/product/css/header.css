@@ -523,3 +523,12 @@ div.pagination {
 	margin-top: 50px;
 }
 
+.logout-user{
+	visibility: hidden;
+}
+
+.hello-user:hover .logout-user{
+	visibility:visible;
+	opacity: 1;
+}
+
