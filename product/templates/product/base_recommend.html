@@ -11,12 +11,23 @@
 {% endblock header %}
 
 {% block content %}
+
 <div class="formRecommend">
-    <form action="" method="GET">
-        {{filterForm.form.as_p}}
-        <input type="submit" value="Recommend"  class="buttonRecommend"/>
-    </form>
+    <div class="recommend-content">
+        <div class="recommend-form">
+
+            <form method="GET">
+                <div class="form-group">
+                    <p>{{ filterForm.form.as_p }}</p>
+                </div>
+                <!-- Button Recommend -->
+                <input type="submit" class="submitButton" value="Recommend"/>
+            </form>
+
+        </div>
+    </div>
 </div>
+
 <div class="container">
     <div class="timeline">
         {# Cleanser List #}

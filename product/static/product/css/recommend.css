@@ -203,3 +203,70 @@ text-shadow:1px 1px 1px white(0,0,0,0.3);
   float: left;
 }
 
+
+.formRecommend {
+  margin-bottom: 60px;
+}
+
+.recommend-content {
+  font-size: 14px;
+  line-height: 1.8;
+  width: 500px;
+  height: 350px;
+  background: #fff;
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05), 0px 1px 16.83px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding-top: 30px;
+  padding-bottom: 87px;
+}
+
+.recommend-form {
+  margin-right: 70px;
+  margin-left: 70px;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  overflow: hidden; 
+  color: #a75535;
+}
+
+.submitButton {
+  display: inline-block;
+  background: rgb(167,85,53);
+  color: #fff;
+  width: 50%;
+  padding: 11px 0px;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 100px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer; 
+}
+.submitButton:hover {
+  background:rgb(150, 61, 23); 
+}  
+
+input, select{
+  width: 100%;
+  display: inline-block;
+  border: none;
+  padding: 10px 20px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  margin: 20px;
+    
+  box-sizing: border-box; 
+}
+
+input:focus, select:focus{
+  outline: none;
+  background: #ddd;
+  color: #555;
+}
