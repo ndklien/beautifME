@@ -3,7 +3,6 @@
 {% load static %}
 
 {% block title %}{% endblock title %}
-<<<<<<< HEAD
 {% block header %}
 <link type="text/css" rel="stylesheet" href="{% static 'product/css/listProduct.css' %}">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -44,13 +43,4 @@
             {% endfor %}
         </div>
     </div>
-=======
-
-{% block content %}
-    <ul>
-        {% for product in products %}
-        <li><a href="/product/{{ product.id }}/">{{ product }}</a></li>
-        {% endfor %}
-    </ul>
->>>>>>> 5832db23ca34abbce82f9747a85a16914887145a
 {% endblock content %}

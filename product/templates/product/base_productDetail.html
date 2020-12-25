@@ -7,7 +7,7 @@
 	<link type="text/css" rel="stylesheet" href="{% static 'product/css/productDetail.css' %}">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
 	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -15,7 +15,8 @@
 	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 	<!-- comment -->
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-{% endblock header%}
+	<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-glow/all.min.css" />
+{% endblock header %}
 
 
 {% block content %}
@@ -84,26 +85,25 @@
 				{{ product.description }}
 			</div>
 		</div>
-		<link rel="stylesheet" type="text/css"
-			href="http://www.shieldui.com/shared/components/latest/css/light-glow/all.min.css" />
-		<script type="text/javascript"
-			src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-
-		<script type="text/javascript">
-			jQuery(function ($) {
-				$(".tabs_div").shieldTabs();
-			});
-		</script>
+		
 		<h1>Comment</h1>
+		{% if user.is_authenticated %}
 		<div class="widget-area no-padding blank">
 			<div class="status-upload">
-				<form>
-					<textarea placeholder="Write your comment"></textarea>
-
+				<form method="POST">
+					{% csrf_token %}
+					{{ new_comment }}
 					<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
 				</form>
+				<div>
+					{{ message }}
+				</div>
 			</div><!-- Status Upload  -->
 		</div><!-- Widget Area -->
+		{% else %}
+		<p>You haven't logged in to comment. <a href="{% url 'login' %}">Click here</a> to login.</p>
+		{% endif %}
+
 		<!-- Comment -->
 		<div class="container bootdey">
 			<div class="col-md-12 bootstrap snippets">
@@ -140,4 +140,17 @@
 			</div>
 		</div>
 	</div>
+
 {% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript"
+			src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+
+		<script type="text/javascript">
+			jQuery(function ($) {
+				$(".tabs_div").shieldTabs();
+			});
+		</script>
+
+{% endblock javascript %}
