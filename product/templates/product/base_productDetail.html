@@ -99,11 +99,14 @@
 		{% if user.is_authenticated %}
 		<div class="widget-area no-padding blank">
 			<div class="status-upload">
-				<form>
-					<textarea placeholder="Write your comment"></textarea>
-
+				<form method="POST">
+					{% csrf_token %}
+					{{ new_comment }}
 					<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
 				</form>
+				<div>
+					{{ message }}
+				</div>
 			</div><!-- Status Upload  -->
 		</div><!-- Widget Area -->
 		{% else %}
