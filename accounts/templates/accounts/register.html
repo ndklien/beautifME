@@ -1,29 +1,75 @@
 {% extends "product/base.html" %}
 
-{% block title %}Register | {% endblock title %}
+{% load static %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
+{% endblock css %}
+
+{% block javascript %}
+<script src="{% static 'accounts/js/register.js' %}"></script>
+{% endblock javascript %}
+
+{% block title %}: Register{% endblock title %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <p>You have been logged in. If you wish to logout, <a href="{% url 'logout' %}">click here</a>.</p>
-    {% else %}
-        <form method='POST'>
-            {% csrf_token %}
-            <table>
-                {% for attr in form %}
-                <tr>
-                    <td>{{ attr.label }}</td>
-                    <td>{{ attr }}</td>
-                </tr>
-                {% endfor %}
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" name="Register"/>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <div>
-            {{ message }}
+
+    
+
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-form">
+
+                <!-- Tittle signup -->
+                <h2 class="form-tittle">Sign up</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+
+                        <!-- Input username-->
+                        <div class="tool">
+                            <label for="USERNAME">USERNAME:</label>
+                            {{ form.username }}
+                            <span class="tooltiptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+                        </div>
+
+                        <!-- Input email-->
+                        <div class="tool">
+                            <label for="EMAIL">EMAIL:</label>
+                            {{ form.email }}
+                        </div>
+
+                        <!-- Input password-->
+                        <div class="tool">
+                            <label for="PASSWORD">PASSWORD:</label>
+                            {{ form.password1 }}
+                            <span class="tooltiptext">
+                                <li>Your password can’t be too similar to your other personal information.</li>
+                                <li>Your password must contain at least 8 characters.</li>
+                                <li>Your password can’t be a commonly used password.</li>
+                                <li>Your password can’t be entirely numeric.</li>
+                            </span>
+                        </div>
+
+                        <!-- Confirm password-->
+                        <div class="tool">
+                            <label for="CONFIRM PASSWORD">PASSWORD COMFIRMATION:</label>
+                            {{ form.password2 }}
+                            <span class="tooltiptext" id="tooltiptext-1" >
+                                Enter the same password as before, for verification.
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <!-- Button Sign up -->
+                    <button type="submit" class="submitButton">Register</button>
+                </form>
+                
+            </div>
         </div>
-    {% endif %}
+    </div>
+
+
 {% endblock content %}
