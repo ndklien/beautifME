@@ -33,12 +33,13 @@
         {# Cleanser List #}
         <div class="timeline-section">
             <div class="timeline-date">
-                Cleansing
+                Cleanser
             </div>
             <div class="row">
                 {% for c in cleanserArr %}
-                <a href="/product/{{ c.id }}">
-                    <div class="column">
+
+                <div class="column">
+                    <a href="/product/{{ c.id }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 
@@ -52,12 +53,11 @@
                                 </div>
                             </div>
                             <ul class="social">
-
-                                <h3 class="title">{{c.product_name}}</h3>
                             </ul>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
                 <!-- </li> -->
                 {% endfor %}
             </div>
@@ -66,7 +66,7 @@
         {# Makeup Remover List #}
         <div class="timeline-section">
             <div class="timeline-date">
-                Cleanser
+                Cleansing
             </div>
             <div class="row">
                 <!-- <ul>
@@ -78,8 +78,9 @@
                     {% endfor %}
                 </ul> -->
                 {% for r in removerArr %}
-                <a href="/product/{{ r.id }}">
-                    <div class="col-md-3 col-sm-6">
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="/product/{{ r.id }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 
@@ -97,8 +98,9 @@
                                 <h3 class="title">{{c.product_name}}</h3>
                             </ul>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
                 {% endfor %}
             </div>
         </div>
@@ -117,8 +119,9 @@
             </div>
             <div class="row">
                 {% for m in moistArr %}
-                <a href="/product/{{ m.id }}">
-                    <div class="col-md-3 col-sm-6">
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="/product/{{ m.id }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 
@@ -136,8 +139,9 @@
                                 <h3 class="title">{{m.product_name}}</h3>
                             </ul>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
                 <!-- </li> -->
                 {% endfor %}
             </div>
@@ -150,8 +154,9 @@
             </div>
             <div class="row">
                 {% for s in sunArr %}
-                <a href="/product/{{ s.id }}">
-                    <div class="col-md-3 col-sm-6">
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="/product/{{ s.id }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 
@@ -169,8 +174,9 @@
                                 <h3 class="title">{{s.product_name}}</h3>
                             </ul>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
                 <!-- </li> -->
                 {% endfor %}
             </div>

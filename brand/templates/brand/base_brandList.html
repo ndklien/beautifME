@@ -12,7 +12,10 @@
 {% block content %}
 
 
-
+<ul class="breadcrumb">
+    <li><a href="{% url 'homepage' %}">Home</a></li>
+    <li><a href="{% url 'brand:brand-list' %}">Brand</a></li>
+</ul>
 <div class="container">
     <h3 class="h3">Brands </h3>
     <hr/>
@@ -30,7 +33,6 @@
                             <h3 class="title"><a href="#">{{brand.get_branding_name_display}}</a></h3>   
                         </div>
                         <ul class="social">
-                            <h3 class="title"><a href="#">{{brand.get_branding_name_display}}</a></h3>
                         </ul>
                     </div>
                 </div>
@@ -39,22 +41,21 @@
     </div>
 </div>
 
-<div class="pagination" >
-    <span class="step-links">
+<div class="productPagination" >
+    <span>
         {% if page_obj.has_previous %}
-        <a href="?page=1">&laquo; first</a>
-        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        <a href="?page=1" class="space">&laquo; First</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="space">Previous</a>
         {% endif %}
     </span>
-    <span class="current">
+    <span>
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </span>
-    {% if page_obj.has_next %}
-    <span class="next-last">
-        <a href="?page={{ page_obj.next_page_number }}">next </a>
-        <span>&nbsp;|&nbsp;</span>
-        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-    </span>
+    <span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="space">Next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="space">Last &raquo;</a>
     {% endif %}
+    </span>
 </div>
 {% endblock content %}
