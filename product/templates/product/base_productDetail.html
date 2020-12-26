@@ -92,7 +92,7 @@
 			<div class="status-upload">
 				<form method="POST">
 					{% csrf_token %}
-					{{ new_comment }}
+					{{ new_comment.content }}
 					<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
 				</form>
 				<div>
