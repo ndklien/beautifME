@@ -30,8 +30,8 @@
         {% endif %}
 	</p> -->
 	<ul class="breadcrumb">
-		<li><a href="#">Home</a></li>
-		<li><a href="/product">Products</a></li>
+		<li><a href="{% url 'homepage' %}">Home</a></li>
+		<li><a href="{% url 'product:product-list' %}">Products</a></li>
 		<li>{{ product.product_name }}</li>
 	</ul>
     <div class="container">
@@ -92,7 +92,7 @@
 			<div class="status-upload">
 				<form method="POST">
 					{% csrf_token %}
-					{{ new_comment }}
+					{{ new_comment.content }}
 					<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
 				</form>
 				<div>
@@ -118,7 +118,7 @@
                               
                                 <div class="media-body">
                                     <div class="mar-btm">
-                                        <p class="btn-link text-semibold media-heading box-inline">{{ user.get_username }}</p>
+                                        <p class="btn-link text-semibold media-heading box-inline">{{ comment.owner_comment }}</p>
                                         <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> {{ comment.pub_date }}</p>
                                     </div>
                                     <p>{{ comment.content }}</p>

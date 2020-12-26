@@ -10,6 +10,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
+<<<<<<< HEAD
         <div class="container">
             <div class="signin-content">
                 <div class="signin-form">
@@ -29,6 +30,22 @@
                 </div>
             </div>
         </div>
+=======
+        <h4>YOUR PROFILE</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {% for attr in form %}
+                <tr>
+                    <td>{{ attr.label }}</td>
+                    <td>{{ attr }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <input type="submit" value="Confirm" />
+        </form>
+        <p>Want to change your password? <a href="{% url 'change_password' %}">Click here</a>.</p>
+>>>>>>> 5daa6afbf8c34a3a415dd4e7ff7214353a09e406
         <div>
             {{ message }}
         </div>
