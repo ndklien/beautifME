@@ -13,8 +13,30 @@
 {% block content %}
 <div class="formRecommend">
     <form action="" method="GET">
-        {{filterForm.form.as_p}}
-        <input type="submit" value="Recommend"  class="buttonRecommend"/>
+        <!-- {{filterForm.form.as_p}}
+        <input type="submit" value="Recommend" class="buttonRecommend" /> -->
+        <table class="tableRecommend" cellspacings = "3">
+            <tr>
+                <td class="user">{{filterForm.form.skin_cond.label}}</td>
+                <td>
+                    <div>{{filterForm.form.skin_cond}}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="user">{{filterForm.form.skintype.label}}</td>
+                <td>
+                    <div>{{filterForm.form.skintype}}</div>
+                </td>
+            </tr>
+            <tr height="50">
+                <td colspan="2" class="center">
+                    <input type="submit" value="Recommend" class="buttonRecommend" />
+                </td>
+            </tr>
+            <tr>
+                <td class="sayhello" colspan="2" ><label id="Sayhello"></label></td>
+            </tr>
+        </table>
     </form>
 </div>
 <div class="container">
@@ -26,8 +48,9 @@
             </div>
             <div class="row">
                 {% for c in cleanserArr %}
-                <a href="/product/{{ c.id }}">
-                    <div class="column">
+
+                <div class="column">
+                    <a href="/product/{{ c.id }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 
@@ -41,12 +64,11 @@
                                 </div>
                             </div>
                             <ul class="social">
-
-                                <h3 class="title">{{c.product_name}}</h3>
                             </ul>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
                 <!-- </li> -->
                 {% endfor %}
             </div>
@@ -67,8 +89,9 @@
                     {% endfor %}
                 </ul> -->
                 {% for r in removerArr %}
-                <a href="/product/{{ r.id }}">
-                    <div class="col-md-3 col-sm-6">
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="/product/{{ r.id }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 
@@ -86,8 +109,9 @@
                                 <h3 class="title">{{c.product_name}}</h3>
                             </ul>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
                 {% endfor %}
             </div>
         </div>
@@ -106,8 +130,9 @@
             </div>
             <div class="row">
                 {% for m in moistArr %}
-                <a href="/product/{{ m.id }}">
-                    <div class="col-md-3 col-sm-6">
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="/product/{{ m.id }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 
@@ -125,8 +150,9 @@
                                 <h3 class="title">{{m.product_name}}</h3>
                             </ul>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
                 <!-- </li> -->
                 {% endfor %}
             </div>
@@ -139,8 +165,9 @@
             </div>
             <div class="row">
                 {% for s in sunArr %}
-                <a href="/product/{{ s.id }}">
-                    <div class="col-md-3 col-sm-6">
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="/product/{{ s.id }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 
@@ -158,8 +185,9 @@
                                 <h3 class="title">{{s.product_name}}</h3>
                             </ul>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
                 <!-- </li> -->
                 {% endfor %}
             </div>
