@@ -36,7 +36,7 @@ class Product(models.Model):
     # Spham phu hop voi loai da nao (da dau, da kho, v.v.)
     SKINTYPE_CHOICE = [
         ('DRY', 'Dry Skin'), 
-        ('OIL', 'Oliy Skin'),
+        ('OIL', 'Oily Skin'),
         ('COMBI', 'Combination Skin'),
         ('NORM', 'Normal Skin'),
         ('ALL', 'All Skin Type'),
