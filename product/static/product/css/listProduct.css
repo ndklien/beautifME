@@ -80,7 +80,8 @@ ul.breadcrumb {
     list-style: none;
     border-radius: .25rem;
     /* padding: 10px auto; */
-      padding-left: 600px;
+    padding-left: 480px;
+
   }
   .space{
       padding-left: 5px;
