@@ -95,6 +95,7 @@
 			});
 		</script>
 		<h1>Comment</h1>
+		{% if user.is_authenticated %}
 		<div class="widget-area no-padding blank">
 			<div class="status-upload">
 				<form>
@@ -104,6 +105,9 @@
 				</form>
 			</div><!-- Status Upload  -->
 		</div><!-- Widget Area -->
+		{% else %}
+		<p class="noti">You're not logged in. Click here to <a href="{% url 'login' %}?next={{ request.path }}">Login</a></p>
+		{% endif %}
 		<!-- Comment -->
 		<div class="container bootdey">
 			<div class="col-md-12 bootstrap snippets">

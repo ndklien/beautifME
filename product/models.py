@@ -73,7 +73,7 @@ class Product(models.Model):
     vote_up = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.product_name
+        return str(self.product_name)
 
 
 
@@ -85,7 +85,7 @@ class Comment(models.Model):
     owner_comment = models.ForeignKey(User, on_delete=models.CASCADE)
 
     #Tua de cua comment
-    title = models.CharField(max_length=255, blank=False, null=False)
+    title = models.CharField(max_length=255, blank=True, null=True)
 
     #Noi dung comment
     content = models.TextField()
@@ -97,4 +97,4 @@ class Comment(models.Model):
     vote_up = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.title
+        return str(self.title)
