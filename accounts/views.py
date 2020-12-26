@@ -53,20 +53,20 @@ class LogoutView(generic.View):
         return render(response, self.template_name)
 
 def change_password(request):
+    message = ''
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
-
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return render(request, 'accounts/changepass_success.html')
+            message = "Change password succeed."
         else:
-            return render(request, 'accounts/change_password.html', {'form': form})
+            message = "Change password failed."
     else:
         form = PasswordChangeForm(user=request.user)
 
-        args = {'form': form}
-        return render(request, 'accounts/change_password.html', args)
+    args = {'form': form, 'message': message}
+    return render(request, 'accounts/change_password.html', args)
 
  
 # View and Edit user Profile

@@ -42,7 +42,7 @@ h2 {
     display: inline-block;
     background: rgb(167,85,53);
     color: #fff;
-    width: 100%;
+    width: 95%;
     padding: 11px 0px;
     margin-top: 20px;
     border-radius: 5px;
@@ -116,4 +116,8 @@ input:focus{
     color: #a35735;
     font-weight: unset;
     font-size: 14px;
+}
+
+.message_notification {
+    margin-top: 30px;
 }

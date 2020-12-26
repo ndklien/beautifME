@@ -515,12 +515,13 @@ a.next:hover, a.prev:hover {
 }
 
 .current {
-	margin-left: 1110px;
+	margin-left: 110px;
 	margin-right: 20px;
 }
 
 div.pagination {
 	margin-top: 50px;
+	margin-left: 500px;
 }
 
 .logout-user{

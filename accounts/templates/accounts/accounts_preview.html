@@ -24,12 +24,15 @@
                         </div>
                         <!-- Button Sign up -->
                         <input type="submit" class="submitButton" value="Confirm"/>
+
+                        <!-- Change password -->
+                        <p class="change-password">Want to change your password? <a href="{% url 'change_password' %}">Click here</a></p>
                     </form>
 
                 </div>
             </div>
         </div>
-        <div>
+        <div class="message_notification">
             {{ message }}
         </div>
     {% else %}
