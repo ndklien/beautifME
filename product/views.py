@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # views related
 from django.views import generic
@@ -68,7 +68,7 @@ def Homepage(request):
 
     return render(request, 'product/base_home.html', context)
 
-# """Search toolbar"""
+# Search toolbar
 class SearchResults(generic.ListView):
     model = Product
     template_name = 'product/base_results.html'
@@ -112,12 +112,10 @@ def productDetail(request, product_id):
         if commentForm.is_valid():
             commentForm.save()
             message = 'Push comment succeed.'
+            return redirect('product:product-detail', product_id)
         else:
             commentForm = pushCommentForms()
             message = 'Push comment failed.'
-
-    # if request.method = 'POST':
-    #     userComment = re
 
     context = {
         'product': productD, 
