@@ -12,8 +12,8 @@
 
 {% block content %}
 <ul class="breadcrumb">
-    <li><a href="#">Home</a></li>
-    <li><a href="/product">Products</a></li>
+    <li><a href="{% url 'homepage' %}">Home</a></li>
+    <li><a href="{% url 'product:product-list' %}">Products</a></li>
 </ul>
 <div class="container">
     <h3 class="h3">Products </h3>
