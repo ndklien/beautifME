@@ -2,9 +2,9 @@
 
 {% load static %}
 
-{% block css %}
+{% block header %}
 <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
-{% endblock css %}
+{% endblock header %}
 
 {% block javascript %}
 <script src="{% static 'accounts/js/login.js' %}"></script>
@@ -42,7 +42,7 @@
 
                         <!-- Create new account -->
                         <div class="account-create">
-                            <a class="account-link" href="#">
+                            <a class="account-link" href="{% url 'register' %}">
                                 Create new account					
                             </a>
                         </div>
