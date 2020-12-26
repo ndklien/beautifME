@@ -3,6 +3,13 @@ from django.shortcuts import render, redirect
 # views related
 from django.views import generic
 from . import views
+from .models import Product
+
+#class-based views
+from django.views import generic
+
+#search engine
+from django.db.models import Q
 
 #simple search ussing q
 from django.db.models import Q

@@ -496,3 +496,39 @@ section {
 	height: 50px;
 	border-radius: 50%;
   }
+
+.login a, span , .next-last a{
+	color:#999 ;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.login a:hover , .next-last a:hover {
+	color: #a75535;
+	text-decoration: none;
+}
+
+a.next:hover, a.prev:hover {
+	background-color: #a75535;
+	color: #222;
+	text-decoration: none;
+}
+
+.current {
+	margin-left: 1110px;
+	margin-right: 20px;
+}
+
+div.pagination {
+	margin-top: 50px;
+}
+
+.logout-user{
+	visibility: hidden;
+}
+
+.hello-user:hover .logout-user{
+	visibility:visible;
+	opacity: 1;
+}
+

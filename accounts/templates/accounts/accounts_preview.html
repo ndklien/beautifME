@@ -1,24 +1,34 @@
 {% extends 'product/base.html' %}
 {% load static %}
 
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/accounts_preview.css' %}">
+{% endblock header %}
+
 {% block title %} Accounts | {% endblock %}
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h4>YOUR PROFILE</h4>
-        <form method="POST">
-            {% csrf_token %}
-            <table>
-                {% for attr in form %}
-                <tr>
-                    <td>{{ attr.label }}</td>
-                    <td>{{ attr }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-            <input type="submit" value="Confirm" />
-        </form>
-        <p>Want to change your password? <a href="{% url 'change_password' %}">Click here</a>.</p>
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-form">
+
+                    <!-- Tittle signup -->
+                    <h2 class="form-tittle">Your Profile</h2>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <p>{{ form.as_p }}</p>
+                        </div>
+                        <!-- Button Sign up -->
+                        <input type="submit" class="submitButton" value="Confirm"/>
+                    </form>
+
+                </div>
+            </div>
+        </div>
         <div>
             {{ message }}
         </div>
