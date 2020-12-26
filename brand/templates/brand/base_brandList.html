@@ -42,18 +42,20 @@
 </div>
 
 <div class="productPagination" >
-    <span class="step-links">
+    <span>
         {% if page_obj.has_previous %}
         <a href="?page=1" class="space">&laquo; First</a>
         <a href="?page={{ page_obj.previous_page_number }}" class="space">Previous</a>
         {% endif %}
     </span>
-    <span class="current">
+    <span>
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </span>
-    {% if page_obj.has_next %}
+    <span>
+        {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}" class="space">Next</a>
         <a href="?page={{ page_obj.paginator.num_pages }}" class="space">Last &raquo;</a>
     {% endif %}
+    </span>
 </div>
 {% endblock content %}
