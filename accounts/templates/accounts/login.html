@@ -1,0 +1,58 @@
+{% extends "product/base.html" %}
+
+{% load static %}
+
+{% block header %}
+<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+{% endblock header %}
+
+{% block javascript %}
+<script src="{% static 'accounts/js/login.js' %}"></script>
+{% endblock javascript %}
+
+{% block title %}: Login{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="signin-content">
+        <div class="signin-form">
+            <!-- Tittle Login -->
+            <h2 class="form-tittle">Login</h2>
+
+            <form method="post" class="login-form"> 
+                {% csrf_token %}
+                
+                <!-- Input username and password -->
+                <div class="form-group">{{form.as_p}}</div>
+
+
+                
+                <p class="txt" id="no_CAPSLOCK">&nbsp;</p><p class="txt" id="text">WARNING! Caps lock is ON.</p></tr>
+                
+                                <!-- Remember password -->
+                        <div class="form-group_remember">
+                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                            <label for="remember-me" class="label-agree-term">Remember me</label>
+                            <a class="forgot_password" href="#">Forgot Password?</a>
+                        </div>
+
+                        <!-- Button Login in -->
+                        <button type="submit" class="submitButton">Login</button>
+
+                        <!-- Create new account -->
+                        <div class="account-create">
+                            <a class="account-link" href="{% url 'register' %}">
+                                Create new account					
+                            </a>
+                        </div>
+                
+            </form>
+
+        </div>
+        
+    </div>
+</div>
+
+    
+{% endblock content %}

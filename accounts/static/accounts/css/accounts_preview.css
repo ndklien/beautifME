@@ -1,0 +1,9 @@
+input[name="email"]{
+    margin-left: 127px;
+}
+
+.signin-content {
+    width: 1000px;
+    height: 620px;
+
+}

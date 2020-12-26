@@ -1,28 +1,244 @@
 {% load static %}
+{% load icons %}
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> BeautifyLabo: {% block title %}{% endblock %}</title>
-        <link type="text/css" rel="stylesheet" href="{% static 'product/base.css' %}">
-    </head>
- 
-    <body>
-        <div class="topnav">
-            <a href="{% url 'homepage' %}">Home</a>
-            <a href="">Products</a>
-            <a href="">News</a>
-            <a>About</a>
-            <div style="float: right;">
-                <form method="GET" action="{% url 'search_results'%}">
-                    <input type="search" name="q" placeholder='Search here'>
-                </form>
-                <a href="{% url 'register' %}">Register</a>
-                <a>Login</a>
+
+<head>
+    <title>{% block title %}{% endblock title %} Beautif</title>
+    <link rel="icon" href="{% static 'product/img/icon.png' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> -->
+    <link type="text/css" rel="stylesheet" href="{% static 'product/css/header.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    {% block header %}
+    {% endblock header %}
+</head>
+
+<body>
+
+    <!--Header part-->
+
+    <div class="head">
+        <!--Logo -->
+        <div class="logo">
+            <a href="/">
+                <img class="imglogo" src="/static/product/img/Artboard%201%400.5x.png" />
+            </a>
+        </div>
+
+        <!--Search bar-->
+        <div class="search">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <form method="GET" action="/search/">
+                        <input type="text" name="q" class="form-control input-lg" placeholder="Search" />
+                    </form>
+                </div>
             </div>
         </div>
-        
-        {% block content %}
-        {% endblock %}
-    </body>
+        <div class="login">
+
+            <!--Login/Logout -->
+            {% if user.is_authenticated %}
+
+            <a href="{% url 'accounts:accounts-preview' %}">Hello, {{ request.user }}</a>
+            <a href="{% url 'logout' %}" >Logout</a>
+
+            {% else %}
+
+            <p class="Login">
+                <a href="{% url 'login' %}">Log in</a>
+                <a href="{% url 'register' %}">Sign up</a>
+            </p>
+
+            {% endif %}
+        </div>
+    </div>
+    <div>
+        <nav id="cbp-hrmenu" class="cbp-hrmenu">
+
+            <!--Vertical Menu-->
+            <ul>
+
+                <!--Brands -->
+                <li>
+                    <a class="Title" href="{% url 'brand:brand-list' %}">Brands</a>
+                    <div class="cbp-hrsub">
+                        <div class="cbp-hrsub-inner">
+
+                            <!--Brand.1-->
+                            <div>
+                                <h4>Trending</h4>
+                                <ul>
+                                    <li><a href="/brand/11/">Kielh's</a></li>
+                                    <li><a href="/brand/19/">Paula's Choice</a></li>
+                                    <li><a href="brand/9/">Thayer's</a></li>
+                                    <li><a href="/brand/21/">Cocoon</a></li>
+                                    <li><a href="/brand/23/">Huxley</a></li>
+                                    <li><a href="/brand/3/">The Ordinary</a></li>
+                                </ul>
+                            </div>
+
+                            <!--Brand.2-->
+                            <div>
+                                <h4>High-end</h4>
+                                <ul>
+                                    <li><a href="/brand/14/">Burberry</a></li>
+                                    <li><a href="/brand/25/">Lancome</a></li>
+                                    <li><a href="/brand/10/">Sulwhasoo</a></li>
+                                    <li><a href="/brand/1/">La Mer</a></li>
+                                    <li><a href="/brand/6/">Drunk Elephant</a></li>
+                                </ul>
+                            </div>
+
+                            <!--Brand.3-->
+                            <div>
+                                <h4>Drugstore</h4>
+                                <ul>
+                                    <li><a href="/brand/12/">Innisfree</a></li>
+                                    <li><a href="/brand/13/">Biore</a></li>
+                                    <li><a href="/brand/15/">Cetaphil</a></li>
+                                    <li><a href="/brand/16/">Cerave</a></li>
+                                    <li><a href="/brand/18/">DHC</a></li>
+                                    <li><a href="/brand/22/">Hada Labo</a></li>
+                                    <li><a href="/brand/33/">Senka</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- /cbp-hrsub-inner -->
+                    </div><!-- /cbp-hrsub -->
+                </li>
+
+                <!--Products-->
+                <li>
+                    <a class="Title" href="{% url 'product:product-list' %}">Products</a>
+                    <div class="cbp-hrsub">
+                        <div class="cbp-hrsub-inner">
+
+                            <!--Cleansing items-->
+                            <div>
+                                <h4>Cleansing</h4>
+                                <ul>
+                                    <li><a href="/product/1/">Bioderma Sébium H2O</a></li>
+                                    <li><a href="/product/3/">Ohui Miracle Moisture Cleansing Cream</a></li>
+                                    <li><a href="#">More</a></li>
+                                </ul>
+                                <h4>Cleanser</h4>
+                                <ul>
+                                    <li><a href="/product/4/">CeraVe Hydrating Facial Cleanser</a></li>
+                                    <li><a href="/product/5/">La Roche-Posay Toleriane Cleanser</a></li>
+                                    <li><a href="/product/6/">La Mer The Cleansing Oil</a></li>
+                                    <li><a href="#">More</a></li>
+                                </ul>
+                            </div>
+
+                            <!--Skincare Products-->
+                            <div>
+                                <h4>Toner</h4>
+                                <ul>
+                                    <li><a href="/product/7/">Thayers Alcohol – Free Witch Hazel</a></li>
+                                    <li><a href="/product/8">Huxley Toner Extract It</a></li>
+                                    <li><a href="#">More</a></li>
+                                </ul>
+                                <h4>Cream</h4>
+                                <ul>
+                                    <li><a href="/product/10/">Neutrogena Hydro Boost Water</a></li>
+                                    <li><a href="#">Klairs Rich Moist Soothing Cream</a></li>
+                                    <li><a href="/product/12">Innisfree Jeju Cherry Blossom Cream</a></li>
+                                    <li><a href="#">More</a></li>
+                                </ul>
+                            </div>
+
+                            <!--Suncare Products-->
+                            <div>
+                                <h4>Sun care</h4>
+                                <ul>
+                                    <li><a href="/product/9/">Senka Perfect UV Milk</a></li>
+                                    <li><a href="/product/43/">OMI Sun Bears Mild Gel SPF35 PA++++</a></li>
+                                    <li><a href="/product/11/">Biore UV Aqua Rich Watery Essence</a></li>
+                                    <li><a href="/product/33">BIODERMA PHOTODERM LASER SPF 50+ CREAM</a></li>
+                                    <li><a href="/product/13/">Innisfree Tone Up No Sebum Sunscreen</a></li>
+                                    <li><a href="#">More</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- /cbp-hrsub-inner -->
+                    </div><!-- /cbp-hrsub -->
+                </li>
+
+                <!--Recommend-->
+                <li>
+                    <a class="Title" href="{% url 'recommend' %}">Recommend</a>
+                </li>
+
+                <!--News-->
+                <li>
+                    <a class="Title" href="{% url 'news:news-list' %}">News</a>
+                </li>
+
+                <!--About-->
+                <li>
+                    <a class="Title" href="{% url 'about' %}">About</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--Body part-->
+    {% block content %}
+    {% endblock %}
+    <!--Javascript -->
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'product/js/header.js' %}"></script>
+    <script src="{% static 'product/js/add.js' %}" ></script>
+    <script>
+        $(function () {
+            cbpHorizontalMenu.init();
+        });
+    </script>
+    {% block javascript %}
+    {% endblock javascript %}
+
+    <!-- FOOTER -->
+    <footer class="footer-distributed">
+        <div class="footer-left">
+            <h3>Beautif</h3>
+            <p class="footer-links">
+                <a href="{% url 'homepage' %}" class="link-1">Home</a>
+                <a href="{% url 'product:product-list' %}">Products</a>
+                <a href="{% url 'brand:brand-list' %}">Brands</a>
+                <a href="{% url 'recommend' %}">Recommend</a>
+                <a href="{% url 'news:news-list' %}">News</a>
+            </p>
+            <p class="footer-company-name">Beautif © 2020s</p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>1 S. Han Thuyen</span> Thu Duc District, HCM City</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+84.985.144.467</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@beautif.com">support@beautif.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Life is short, so beautify yourself. Through skincare products, we will help you love yourself more
+                everyday.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>
