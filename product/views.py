@@ -95,8 +95,6 @@ def productDetail(request, product_id):
     #get product id
     productD = Product.objects.get(pk=product_id)
 
-    userCurrent = User.objects.get(username=request.user)
-
     # read all related comment in product
     comments = Comment.objects.all() 
     productComment = []
