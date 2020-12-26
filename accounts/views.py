@@ -56,7 +56,6 @@ def change_password(request):
     message = ''
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
-
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
@@ -67,8 +66,8 @@ def change_password(request):
     else:
         form = PasswordChangeForm(user=request.user)
 
-        args = {'form': form}
-        return render(request, 'accounts/change_password.html', args)
+    args = {'form': form, 'message': message}
+    return render(request, 'accounts/change_password.html', args)
 
  
 # View and Edit user Profile

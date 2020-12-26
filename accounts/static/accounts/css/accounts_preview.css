@@ -4,6 +4,11 @@ input[name="email"]{
 
 .signin-content {
     width: 1000px;
-    height: 620px;
+    height: 700px;
 
+}
+
+.change-password {
+    margin-top: 25px;
+    margin-left: 22px;
 }

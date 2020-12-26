@@ -61,7 +61,7 @@ def Homepage(request):
     for i in range(defineLength(brands, 4)):
         selectedBrand_1.append(brands[i])
 
-    for i in range(4, 5 + defineLength(brands, 4)):
+    for i in range(5, 5 + defineLength(brands, 4)):
         selectedBrand_2.append(brands[i])
 
     context = {
