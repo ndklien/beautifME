@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 import datetime
 from django.contrib.auth.models import User
+from django.conf import settings
 
 from brand.models import Brand
 
@@ -35,7 +36,7 @@ class Product(models.Model):
     # Spham phu hop voi loai da nao (da dau, da kho, v.v.)
     SKINTYPE_CHOICE = [
         ('DRY', 'Dry Skin'), 
-        ('OIL', 'Oliy Skin'),
+        ('OIL', 'Oily Skin'),
         ('COMBI', 'Combination Skin'),
         ('NORM', 'Normal Skin'),
         ('ALL', 'All Skin Type'),
@@ -82,7 +83,8 @@ class Comment(models.Model):
     product = models.ForeignKey('Product', on_delete=models.CASCADE) 
 
     #comment cua user nao
-    owner_comment = models.ForeignKey(User, on_delete=models.CASCADE)
+    # owner_comment = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner_comment = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     #Tua de cua comment
     title = models.CharField(max_length=255, blank=True, null=True)

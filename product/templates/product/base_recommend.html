@@ -11,34 +11,23 @@
 {% endblock header %}
 
 {% block content %}
+
 <div class="formRecommend">
-    <form action="" method="GET">
-        <!-- {{filterForm.form.as_p}}
-        <input type="submit" value="Recommend" class="buttonRecommend" /> -->
-        <table class="tableRecommend" cellspacings = "3">
-            <tr>
-                <td class="user">{{filterForm.form.skin_cond.label}}</td>
-                <td>
-                    <div>{{filterForm.form.skin_cond}}</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="user">{{filterForm.form.skintype.label}}</td>
-                <td>
-                    <div>{{filterForm.form.skintype}}</div>
-                </td>
-            </tr>
-            <tr height="50">
-                <td colspan="2" class="center">
-                    <input type="submit" value="Recommend" class="buttonRecommend" />
-                </td>
-            </tr>
-            <tr>
-                <td class="sayhello" colspan="2" ><label id="Sayhello"></label></td>
-            </tr>
-        </table>
-    </form>
+    <div class="recommend-content">
+        <div class="recommend-form">
+
+            <form method="GET">
+                <div class="form-group">
+                    <p>{{ filterForm.form.as_p }}</p>
+                </div>
+                <!-- Button Recommend -->
+                <input type="submit" class="submitButton" value="Recommend"/>
+            </form>
+
+        </div>
+    </div>
 </div>
+
 <div class="container">
     <div class="timeline">
         {# Cleanser List #}

@@ -1,8 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # views related
 from django.views import generic
 from . import views
+from .models import Product
+
+#class-based views
+from django.views import generic
+
+#search engine
+from django.db.models import Q
 
 #simple search ussing q
 from django.db.models import Q
@@ -13,11 +20,12 @@ from brand.models import Brand
 from news.models import News
 from django.contrib.auth.models import User
 
+from .forms import pushCommentForms
 from .filters import ProductFilter
 
 # Create your views here.
 
-""" Define number of objects preview on Home page """
+# """ Define number of objects preview on Home page """
 def defineLength(object, number):
     if len(object) < number:
         return len(object)
@@ -67,7 +75,7 @@ def Homepage(request):
 
     return render(request, 'product/base_home.html', context)
 
-"""Search toolbar"""
+# Search toolbar
 class SearchResults(generic.ListView):
     model = Product
     template_name = 'product/base_results.html'
@@ -91,21 +99,38 @@ class ProductListView(generic.ListView):
 
 """ Print product details """
 def productDetail(request, product_id):
-    product = Product.objects.get(pk=product_id)
+    #get product id
+    productD = Product.objects.get(pk=product_id)
+
+    # read all related comment in product
     comments = Comment.objects.all() 
     productComment = []
     for comment in comments:
         if comment.product_id == product_id:
             productComment.append(comment)
 
+    # Add new comment
+    commentForm = pushCommentForms()
+    message  = ''
+    if request.method == 'POST':
+        commentForm = pushCommentForms(request.POST, owner_comment=request.user, product=productD)
+        if commentForm.is_valid():
+            commentForm.save()
+            message = 'Push comment succeed.'
+            return redirect('product:product-detail', product_id)
+        else:
+            commentForm = pushCommentForms()
+            message = 'Push comment failed.'
+
     context = {
-        'product': product, #"""Sản phẩm"""
-        'comments': productComment #"""Bình luận của sản phẩm đó"""
+        'product': productD, 
+        'comments': productComment,
+        'new_comment': commentForm,
+        'message': message,
     }
     return render(request, 'product/base_productDetail.html', context)
 
 # recommend product
-
 def Recommend(request):
     if request.method == 'GET':
         cleanser = Product.objects.filter(category="CLEANSE")
