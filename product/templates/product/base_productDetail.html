@@ -30,8 +30,8 @@
         {% endif %}
 	</p> -->
 	<ul class="breadcrumb">
-		<li><a href="#">Home</a></li>
-		<li><a href="/product">Products</a></li>
+		<li><a href="{% url 'homepage' %}">Home</a></li>
+		<li><a href="{% url 'product:product-list' %}">Products</a></li>
 		<li>{{ product.product_name }}</li>
 	</ul>
     <div class="container">
