@@ -34,5 +34,6 @@ def BrandPList(request, brand_id):
 
     context = {
         'products': productSelected, 
+         'brand': brand,
     }
     return render(request, 'brand/base_brandPList.html', context)
