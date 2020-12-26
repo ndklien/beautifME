@@ -10,6 +10,7 @@
     <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> -->
     <link type="text/css" rel="stylesheet" href="{% static 'product/css/header.css' %}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    
     {% block header %}
     {% endblock header %}
 </head>
@@ -187,6 +188,7 @@
     {% block content %}
     {% endblock %}
     <!--Javascript -->
+    <script src="{% static 'product/js/add.js' %}"></script>
     <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'product/js/header.js' %}"></script>
@@ -195,6 +197,7 @@
             cbpHorizontalMenu.init();
         });
     </script>
+
     <!-- FOOTER -->
     <footer class="footer-distributed">
         <div class="footer-left">
