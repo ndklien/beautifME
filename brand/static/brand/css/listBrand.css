@@ -27,7 +27,9 @@
     text-transform:capitalize;
     margin:0 0 10px;
     transition:all .3s ease 0s}
-.product-grid6 .title a{color:#000}
+.product-grid6 .title a{
+  color:#2e86de;
+}
 .product-grid6 .title a:hover {
   color:#2e86de;
 }

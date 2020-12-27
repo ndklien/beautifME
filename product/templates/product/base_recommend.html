@@ -4,10 +4,10 @@
 
 {% block title %}Recommendation | {% endblock title %}
 {% block header %}
-<link type="text/css" rel="stylesheet" href="{% static 'product/css/recommend.css' %}">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'product/css/recommend.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock header %}
 
 {% block content %}
@@ -48,8 +48,8 @@
                             </div>
                             <div class="product-content">
                                 <h3 class="title">{{c.product_name}}</h3>
-                                <div class="price">${{c.price}}
-
+                                <div class="price">
+                                    ${{c.price}}
                                 </div>
                             </div>
                             <ul class="social">
@@ -57,6 +57,8 @@
                         </div>
                     </a>
                 </div>
+
+                
 
                 <!-- </li> -->
                 {% endfor %}
@@ -89,14 +91,11 @@
                             </div>
                             <div class="product-content">
                                 <h3 class="title">{{r.product_name}}</h3>
-                                <div class="price">${{r.price}}
-
+                                <div class="price">
+                                    ${{r.price}}
                                 </div>
                             </div>
-                            <ul class="social">
-
-                                <h3 class="title">{{c.product_name}}</h3>
-                            </ul>
+                            <ul class="social"></ul>
                         </div>
                     </a>
                 </div>
@@ -130,14 +129,11 @@
                             </div>
                             <div class="product-content">
                                 <h3 class="title">{{m.product_name}}</h3>
-                                <div class="price">${{m.price}}
-
+                                <div class="price">
+                                    ${{m.price}}
                                 </div>
                             </div>
-                            <ul class="social">
-
-                                <h3 class="title">{{m.product_name}}</h3>
-                            </ul>
+                            <ul class="social"></ul>
                         </div>
                     </a>
                 </div>
@@ -165,14 +161,11 @@
                             </div>
                             <div class="product-content">
                                 <h3 class="title">{{s.product_name}}</h3>
-                                <div class="price">${{s.price}}
-
+                                <div class="price">
+                                    ${{s.price}}
                                 </div>
                             </div>
-                            <ul class="social">
-
-                                <h3 class="title">{{s.product_name}}</h3>
-                            </ul>
+                            <ul class="social"></ul>
                         </div>
                     </a>
                 </div>

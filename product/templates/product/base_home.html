@@ -37,7 +37,7 @@
 
 </div>
 
-<br/>
+<br />
 
 <div style="text-align:center">
     <span class="dot" onclick="currentSlide(1)"></span>
@@ -158,27 +158,7 @@
                 <div class="item active">
                     <div class="row">
                         {% for brand in brandList1|slice:"4" %}
-                        <a href="/brand/{{ brand.id }}">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="product-grid6">
-                                    <div class="product-image6">
-                                        <img class="pic-1" src="{{ brand.brand_img.url }}">
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title">{{brand.get_branding_name_display}}</h3>
-                                        <ul class="social">
-                                            <h3 class="title">{{brand.get_branding_name_display}}</h3>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="row">
-                        {% for brand in brandList2|slice:"4" %}
+
                         <a href="/brand/{{ brand.id }}">
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
@@ -196,13 +176,39 @@
                                 </div>
                             </div>
                         </a>
+
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        {% for brand in brandList2|slice:"4" %}
+
+                        <a href="/brand/{{ brand.id }}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid6">
+                                    <div class="product-image6">
+
+                                        <img class="pic-1" src="{{ brand.brand_img.url }}">
+
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title">{{ brand.get_branding_name_display }}</h3>
+                                    </div>
+                                    <ul class="social">
+                                        <h3 class="title">{{ brand.get_branding_name_display}}</h3>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+
                         {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-     
-        
+
+
     </div>
 </div>
 <!-- Hot News -->
@@ -278,8 +284,8 @@
                 </div>
             </div>
         </div>
-  
-        
+
+
     </div>
 </div>
 {% endblock content %}
