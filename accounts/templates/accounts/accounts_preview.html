@@ -4,6 +4,9 @@
 {% block header %}
 <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
 <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/accounts_preview.css' %}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock header %}
 
 {% block title %} Accounts | {% endblock %}
@@ -28,7 +31,6 @@
                         <!-- Change password -->
                         <p class="change-password">Want to change your password? <a href="{% url 'change_password' %}">Click here</a></p>
                     </form>
-                    <p><a href="{% url 'change_password' %}" >Change password.</a></p>
                 </div>
             </div>
         </div>
