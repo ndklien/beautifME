@@ -59,9 +59,10 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            message = "Change password succeed."
+            message = 'Change password succeed.'
         else:
-            message = "Change password failed."
+            form = PasswordChangeForm(user=request.user)
+            message = 'Change password failed.'
     else:
         form = PasswordChangeForm(user=request.user)
 
