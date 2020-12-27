@@ -31,12 +31,13 @@
                         <!-- Change password -->
                         <p class="change-password">Want to change your password? <a href="{% url 'change_password' %}">Click here</a></p>
                     </form>
+                    <div class="message_notification">
+                        {{ message }}
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="message_notification">
-            {{ message }}
-        </div>
+
     {% else %}
         <p>Please login to continue.</p>
     {% endif %}
