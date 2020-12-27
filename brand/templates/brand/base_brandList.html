@@ -11,7 +11,6 @@
 {% endblock header %}
 {% block content %}
 
-
 <ul class="breadcrumb">
     <li><a href="{% url 'homepage' %}">Home</a></li>
     <li><a href="{% url 'brand:brand-list' %}">Brand</a></li>
@@ -41,7 +40,7 @@
     </div>
 </div>
 
-<div class="productPagination" >
+<div class="productPagination">
     <span>
         {% if page_obj.has_previous %}
         <a href="?page=1" class="space">&laquo; First</a>
