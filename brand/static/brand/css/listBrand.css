@@ -28,10 +28,23 @@
     margin:0 0 10px;
     transition:all .3s ease 0s}
 .product-grid6 .title a{color:#000}
-.product-grid6 .title a:hover{color:#2e86de}
-.product-grid6 .price{font-size:18px;font-weight:600;color:#2e86de}
-.product-grid6 .price span{color:rgb(138, 103, 103);font-size:15px;font-weight:400;text-decoration:line-through;margin-left:7px;display:inline-block}
-.product-grid6 .social{
+.product-grid6 .title a:hover {
+  color:#2e86de;
+}
+.product-grid6 .price {
+  font-size:18px;
+  font-weight:600;
+  color:#2e86de
+}
+.product-grid6 .price span {
+  color:rgb(138, 103, 103);
+  font-size:15px
+  ;font-weight:400;
+  text-decoration:line-through;
+  margin-left:7px;
+  display:inline-block
+}
+.product-grid6 .social {
     background-color:#fff;
     width:25%;padding:0;
     margin:0;
@@ -80,8 +93,10 @@ ul.breadcrumb {
     list-style: none;
     border-radius: .25rem;
     /* padding: 10px auto; */
-    padding-left: 600px;
+    /* padding-left: 480px; */
+    justify-content: center;
   }
+
 .space{
       padding-left: 5px;
       padding-right: 5px;
