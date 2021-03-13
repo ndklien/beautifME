@@ -8,6 +8,10 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--Metadata tags-->
+<meta name="news_article_id" content="{{ current_news.id }}" />
+
+<meta name="description" property="og:description" content='{{ current_news.summary }}' />
 {% endblock header %}
 {% block content %}
 {% if current_news %}
@@ -16,7 +20,7 @@
             <p class="time">{{current_news.pub_date}}</p>
             <img class="detail_img" src="{{ current_news.news_img.url }}">
             <p class="sumary">{{current_news.summary}}</p>
-            <div class="detail_content">{{current_news.content}}</div>
+            <div class="detail_content">{{current_news.content|safe}}</div>
         </div>
     {% endif %}
 {% endblock content %}

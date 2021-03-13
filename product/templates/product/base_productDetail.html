@@ -16,19 +16,22 @@
 	<!-- comment -->
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light-glow/all.min.css" />
+
+	<!--Meta data -->
+	<!--Meta keywords-->
+	<meta name="keywords" content="highend, high-end, high end, skincare, skin care"/>
+    <meta name="keywords" content="blemish, discoloration, dermatologist, recommend, Cruelty-free, Non-irritating, sensitive, dark spots, dullness, uneven skin" />
+    <meta name="keywords" content="AHA, vitamin C"/>
+    <meta name="keywords" content="oily, dry, combination, acne prone, normal skin, aging skin, 30s, 20s, wrinkle, anti-aging" />
+	<!--end Meta keywords-->
+	<meta name="description" content="{{ product.summary }}"/>
+	<meta name="product_article_id" content="{{ product.id }}" />
+    <meta charset="UTF-8"/>
+	<!--end Meta data-->
 {% endblock header %}
 
 
 {% block content %}
-    <!-- <h1>{{ product }}</h1>
-    <p>{{ comments }}</p>
-    <p>
-        {% if user.is_authenticated %}
-        <input type="text" />
-        {% else %}
-        <p>You're not logged in. Click here to <a href="{% url 'login' %}?next={{ request.path }}">Login</a></p>
-        {% endif %}
-	</p> -->
 	<ul class="breadcrumb">
 		<li><a href="{% url 'homepage' %}">Home</a></li>
 		<li><a href="{% url 'product:product-list' %}">Products</a></li>
@@ -82,7 +85,7 @@
 				<li>Description</li>
 			</ul>
 			<div>
-				{{ product.description }}
+				{{ product.description |safe }}
 			</div>
 		</div>
 		

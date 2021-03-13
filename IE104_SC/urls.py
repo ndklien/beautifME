@@ -19,6 +19,16 @@ import product.views as productV, news.views as newsV, accounts.views as account
 import brand.views as Brand
 
 from django.contrib.auth import views as authV
+
+from django.contrib.sitemaps.views import sitemap
+from sitemaps import ProductSitemap, NewsSitemap
+
+sitemaps = {
+    'ProductSitemap': ProductSitemap,
+    'NewsSitemap': NewsSitemap,
+}
+
+
 urlpatterns = [
     path('', productV.Homepage, name='homepage'),
     path('admin/', admin.site.urls),
@@ -34,4 +44,10 @@ urlpatterns = [
     path('recommend/', productV.Recommend, name='recommend'),
     path('change_password/',accountV.change_password, name='change_password'),
     path('about/', accountV.aboutView, name='about'),
+
+    #rich text field
+    path('djrichtextfield/', include('djrichtextfield.urls')), 
+
+    #sitemap
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]

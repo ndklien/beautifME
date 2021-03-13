@@ -3,8 +3,11 @@ from django.utils import timezone
 import datetime
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.urls import reverse
 
 from brand.models import Brand
+
+from djrichtextfield.models import RichTextField
 
 #pip install Pillow for image import
 
@@ -13,16 +16,16 @@ from brand.models import Brand
 
 class Product(models.Model):
     # Ten spham
-    product_name = models.CharField(max_length=50, blank=False, null=False)
+    product_name = models.CharField(max_length=30, blank=False, null=False)
 
     #ten hang KEY 3 CHU DAU
     brand = models.ForeignKey('brand.Brand', on_delete=models.CASCADE)
 
     #tom tat spham
-    summary = models.CharField(max_length=100, blank=False, null=False)
+    summary = models.CharField(max_length=155, blank=False, null=False)
 
     # Giai thich ve spham
-    description = models.TextField()
+    description = RichTextField()
 
     #dung tich san pham
     product_size_in_ml = models.IntegerField(default=0, null=False) 
@@ -75,6 +78,9 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.product_name)
+
+    def get_absolute_url(self):
+        return reverse('product:product-detail', args=[str(self.id)])
 
 
 

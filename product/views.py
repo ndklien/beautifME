@@ -37,11 +37,11 @@ def Homepage(request):
     products = Product.objects.all()
     selectedProd_1 = []
     selectedProd_2 = []
-    for i in range(defineLength(products, 4)):
-        selectedProd_1.append(products[i])
+    # for i in range(defineLength(products, 4)):
+    #     selectedProd_1.append(products[i])
     
-    for i in range(5, 5 + defineLength(products, 4)):
-        selectedProd_2.append(products[i])
+    # for i in range(5, 5 + defineLength(products, 4)):
+    #     selectedProd_2.append(products[i])
 
     """ News """
     news = News.objects.all()
@@ -58,11 +58,11 @@ def Homepage(request):
     brands = Brand.objects.all()
     selectedBrand_1 = []
     selectedBrand_2 = []
-    for i in range(defineLength(brands, 4)):
-        selectedBrand_1.append(brands[i])
+    # for i in range(defineLength(brands, 4)):
+    #     selectedBrand_1.append(brands[i])
 
-    for i in range(5, 5 + defineLength(brands, 4)):
-        selectedBrand_2.append(brands[i])
+    # for i in range(5, 5 + defineLength(brands, 4)):
+    #     selectedBrand_2.append(brands[i])
 
     context = {
         'productList1': selectedProd_1,
@@ -162,7 +162,7 @@ def Recommend(request):
     
     return render(request, 'product/base_recommend.html', context)
 
-""" Hiển thị bốn sản phẩm trong recommend """
+# """ Hiển thị bốn sản phẩm trong recommend """
 def Recommend_result(result):
     arr = []
     count = 0

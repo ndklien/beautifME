@@ -2,7 +2,7 @@
 {% load icons %}
 
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 
 <head>
     <title>{% block title %}{% endblock title %} Beautif</title>
@@ -10,6 +10,35 @@
     <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> -->
     <link type="text/css" rel="stylesheet" href="{% static 'product/css/header.css' %}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Responsive website settings -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta charset="UTF-8" />
+
+    <!--Meta for Facebook-->
+    <meta property='og:site_name' content="beautifme.herokuapp.com" />
+    <meta property='og:rich_attachment' content="true" />
+    <meta property='og:type' content="website" />
+    <meta property='og:url' itemprop="url" content="https://beautifme.herokuapp.com"/>
+    <!--Website Logo-->
+    <meta property='og:image' itemprop="thumbnailUrl" content="" /> 
+    <meta property='og:image:width' content="" />
+    <meta property='og:image:height' content="" />
+    <!--end Website Logo-->
+    <meta content="beautifME - beauty in your way" itemprop="headline" property="og:title" />
+    <meta content="" itemprop="description" property="og:description" content=""/>
+    <!--end Meta for Facebook-->
+    <meta name="copyright" content="beautifME" />
+    <meta name="author" content="beautifME"/>
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.placename" content="Ho Chi Minh, Viet Nam" />
+    <meta name="geo.region" content="VN-HCM" />
+    <meta name="revist-after" content="days" />
+    <!--Google Search Metadata-->
+    <script src="https://www.googletagservices.com/activeview/js/current/osd.js?cb=%2Fr20100101"></script>
+    <script src="https://pagead2.googlesyndication.com/pagead/show_companion_ad.js"></script>
+    <script type="text/javascript" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" src="https://www.google-analytics.com/gtm/js?id=GTM-P5FWR6V&t=gtm7&cid=1609759502.1583754373" ></script>
+    {{ form.media }}
     {% block header %}
     {% endblock header %}
 
