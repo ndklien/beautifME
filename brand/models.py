@@ -1,4 +1,6 @@
 from django.db import models
+from django.template.defaultfilters import slugify
+
 
 # Create your models here.
 class Brand(models.Model):
@@ -56,5 +58,11 @@ class Brand(models.Model):
 
     brandDescript = models.TextField()
 
+    #slugField for brandname endpoint
+    slug = models.SlugField(max_length=30, unique=True)
+
     def __str__(self):
         return self.branding_name
+
+    def slug(self):
+        return slugify(self.branding_name)

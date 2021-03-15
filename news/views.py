@@ -15,7 +15,7 @@ class NewsListView(generic.ListView):
 
 
 """ One Article preview """
-def NewsDetail(request, news_id):
+def NewsDetail(request, news_id, slug):
     current_news = News.objects.get(pk=news_id)
     context = {
         'current_news': current_news,
