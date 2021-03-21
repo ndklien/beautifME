@@ -32,7 +32,7 @@ class Product(models.Model):
     product_size_in_ml = models.IntegerField(default=0, null=False) 
 
     #hinh minh hoa spham
-    product_img = models.ImageField(upload_to='product/static/product/images/')
+    product_img = models.ImageField(upload_to='product/images/')
 
     # Gia spham
     price = models.FloatField(default=0)
