@@ -48,11 +48,11 @@ def Homepage(request):
     selectedNews_1 = []
     selectedNews_2 = []
 
-    for i in range(defineLength(news, 4)):
-        selectedNews_1.append(news[i])
+    # for i in range(defineLength(news, 4)):
+    #     selectedNews_1.append(news[i])
 
-    for i in range(5, 5 + defineLength(news, 4)):
-        selectedNews_2.append(news[i])
+    # for i in range(5, 5 + defineLength(news, 4)):
+    #     selectedNews_2.append(news[i])
 
     """ Brand """
     brands = Brand.objects.all()

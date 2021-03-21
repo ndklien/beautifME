@@ -28,7 +28,8 @@ SECRET_KEY = '-gy#@j8=v*gv6*jaf)+i3190c(lbbs&zd^8#v297u3v=c(sb_n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['beautif-app.herokuapp.com', '127.0.0.1', 'beautifme.herokuapp.com']
+ALLOWED_HOSTS = ['beautif-app.herokuapp.com',
+                 '127.0.0.1', 'beautifme.herokuapp.com']
 
 # '127.0.0.1'
 
@@ -113,15 +114,15 @@ if 'RDS_HOSTNAME' in os.environ:
             'PORT': os.environ['RDS_PORT'],
         }
     }
-else: 
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'postgres',
-            'USER': 'postgres', 
-            'PASSWORD': 'L', 
+            'USER': 'postgres',
+            'PASSWORD': 'L',
             'HOST': 'localhost',
-            'PORT': '5432', 
+            'PORT': '5432',
         }
     }
 
@@ -203,14 +204,24 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 #STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-#Django Rich text field configuration
+# Django Rich text field configuration
 DJRICHTEXTFIELD_CONFIG = {
     'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
     'init_template': 'djrichtextfield/init/tinymce.js',
     'settings': {
         'menubar': False,
-        'plugins': 'link image',
-        'toolbar': 'bold italic | link image | removeformat',
-        'width': 700
+        'plugins': 'link image table code',
+        'toolbar': 'bold italic underline | link image | removeformat | formatselect | code',
+        'width': 1200,
+    },
+    'profiles': {
+        'basic': {
+            'toolbar': 'bold italic | removeformat'
+        },
+        'advanced': {
+            'plugins': 'link image table code',
+            'toolbar': 'formatselect | bold italic | removeformat |'
+            ' link unlink image table | code'
+        }
     }
 }
