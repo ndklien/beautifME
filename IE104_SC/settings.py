@@ -129,9 +129,6 @@ else:
 
 """ Localhost database PostgresSQL on PgAdmin4 """
 
-# DATABASES = { 'default': }
-
-
 # Allocate database
 AWS_S3_HOST = 'S3.ap-southeast-1.amazonaws.com'
 AWS_S3_REGION_NAME = 'ap-southeast-1'
