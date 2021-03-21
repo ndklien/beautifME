@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # views related
 from django.views import generic
@@ -98,7 +98,7 @@ class ProductListView(generic.ListView):
         return Product.objects.all()
 
 """ Print product details """
-def productDetail(request, product_id):
+def productDetail(request, product_id, slug):
     #get product id
     productD = Product.objects.get(pk=product_id)
 

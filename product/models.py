@@ -8,6 +8,7 @@ from django.urls import reverse
 from brand.models import Brand
 
 from djrichtextfield.models import RichTextField
+from django.template.defaultfilters import slugify
 
 #pip install Pillow for image import
 
@@ -16,7 +17,7 @@ from djrichtextfield.models import RichTextField
 
 class Product(models.Model):
     # Ten spham
-    product_name = models.CharField(max_length=30, blank=False, null=False)
+    product_name = models.CharField(max_length=80, blank=False, null=False)
 
     #ten hang KEY 3 CHU DAU
     brand = models.ForeignKey('brand.Brand', on_delete=models.CASCADE)
@@ -31,7 +32,7 @@ class Product(models.Model):
     product_size_in_ml = models.IntegerField(default=0, null=False) 
 
     #hinh minh hoa spham
-    product_img = models.ImageField(upload_to='product/images/')
+    product_img = models.ImageField(upload_to='product/static/product/images/')
 
     # Gia spham
     price = models.FloatField(default=0)
@@ -76,13 +77,17 @@ class Product(models.Model):
     vote_down = models.IntegerField(default=0)
     vote_up = models.IntegerField(default=0)
 
+    #slugField for endpoint
+    slug = models.SlugField(max_length=40, unique=True)
+
     def __str__(self):
         return str(self.product_name)
 
     def get_absolute_url(self):
         return reverse('product:product-detail', args=[str(self.id)])
 
-
+    def slug(self):
+        return slugify(self.product_name)
 
 class Comment(models.Model):
     #comment thuoc product nao

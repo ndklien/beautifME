@@ -24,7 +24,7 @@ class BrandList(generic.ListView):
         
         
 """Print all product in xxx brand """
-def BrandPList(request, brand_id):
+def BrandPList(request, brand_id, slug):
     brand = Brand.objects.get(pk=brand_id)
     products = Product.objects.all()
     productSelected = []
