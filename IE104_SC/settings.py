@@ -101,50 +101,33 @@ WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 # }
 
 """ Localhost database through PgAdmin 4 - Postgres """
-# if 'RDS_HOSTNAME' in os.environ:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': os.environ['RDS_DB_NAME'],
-#             'USER': os.environ['RDS_USERNAME'],
-#             'PASSWORD': os.environ['RDS_PASSWORD'],
-#             'HOST': os.environ['RDS_HOSTNAME'],
-#             'PORT': os.environ['RDS_PORT'],
-#         }
-#     }
-# else: 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres', 
-        'PASSWORD': 'L', 
-        'HOST': 'localhost',
-        'PORT': '5432', 
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            # 'NAME': os.environ['RDS_DB_NAME'],
+            'NAME': 'postgres',
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
+else: 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres', 
+            'PASSWORD': 'L', 
+            'HOST': 'localhost',
+            'PORT': '5432', 
+        }
+    }
 
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 """ Localhost database PostgresSQL on PgAdmin4 """
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         # 'NAME': os.environ['RDS_DB_NAME'],
-#         "NAME": 'live-beautif',
-#         "USER": 'beautifme',
-#         "PASSWORD": 'Uit.ie104',
-#         "HOST": "beautifme-db-1.c3b2gkv51s9z.ap-southeast-1.rds.amazonaws.com", 
-#         "PORT": "5432",
-#         # "USER": os.environ['RDS_USERNAME'],
-#         # "PASSWORD": os.environ['RDS_PASSWORD'],
-#         # "HOST": os.environ['RDS_HOSTNAME'],
-#         # "PORT": os.environ['RDS_PORT'],
-#     }
-# }
-
-
-
 
 # DATABASES = { 'default': }
 
