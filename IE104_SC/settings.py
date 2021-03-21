@@ -28,7 +28,7 @@ SECRET_KEY = '-gy#@j8=v*gv6*jaf)+i3190c(lbbs&zd^8#v297u3v=c(sb_n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['beautif-app.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['beautif-app.herokuapp.com', '127.0.0.1', 'beautifme.herokuapp.com']
 
 # '127.0.0.1'
 
