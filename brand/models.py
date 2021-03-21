@@ -41,6 +41,11 @@ class Brand(models.Model):
         ('ORD', 'The Ordinary'),
         ('GLO', 'Glossier'),
         ('BDM', 'Bioderma'),
+        ('OLA', 'Olay'),
+        ('SKC', 'SkinCeuticals'), 
+        ('CAU', 'Caudalie'),
+        ('ALG', 'Algenist'),
+        ('NO7', 'No7'),
     ]
 
     branding_name = models.CharField(max_length=3, choices=BRANDING)
