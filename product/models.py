@@ -23,7 +23,7 @@ class Product(models.Model):
     brand = models.ForeignKey('brand.Brand', on_delete=models.CASCADE)
 
     #tom tat spham
-    summary = models.CharField(max_length=155, blank=False, null=False)
+    summary = models.CharField(max_length=300, blank=False, null=False)
 
     # Giai thich ve spham
     description = RichTextField()
