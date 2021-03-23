@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{{ product }} | {% endblock title %}
+{% block title %}{{ product }} | {{ product.brand.get_branding_name_display }} | {% endblock title %}
 {% block header %}
 	<link type="text/css" rel="stylesheet" href="{% static 'product/css/productDetail.css' %}">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -18,6 +18,11 @@
 	<link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light-glow/all.min.css" />
 
 	<!--Meta data -->
+	<!--Meta OpenGraph-->
+	<meta name="og:site_name" content="beautifME beautifme" />
+	<meta name="og:description" content="{{ product.summary }}" />
+	<meta name="og:title" content="{{ product }} | {{ product.brand.get_branding_name_display }}"/>
+	<meta name="og:url" content="https://beautifme.herokuapp.com/product/{{ product.id }}/{{ product.slug }}"/>
 	<!--Meta keywords-->
 	<meta name="keywords" content="highend, high-end, high end, skincare, skin care"/>
     <meta name="keywords" content="blemish, discoloration, dermatologist, recommend, Cruelty-free, Non-irritating, sensitive, dark spots, dullness, uneven skin" />
