@@ -117,7 +117,7 @@ def productDetail(request, product_id, slug):
         if commentForm.is_valid():
             commentForm.save()
             message = 'Push comment succeed.'
-            return redirect('product:product-detail', product_id)
+            return redirect('product:product-detail', product_id, slug)
         else:
             commentForm = pushCommentForms()
             message = 'Push comment failed.'
