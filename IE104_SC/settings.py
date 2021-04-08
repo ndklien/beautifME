@@ -12,8 +12,14 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import json
 
 import dj_database_url
+
+#Ubuntu Server configuration file
+
+with open('/etc/config.json') as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,13 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-gy#@j8=v*gv6*jaf)+i3190c(lbbs&zd^8#v297u3v=c(sb_n'
+SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['beautifme.com',
-                 '35.240.190.111', 'beautifme.herokuapp.com']
+ALLOWED_HOSTS = ['34.126.64.164']
 
 # '127.0.0.1'
 
@@ -102,16 +107,15 @@ WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 # }
 
 """ Localhost database through PgAdmin 4 - Postgres """
-if 'RDS_HOSTNAME' in os.environ:
+if 'RDS_HOSTNAME' in config:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            # 'NAME': os.environ['RDS_DB_NAME'],
-            'NAME': 'postgres',
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
+            'NAME': config['RDS_DB_NAME'],
+            'USER': config['RDS_USERNAME'],
+            'PASSWORD': config['RDS_PASSWORD'],
+            'HOST': config['RDS_HOSTNAME'],
+            'PORT': config['RDS_PORT'],
         }
     }
 else:
@@ -194,8 +198,8 @@ DJANGO_ICONS = {
 
 # S3 BUCKET CONFIG
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_ACCESS_KEY_ID = config['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = config['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'beautifme'
 
 AWS_S3_FILE_OVERWRITE = False
