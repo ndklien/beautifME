@@ -18,8 +18,7 @@ import dj_database_url
 
 #Ubuntu Server configuration file
 
-with open('/etc/config.json') as config_file:
-    config = json.load(config_file)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,12 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['SECRET_KEY']
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['34.126.64.164']
+ALLOWED_HOSTS = ['34.126.64.164', '127.0.0.1']
 
 # '127.0.0.1'
 
@@ -59,6 +58,7 @@ INSTALLED_APPS = [
     'django_icons',
     'storages',
     'djrichtextfield',
+    'multiselectfield',
 ]
 
 SITE_ID = 1
@@ -107,7 +107,25 @@ WSGI_APPLICATION = 'IE104_SC.wsgi.application'
 # }
 
 """ Localhost database through PgAdmin 4 - Postgres """
-if 'RDS_HOSTNAME' in config:
+if 'RDS_HOSTNAME' in os.environ:
+    SECRET_KEY = os.environ['BEAUTIF_SECRETKEY']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    }
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+elif 'RDS_HOSTNAME' in config:
+    SECRET_KEY = config['SECRET_KEY']
+    with open('/etc/config.json') as config_file:
+        config = json.load(config_file)
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -118,15 +136,13 @@ if 'RDS_HOSTNAME' in config:
             'PORT': config['RDS_PORT'],
         }
     }
+    AWS_ACCESS_KEY_ID = config['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = config['AWS_SECRET_ACCESS_KEY']
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'PASSWORD': 'L',
-            'HOST': 'localhost',
-            'PORT': '5432',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 
@@ -197,9 +213,6 @@ DJANGO_ICONS = {
 }
 
 # S3 BUCKET CONFIG
-
-AWS_ACCESS_KEY_ID = config['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = config['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'beautifme'
 
 AWS_S3_FILE_OVERWRITE = False
@@ -229,3 +242,4 @@ DJRICHTEXTFIELD_CONFIG = {
         }
     }
 }
+

@@ -8,7 +8,7 @@ class ProductFilter(django_filters.FilterSet):
     class Meta:
         model = Product
         fields = [
-            'skin_cond', 'skintype'
+            'skinCondition', 'skinType'
         ]
     def __init__(self, *args, **kwargs):
         super(ProductFilter, self).__init__(*args, **kwargs)

@@ -10,9 +10,40 @@ from brand.models import Brand
 from djrichtextfield.models import RichTextField
 from django.template.defaultfilters import slugify
 
+# Multiple Choice Field
+from multiselectfield import MultiSelectField
+
 #pip install Pillow for image import
 
 # Create your models here.
+
+SKINCOND_CHOICE = (
+    ('SEN', 'Sensitive Skin'),
+    ('ACNE', 'Acne Skin'), 
+    ('AGE', 'Aging Skin'),
+)
+
+CATEGORY_CHOICE = (
+    ('MAKEUP_RM', 'Makeup Remover'),
+    ('CLEANSE', 'Cleanser'),
+    ('TONER', 'Toner'),
+    ('SERUM', 'Serum'),
+    ('MOIST', 'Moisturizer'),
+    ('LOTION', 'Lotion'),
+    ('MASK', 'Mask'),
+    ('EYE', 'Eye Care'),
+    ('SUN', 'Sun Care'),
+    ('EXFOL', 'Exfoliators'),
+    ('LIP', 'Lip Treatment'),
+)
+
+SKINTYPE_CHOICE = (
+    ('DRY', 'Dry Skin'), 
+    ('OIL', 'Oily Skin'),
+    ('COMBI', 'Combination Skin'),
+    ('NORM', 'Normal Skin'),
+    # ('ALL', 'All Skin Type'),
+)
 
 
 class Product(models.Model):
@@ -35,43 +66,16 @@ class Product(models.Model):
     product_img = models.ImageField(upload_to='product/images/')
 
     # Gia spham
-    price = models.FloatField(default=0)
+    price = models.CharField(default=0, max_length=7)
 
     # Spham phu hop voi loai da nao (da dau, da kho, v.v.)
-    SKINTYPE_CHOICE = [
-        ('DRY', 'Dry Skin'), 
-        ('OIL', 'Oily Skin'),
-        ('COMBI', 'Combination Skin'),
-        ('NORM', 'Normal Skin'),
-        ('ALL', 'All Skin Type'),
-    ]
-
-    skintype = models.CharField(max_length=5, choices=SKINTYPE_CHOICE)
+    skinType = MultiSelectField(choices=SKINTYPE_CHOICE, null=True, blank=True)
 
     # Spham phu hop voi tinh trang da nao (bi mun, lao hoa, v.v.)
-    SKINCOND_CHOICE = [
-        ('SEN', 'Sensitive Skin'),
-        ('ACNE', 'Acne Skin'), 
-        ('AGE', 'Aging Skin'),
-    ]
-
-    skin_cond = models.CharField(max_length=5, choices=SKINCOND_CHOICE, null=True, blank=True)
+    skinCondition = MultiSelectField(choices=SKINCOND_CHOICE, null=True, blank=True)
 
     # Loai san pham: SRM, Toner, v.v.
-    CATEGORY_CHOICE = [
-        ('MAKEUP_RM', 'Makeup Remover'),
-        ('CLEANSE', 'Cleanser'),
-        ('TONER', 'Toner'),
-        ('SERUM', 'Serum'),
-        ('MOIST', 'Moisturizer'),
-        ('LOTION', 'Lotion'),
-        ('MASK', 'Mask'),
-        ('EYE', 'Eye Care'),
-        ('SUN', 'Sun Care'),
-        ('EXFOL', 'Exfoliators'),
-        ('LIP', 'Lip Treatment'),
-    ]
-    category = models.CharField(max_length=10, choices=CATEGORY_CHOICE)
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICE, blank=True, null=True)
 
     # Binh chon yeu/ghet spham
     vote_down = models.IntegerField(default=0)
