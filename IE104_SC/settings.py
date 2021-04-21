@@ -48,10 +48,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    
     'news.apps.NewsConfig',
     'product.apps.ProductConfig',
     'accounts.apps.AccountsConfig',
     'brand.apps.BrandConfig',
+    
     'django_filters',
     'bootstrap',
     'fontawesome',
