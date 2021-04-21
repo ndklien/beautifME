@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{{ product }} | {{ product.brand.get_branding_name_display }} | {% endblock title %}
+{% block title %}{{ product }} | {{ product.brand.branding_name }} | {% endblock title %}
 {% block header %}
 	<link type="text/css" rel="stylesheet" href="{% static 'product/css/productDetail.css' %}">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 	<!--Meta OpenGraph-->
 	<meta name="og:site_name" content="beautifME beautifme" />
 	<meta name="og:description" content="{{ product.summary }}" />
-	<meta name="og:title" content="{{ product }} | {{ product.brand.get_branding_name_display }}"/>
+	<meta name="og:title" content="{{ product }} | {{ product.brand.branding_name }}"/>
 	<meta name="og:url" content="https://beautifme.herokuapp.com/product/{{ product.id }}/{{ product.slug }}"/>
 	<!--Meta keywords-->
 	<meta name="keywords" content="highend, high-end, high end, skincare, skin care"/>
@@ -75,10 +75,10 @@
 							<span class="size" data-toggle="tooltip" title="small">{{ product.product_size_in_ml }} ml</span>
 						</h5>
 						<h5 class="sizes">Skin type:
-							<span class="size" data-toggle="tooltip" title="small">{{ product.get_skintype_display }}</span>
+							<span class="size" data-toggle="tooltip" title="small">{{ product.skinType }}</span>
 						</h5>
 						<h5 class="sizes">Skin condition:
-							<span class="size" data-toggle="tooltip" title="small">{{ product.get_skin_cond_display }}</span>
+							<span class="size" data-toggle="tooltip" title="small">{{ product.skinCondition }}</span>
 						</h5>
 
 					</div>
@@ -90,7 +90,7 @@
 				<li>Description</li>
 			</ul>
 			<div>
-				{{ product.description |safe }}
+				{{ product.description | safe }}
 			</div>
 		</div>
 		
