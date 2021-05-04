@@ -26,10 +26,16 @@ from sitemaps import ProductSitemap, NewsSitemap
 # Django Summernote
 from django.conf import settings
 from django.conf.urls.static import static
+# Rich Text Field
+
+# Sitemaps
+from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import views
+from django.views.decorators.cache import cache_page
 
 sitemaps = {
-    'ProductSitemap': ProductSitemap,
-    'NewsSitemap': NewsSitemap,
+    'product': ProductSitemap,
+    'news': NewsSitemap,
 }
 
 
@@ -38,21 +44,27 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('product/', include('product.urls')), 
     path('news/', include('news.urls')),
+    path('brand/', include('brand.urls')),
+
+    # Authentication
     path('accounts/', include('django.contrib.auth.urls')),
     path('account/', include('accounts.urls')),
     path('logout/', accountV.LogoutView.as_view(), name='logout'),
     path('register/', accountV.registration, name='register'),
     path('login/', authV.LoginView.as_view(template_name="accounts/login.html"), name='login'),
-    path('search/', productV.SearchResults.as_view(), name='search_results'),
-    path('brand/', include('brand.urls')),
-    path('recommend/', productV.Recommend, name='recommend'),
     path('change_password/',accountV.change_password, name='change_password'),
+
+    # Others
+    path('search/', productV.SearchResults.as_view(), name='search_results'),
+    path('recommend/', productV.Recommend, name='recommend'),
     path('about/', accountV.aboutView, name='about'),
 
-    #rich text field
+    # rich text field
     path('summernote/', include('django_summernote.urls')),
-    #sitemap
-    # path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
+    # sitemap
+    path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('site-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 if settings.DEBUG:

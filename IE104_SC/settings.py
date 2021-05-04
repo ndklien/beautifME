@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'storages',
     'multiselectfield',
     'django_summernote',
+    'djrichtextfield',
 ]
 
 SITE_ID = 1
@@ -74,6 +75,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+
+    # Caching whole page
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'IE104_SC.urls'
@@ -254,3 +260,17 @@ DJRICHTEXTFIELD_CONFIG = {
     }
 }
 
+# Cache
+CACHE = {
+    'default' : {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+        'TIMEOUT': '4000',
+        'OPTIONS': {
+            'MAX_ENTRIES'
+        }
+    }
+}
+
+# Session Cache
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
