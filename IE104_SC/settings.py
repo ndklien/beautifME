@@ -59,8 +59,8 @@ INSTALLED_APPS = [
     'fontawesome',
     'django_icons',
     'storages',
-    'djrichtextfield',
     'multiselectfield',
+    'django_summernote',
 ]
 
 SITE_ID = 1
@@ -192,6 +192,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# Staticfiles configuration
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
@@ -199,6 +201,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# Media configuration
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 LOGOUT_REDIRECT_URL = '/'
 
