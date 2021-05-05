@@ -109,7 +109,7 @@ media/
 *.db
 *.pid
 
-/IE104_SC/settings/local
+/IE104_SC/settings/local.py
 
 # Ignore Django Migrations in Development if you are working on team
 
