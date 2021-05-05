@@ -4,7 +4,7 @@
 
 {% block title %}Home | {% endblock title %}
 {% block header %}
-<link type="text/css" rel="stylesheet" href="{% static 'product/css/base_home.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'product/css/base_home.css' %}" />
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -164,7 +164,7 @@
                                 <div class="product-grid6">
                                     <div class="product-image6">
 
-                                        <img class="pic-1" src="{{ brand.brand_img.url }}">
+                                        <img class="pic-1" src="{{ brand.brandImage.url }}">
 
                                     </div>
                                     <div class="product-content">
@@ -189,14 +189,14 @@
                                 <div class="product-grid6">
                                     <div class="product-image6">
 
-                                        <img class="pic-1" src="{{ brand.brand_img.url }}">
+                                        <img class="pic-1" src="{{ brand.brandImage.url }}">
 
                                     </div>
                                     <div class="product-content">
-                                        <h3 class="title">{{ brand.get_branding_name_display }}</h3>
+                                        <h3 class="title">{{ brand.branding_name }}</h3>
                                     </div>
                                     <ul class="social">
-                                        <h3 class="title">{{ brand.get_branding_name_display}}</h3>
+                                        <h3 class="title">{{ brand.branding_name}}</h3>
                                     </ul>
                                 </div>
                             </div>

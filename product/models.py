@@ -7,12 +7,12 @@ from django.urls import reverse
 
 from brand.models import Brand
 
-from djrichtextfield.models import RichTextField
 from django.template.defaultfilters import slugify
 
 # Multiple Choice Field
 from multiselectfield import MultiSelectField
-
+# Rich Text Field
+from djrichtextfield.models import RichTextField
 #pip install Pillow for image import
 
 # Create your models here.

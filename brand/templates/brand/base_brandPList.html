@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{{ brand.get_branding_name_display }} | {% endblock title %}
+{% block title %}{{ brand.branding_name }} | {% endblock title %}
 {% block header %}
 <link type="text/css" rel="stylesheet" href="{% static 'product/css/listProduct.css' %}">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -14,11 +14,11 @@
 <ul class="breadcrumb">
     <li><a href="{% url 'homepage' %}">Home</a></li>
     <li><a href="{% url 'brand:brand-list' %}">Brand</a></li>
-    <li>{{ brand.get_branding_name_display }}</li>
+    <li>{{ brand.branding_name }}</li>
 </ul>
 
 <div class="container">
-    <h3 class="h3">{{ brand.get_branding_name_display }} </h3>
+    <h3 class="h3">{{ brand.branding_name }} </h3>
     <hr />
     <div class="row">
         {% for product in products %}

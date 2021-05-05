@@ -1,10 +1,11 @@
 from django.db import models
 import datetime
 from django.utils import timezone
-from djrichtextfield.models import RichTextField
 from django.template.defaultfilters import slugify
 
 from django.urls import reverse
+# Rich Text Field
+from djrichtextfield.models import RichTextField
 
 # Create your models here.
 class News(models.Model):
