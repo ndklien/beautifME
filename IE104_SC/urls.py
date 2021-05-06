@@ -23,9 +23,6 @@ from django.contrib.auth import views as authV
 from django.contrib.sitemaps.views import sitemap
 from sitemaps import ProductSitemap, NewsSitemap
 
-# Django Summernote
-from django.conf import settings
-from django.conf.urls.static import static
 # Rich Text Field
 
 # Sitemaps
@@ -60,12 +57,11 @@ urlpatterns = [
     path('about/', accountV.aboutView, name='about'),
 
     # rich text field
-    path('summernote/', include('django_summernote.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
     # sitemap
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('site-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

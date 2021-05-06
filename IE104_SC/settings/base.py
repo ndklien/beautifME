@@ -18,7 +18,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
-# '127.0.0.1'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Application definition
 
@@ -39,11 +39,9 @@ INSTALLED_APPS = [
     
     'django_filters',
     'bootstrap',
-    'fontawesome',
     'django_icons',
     'storages',
     'multiselectfield',
-    'django_summernote',
     'djrichtextfield',
 ]
 
