@@ -24,7 +24,8 @@ class News(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('news:news-detail', args=[str(self.id)])
+        slug = slugify(self.title)
+        return reverse('news:news-detail', args=[str(self.id), slug])
 
     def slug(self):
         return slugify(self.title)
