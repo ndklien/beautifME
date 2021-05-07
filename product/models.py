@@ -88,7 +88,9 @@ class Product(models.Model):
         return str(self.product_name)
 
     def get_absolute_url(self):
-        return reverse('product:product-detail', args=[str(self.id)])
+        slug = slugify(self.product_name)
+        return reverse('product:product-detail', args=[str(self.id), slug])
+        #return reverse('product:product-detail', args=[str(self.id)])
 
     def slug(self):
         return slugify(self.product_name)
