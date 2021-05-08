@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'storages',
     'multiselectfield',
     'djrichtextfield',
+    'ckeditor',
 ]
 
 SITE_ID = 1
@@ -133,6 +134,12 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+
+# CK Editor
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'static'),

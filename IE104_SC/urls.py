@@ -58,10 +58,11 @@ urlpatterns = [
 
     # rich text field
     path('djrichtextfield/', include('djrichtextfield.urls')),
+    # path('ckeditor/', include('ckeditor.urls')),
     # sitemap
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('site-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 # if settings.DEBUG:
-    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
