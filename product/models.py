@@ -12,8 +12,12 @@ from django.template.defaultfilters import slugify
 # Multiple Choice Field
 from multiselectfield import MultiSelectField
 # Rich Text Field
-from djrichtextfield.models import RichTextField
+from ckeditor.fields import RichTextField
+#from djrichtextfield.models import RichTextField
 #pip install Pillow for image import
+
+# CK Editor
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -57,7 +61,8 @@ class Product(models.Model):
     summary = models.CharField(max_length=300, blank=False, null=False)
 
     # Giai thich ve spham
-    description = RichTextField()
+    #description = RichTextField()
+    description = RichTextField(blank=True, null=True)
 
     #dung tich san pham
     product_size_in_ml = models.IntegerField(default=0, null=False) 

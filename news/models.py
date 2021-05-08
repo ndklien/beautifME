@@ -5,7 +5,8 @@ from django.template.defaultfilters import slugify
 
 from django.urls import reverse
 # Rich Text Field
-from djrichtextfield.models import RichTextField
+# from djrichtextfield.models import RichTextField
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class News(models.Model):
@@ -15,7 +16,7 @@ class News(models.Model):
     news_img = models.ImageField(upload_to='news/static/news/images/')
     pub_date = models.DateField(auto_now_add=True)
     summary = models.TextField(max_length=250)
-    content = RichTextField()
+    content = RichTextField(null=True, blank=True)
 
     #slugField for news endpoint
     slug = models.SlugField(max_length=40, unique=True)
