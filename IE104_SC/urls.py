@@ -18,6 +18,11 @@ from django.urls import path, include
 import product.views as productV, news.views as newsV, accounts.views as accountV
 import brand.views as Brand
 
+# Media and Ckeditor
+from django.conf.urls.static import static
+from IE104_SC import settings
+import os
+
 from django.contrib.auth import views as authV
 
 from django.contrib.sitemaps.views import sitemap
@@ -29,6 +34,7 @@ from sitemaps import ProductSitemap, NewsSitemap
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import views
 from django.views.decorators.cache import cache_page
+
 
 sitemaps = {
     'product': ProductSitemap,
@@ -58,7 +64,8 @@ urlpatterns = [
 
     # rich text field
     path('djrichtextfield/', include('djrichtextfield.urls')),
-    # path('ckeditor/', include('ckeditor.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+
     # sitemap
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('site-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
@@ -66,3 +73,5 @@ urlpatterns = [
 
 # if settings.DEBUG:
 #    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# + static(settings.base.MEDIA_URL, document_root=settings.base.MEDIA_ROOT)
+urlpatterns += static(settings.base.MEDIA_URL, document_root=settings.base.MEDIA_ROOT)
