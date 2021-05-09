@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'djrichtextfield',
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 SITE_ID = 1
@@ -59,9 +60,9 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # Caching whole page
-    'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'IE104_SC.urls'
@@ -135,22 +136,30 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
-# CK Editor
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-
 STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'static'),
 )
 
 # Media configuration
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 MEDIA_URL = '/media/'
+# MEDIA_ROOT = 'media/'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+# CK Editor
+CKEDITOR_UPLOAD_PATH = "ckeditor"
+# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
+
+AWS_QUERYSTRING_AUTH = False
+
+# CKEDITOR_IMAGE_BACKEND = 'pillow'
+# CKEDITOR_FORCE_JPEG_COMPRESSION = True
+# CKEDITOR_BROWSE_SHOW_DIRS = True
+
+# CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 LOGOUT_REDIRECT_URL = '/'
 
@@ -210,4 +219,4 @@ CACHE = {
 }
 
 # Session Cache
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
