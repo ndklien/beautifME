@@ -142,7 +142,7 @@ STATICFILES_DIR = (
 
 # Media configuration
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = 'media/'
@@ -153,7 +153,7 @@ CKEDITOR_UPLOAD_PATH = "ckeditor"
 # CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
 
-AWS_QUERYSTRING_AUTH = False
+AWS_QUERYSTRING_AUTH = True
 
 # CKEDITOR_IMAGE_BACKEND = 'pillow'
 # CKEDITOR_FORCE_JPEG_COMPRESSION = True
