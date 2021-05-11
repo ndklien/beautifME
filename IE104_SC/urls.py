@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 import product.views as productV, news.views as newsV, accounts.views as accountV
 import brand.views as Brand
 
@@ -69,7 +69,11 @@ urlpatterns = [
     # sitemap
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('site-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
 ]
+
+# if settings.dev.DEBUG:
+#     urlpatterns += [re_path('djga/', include('google_analytics.urls')),]
 
 # if settings.DEBUG:
 #    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

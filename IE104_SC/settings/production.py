@@ -11,6 +11,15 @@ with open('/etc/config.json') as config_file:
 
 SECRET_KEY = config['SECRET_KEY']
 
+INSTALLED_APPS += [
+    "google_analytics",
+]
+
+MIDDLEWARE += [
+    # Google Analytics
+    'google_analytics.middleware.GoogleAnalyticsMiddleware',   
+]
+
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
