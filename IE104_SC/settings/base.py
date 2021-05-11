@@ -150,7 +150,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # CK Editor
 CKEDITOR_UPLOAD_PATH = "ckeditor"
-# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+# CKEDITOR_BASEPATH = "/staticfiles/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
 
 AWS_QUERYSTRING_AUTH = True
