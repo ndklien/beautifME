@@ -117,3 +117,7 @@ media/
 !**/migrations/__init__.py
 IE104_SC/settings/local.py
 staticfiles/
+
+#Run environment
+manage.py
+IE104_SC/settings/__init__.py
