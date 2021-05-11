@@ -11,14 +11,14 @@ with open('/etc/config.json') as config_file:
 
 SECRET_KEY = config['SECRET_KEY']
 
-INSTALLED_APPS += [
-    "google_analytics",
-]
+# INSTALLED_APPS += [
+#     "google_analytics",
+# ]
 
-MIDDLEWARE += [
-    # Google Analytics
-    'google_analytics.middleware.GoogleAnalyticsMiddleware',   
-]
+# MIDDLEWARE += [
+#     # Google Analytics
+#     'google_analytics.middleware.GoogleAnalyticsMiddleware',   
+# ]
 
 DATABASES = {
         'default': {
@@ -34,11 +34,11 @@ DATABASES = {
 AWS_ACCESS_KEY_ID = config['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = config['AWS_SECRET_ACCESS_KEY']
 
-# Google Analytics
-GOOGLE_ANALYTICS = {
-    'google_analytics_id': 'G-RBDFR7443J',
-}
+# # Google Analytics
+# GOOGLE_ANALYTICS = {
+#     'google_analytics_id': 'G-RBDFR7443J',
+# }
 
-# Celery
-CELERY_IMPORTS = ('google_analytics.tasks')
-GOOGLE_ANALYTICS_IGNORE_PATH = ['/account/', '/admin/', ]
+# # Celery
+# CELERY_IMPORTS = ('google_analytics.tasks')
+# GOOGLE_ANALYTICS_IGNORE_PATH = ['/account/', '/admin/', ]
