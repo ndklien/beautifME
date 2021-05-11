@@ -222,3 +222,12 @@ CACHE = {
 
 # Session Cache
 # SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
+# CkEditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'toolbar': 'full',
+        # 'height': 300,
+        # 'width': 1000,
+    },
+}
