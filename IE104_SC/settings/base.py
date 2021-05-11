@@ -137,7 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIR = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'staticfiles'),
 )
 
 # Media configuration
@@ -150,7 +150,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # CK Editor
 CKEDITOR_UPLOAD_PATH = "ckeditor"
-# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+# CKEDITOR_BASEPATH = "/staticfiles/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
 
 AWS_QUERYSTRING_AUTH = True
