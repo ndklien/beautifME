@@ -26,7 +26,7 @@ import os
 from django.contrib.auth import views as authV
 
 from django.contrib.sitemaps.views import sitemap
-from sitemaps import ProductSitemap, NewsSitemap
+from sitemaps import ProductSitemap, NewsSitemap, StaticSitemap
 
 # Rich Text Field
 
@@ -39,6 +39,7 @@ from django.views.decorators.cache import cache_page
 sitemaps = {
     'product': ProductSitemap,
     'news': NewsSitemap,
+    'static': StaticSitemap,
 }
 
 

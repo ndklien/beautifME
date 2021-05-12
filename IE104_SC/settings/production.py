@@ -34,11 +34,11 @@ DATABASES = {
 AWS_ACCESS_KEY_ID = config['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = config['AWS_SECRET_ACCESS_KEY']
 
-# # Google Analytics
+# Google Analytics
 # GOOGLE_ANALYTICS = {
 #     'google_analytics_id': 'G-RBDFR7443J',
 # }
 
-# # Celery
+# Celery
 # CELERY_IMPORTS = ('google_analytics.tasks')
 # GOOGLE_ANALYTICS_IGNORE_PATH = ['/account/', '/admin/', ]
