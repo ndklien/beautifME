@@ -84,7 +84,8 @@ class SearchResults(generic.ListView):
         query = self.request.GET.get('q')
         return Product.objects.filter(
             Q(product_name__icontains=query) |
-            Q(description__icontains=query)
+            Q(description__icontains=query) |
+            Q(brand__branding_name__icontains=query)
         )
 
 """ Print all products """
