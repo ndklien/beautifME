@@ -20,14 +20,13 @@ class News(models.Model):
     content = RichTextUploadingField(null=True, blank=True)
 
     #slugField for news endpoint
-    slug = models.SlugField(max_length=40, unique=True)
+    slug = models.CharField(max_length=100, unique=True, null=True)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        slug = slugify(self.title)
-        return reverse('news:news-detail', args=[str(self.id), slug])
+        return reverse('news:news-detail', args=[str(self.id), self.slug])
 
-    def slug(self):
-        return slugify(self.title)
+    # def slug(self):
+    #     return slugify(self.slug)
