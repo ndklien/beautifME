@@ -14,7 +14,7 @@ from news.urls import urlpatterns as newsUrls
 
 class StaticSitemap(sitemaps.Sitemap):
     changefreq = 'never'
-    priority = 0.5
+    priority = 0.9
     protocol = 'https'
 
     def items(self):
@@ -26,7 +26,7 @@ class StaticSitemap(sitemaps.Sitemap):
 
 class ProductSitemap(sitemaps.Sitemap):
     changefreq = 'daily'
-    priority = 0.8
+    priority = 0.7
     protocol = 'https'
 
     def items(self):
