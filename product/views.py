@@ -9,7 +9,7 @@ from .models import Product
 from django.views import generic
 
 #search engine
-from django.db.models import Q
+from django.db.models import Q, query
 
 #simple search ussing q
 from django.db.models import Q
@@ -83,7 +83,7 @@ class ProductListView(generic.ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        return Product.objects.all()
+        return Product.objects.order_by("product_name")
 
 """ Print product details """
 def productDetail(request, product_id, slug):
@@ -121,34 +121,30 @@ def productDetail(request, product_id, slug):
 # Recommend product
 def Recommend(request):
     if request.method == 'GET':
-        cleanser = Product.objects.filter(category="CLEANSE")
-        remover = Product.objects.filter(category="MAKEUP_RM")
-        moist = Product.objects.filter(category="MOIST")
-        sun = Product.objects.filter(category="SUN")
+        removerFilter = ProductFilter(request.GET, queryset=Product.objects.filter(category="MAKEUP_RM"))
+        cleanserFilter = ProductFilter(request.GET, queryset=Product.objects.filter(category="CLEANSE"))
+        lotionFilter = ProductFilter(request.GET, queryset=Product.objects.filter(category="LOTION"))
+        moistFilter = ProductFilter(request.GET, queryset=Product.objects.filter(category="MOIST"))
+        sunFilter = ProductFilter(request.GET, queryset=Product.objects.filter(category="SUN")) 
 
-        cleanserFilter = ProductFilter(request.GET, queryset=cleanser)
-        removerFilter = ProductFilter(request.GET, queryset=remover)
-        moistFilter = ProductFilter(request.GET, queryset=moist)
-        sunFilter = ProductFilter(request.GET, queryset=sun) 
+        filterForm = ProductFilter(request.GET, queryset=Product.objects.all())
 
-        cleanserArr = Recommend_result(cleanserFilter)
-                
-        removerArr = Recommend_result(removerFilter)
-                
-        moistArr = Recommend_result(moistFilter)
-
-        sunArr = Recommend_result(sunFilter)
+        # cleanserArr = Recommend_result(cleanserFilter)
+        # removerArr = Recommend_result(removerFilter)
+        # moistArr = Recommend_result(moistFilter)
+        # sunArr = Recommend_result(sunFilter)
                 
         context = {
-            'filterForm': cleanserFilter,
-            'cleanserArr': cleanserArr,
-            'removerArr': removerArr,
-            'moistArr': moistArr,
-            'sunArr': sunArr,
-            
-            }
+            'filterForm': filterForm,
+            'removerQ': removerFilter.qs,
+            'cleanserQ': cleanserFilter.qs,
+            'lotionQ': lotionFilter.qs,
+            'moistQ': moistFilter.qs,
+            'sunscreenQ': sunFilter.qs,
+        }
     
     return render(request, 'product/base_recommend.html', context)
+
 
 # """ Hiển thị bốn sản phẩm trong recommend """
 def Recommend_result(result):

@@ -88,7 +88,7 @@ ul.breadcrumb {
     color: #0275d8;
     text-decoration: none;
   }
-.productPagination{
+.brandPagination{
     display: flex;
     list-style: none;
     border-radius: .25rem;
@@ -100,4 +100,4 @@ ul.breadcrumb {
 .space{
       padding-left: 5px;
       padding-right: 5px;
-  }
+}

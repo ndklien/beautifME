@@ -10,6 +10,7 @@
     <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> -->
     <link type="text/css" rel="stylesheet" href="{% static 'product/css/header.css' %}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <!-- Responsive website settings -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta charset="UTF-8" />
@@ -20,9 +21,9 @@
     <meta property='og:type' content="website" />
     <meta property='og:url' itemprop="url" content="https://www.beautifme.com"/>
     <!--Website Logo-->
-    <meta property='og:image' itemprop="thumbnailUrl" content="" /> 
-    <meta property='og:image:width' content="" />
-    <meta property='og:image:height' content="" />
+    <meta property='og:image' itemprop="thumbnailUrl" content="{% static '/product/img/Artboard.png' %}" /> 
+    <meta property='og:image:width' content="960" />
+    <meta property='og:image:height' content="540" />
     <!--end Website Logo-->
     <meta content="beautifME - beauty in your way" itemprop="headline" property="og:title" />
     <meta itemprop="description" property="og:description" content="Recommend skincare routine"/>
@@ -53,7 +54,7 @@
         <!--Logo -->
         <div class="logo">
             <a href="/">
-                <img class="imglogo" src="/static/product/img/Artboard%201%400.5x.png" />
+                <img class="imglogo" src="{% static '/product/img/Artboard.png' %}" />
             </a>
         </div>
 
@@ -91,9 +92,13 @@
     <!--End Header part-->
 
 
-    <div>
+    <div class="menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
-
+            <div>
+                <a for="check" class="icon">
+                    <i href="javascript:void(0);" class="fa fa-bars" onclick="myFunction()"&#9776; ></i>
+                </a>
+            </div>
             <!--Vertical Menu-->
             <ul>
 
@@ -107,12 +112,9 @@
                             <div>
                                 <h4>Trending</h4>
                                 <ul>
-                                    <li><a href="/brand/1/">Kielh's</a></li>
-                                    <li><a href="/brand/17/">Paula's Choice</a></li>
-                                    <li><a href="brand/12/">Thayer's</a></li>
-                                    <li><a href="/brand/18/">Cocoon</a></li>
-                                    <li><a href="/brand/29/">Huxley</a></li>
-                                    <li><a href="/brand/5/">The Ordinary</a></li>
+                                    {% for brand in trending|slice:"6" %}
+                                    <li><a href="brand/{{ brand.id}}/{{ brand.slug }}"></a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
 
@@ -228,6 +230,7 @@
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'product/js/header.js' %}"></script>
     <script type="text/javascript" src="{% static 'product/js/add.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'product/js/responsive.js' %}"></script>
     <script>
         $(function () {
             cbpHorizontalMenu.init();
@@ -270,8 +273,6 @@
             </p>
             <div class="footer-icons">
                 <a href="https://www.facebook.com/beautifME"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
                 <a href="https://github.com/ndklien/beautifME"><i class="fa fa-github"></i></a>
             </div>
         </div>
