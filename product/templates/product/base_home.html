@@ -55,11 +55,11 @@
         <div class="row">
             <div class="col-md-9">
                 <h3>
-                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span>
-                    Hot Products
-                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span>
+                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span> -->
+                    HOT PRODUCTS
+                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span> -->
                 </h3>
             </div>
             <div class="col-md-3">
@@ -74,24 +74,24 @@
         <hr>
         <div id="carousel-example1" class="carousel slide hidden-xs" data-ride="carousel">
             <!-- Wrapper for slides -->
+            {% for pList in productList %}
             <div class="carousel-inner">
+                {% if forloop.first %}
                 <div class="item active">
                     <div class="row">
-                        {% for product in productList1|slice:"4" %}
-                        <a href="/product/{{ product.id }}">
+                        {% for product in pList %}
+                        <a href="/product/{{ product.id }}/{{ product.slug }}">
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-
                                         <img class="pic-1" src="{{ product.product_img.url }}">
-
                                     </div>
                                     <div class="product-content">
-                                        <h3 class="title">{{product.product_name}}</h3>
-                                        <div class="price">${{product.price}}</div>
+                                        <h3 class="title">{{ product.product_name }}</h3>
+                                        <div class="price">${{ product.price }}</div>
                                     </div>
                                     <ul class="social">
-                                        <h3 class="title">{{product.product_name}}</h3>
+                                        <h3 class="title">{{ product.product_name }}</h3>
                                     </ul>
                                 </div>
                             </div>
@@ -99,33 +99,33 @@
                         {% endfor %}
                     </div>
                 </div>
+                {% else %}
                 <div class="item">
                     <div class="row">
-                        {%for product in productList2|slice:"4"%}
-                        <a href="/product/{{ product.id }}">
+                        {% for product in pList %}
+                        <a href="/product/{{ product.id }}/{{ product.slug }}">
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-
                                         <img class="pic-1" src="{{ product.product_img.url }}">
-
                                     </div>
                                     <div class="product-content">
-                                        <h3 class="title">{{product.product_name}}</h3>
-                                        <div class="price">${{product.price}}
+                                        <h3 class="title">{{ product.product_name }}</h3>
+                                        <div class="price">${{ product.price }}
                                         </div>
                                     </div>
                                     <ul class="social">
-                                        <h3 class="title">{{product.product_name}}</h3>
+                                        <h3 class="title">{{ product.product_name }}</h3>
                                     </ul>
                                 </div>
                             </div>
                         </a>
                         {% endfor %}
-
                     </div>
                 </div>
+                {% endif %}
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -135,11 +135,11 @@
         <div class="row">
             <div class="col-md-9">
                 <h3>
-                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span>
-                    Hot Brands
-                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span>
+                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span> -->
+                    HOT BRANDS
+                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span> -->
                 </h3>
             </div>
             <div class="col-md-3">
@@ -154,18 +154,17 @@
         <hr>
         <div id="carousel-example2" class="carousel slide hidden-xs" data-ride="carousel">
             <!-- Wrapper for slides -->
+            {% for bList in brandList %}
             <div class="carousel-inner">
+                {% if forloop.first %}
                 <div class="item active">
                     <div class="row">
-                        {% for brand in brandList1|slice:"4" %}
-
-                        <a href="/brand/{{ brand.id }}">
+                        {% for brand in bList %}
+                        <a href="/brand/{{ brand.id }}/{{ brand.slug }}">
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-
                                         <img class="pic-1" src="{{ brand.brandImage.url }}">
-
                                     </div>
                                     <div class="product-content">
                                         <h3 class="title">{{ brand.get_branding_name_display }}</h3>
@@ -176,21 +175,18 @@
                                 </div>
                             </div>
                         </a>
-
                         {% endfor %}
                     </div>
                 </div>
+                {% else %}
                 <div class="item">
                     <div class="row">
-                        {% for brand in brandList2|slice:"4" %}
-
-                        <a href="/brand/{{ brand.id }}">
+                        {% for brand in bList %}
+                        <a href="/brand/{{ brand.id }}/{{ brand.slug }}">
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-
                                         <img class="pic-1" src="{{ brand.brandImage.url }}">
-
                                     </div>
                                     <div class="product-content">
                                         <h3 class="title">{{ brand.branding_name }}</h3>
@@ -201,11 +197,12 @@
                                 </div>
                             </div>
                         </a>
-
                         {% endfor %}
                     </div>
                 </div>
+                {% endif %}
             </div>
+            {% endfor %}
         </div>
 
 
@@ -217,11 +214,11 @@
         <div class="row">
             <div class="col-md-9">
                 <h3>
-                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span>
-                    Hot News
-                    <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span>
+                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span> -->
+                    HOT NEWS
+                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
+                        style="width: 30px; height: 30px;"></span> -->
                 </h3>
             </div>
             <div class="col-md-3">
@@ -236,20 +233,22 @@
         <hr>
         <div id="carousel-example3" class="carousel slide hidden-xs" data-ride="carousel">
             <!-- Wrapper for slides -->
+            {% for nList in newsList %}
             <div class="carousel-inner">
+                {% if forloop.first %}
                 <div class="item active">
                     <div class="row">
-                        {% for news in newsList1 %}
-                        <a href="/news/{{ news.id }}">
+                        {% for news in nList %}
+                        <a href="/news/{{ news.id }}/{{ news.slug }}">
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
                                         <img class="pic-1" src="{{ news.news_img.url }}">
                                     </div>
                                     <div class="product-content">
-                                        <h3 class="title">{{news.title}}</h3>
+                                        <h3 class="title">{{ news.title }}</h3>
                                         <ul class="social">
-                                            <h3 class="title">{{news.title}}</h3>
+                                            <h3 class="title">{{ news.title }}</h3>
                                         </ul>
                                     </div>
                                 </div>
@@ -258,31 +257,32 @@
                         {% endfor %}
                     </div>
                 </div>
+                {% else %}
                 <div class="item">
                     <div class="row">
-                        {% for news in newsList2 %}
-                        <a href="/news/{{ news.id }}">
+                        {% for news in nList %}
+                        <a href="/news/{{ news.id }}/{{ news.slug }}">
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-
                                         <img class="pic-1" src="{{ news.news_img.url }}">
-
                                     </div>
                                     <div class="product-content">
-                                        <h3 class="title">{{news.title}}</h3>
+                                        <h3 class="title">{{ news.title }}</h3>
                                     </div>
                                     <ul class="social">
-                                        <h3 class="title">{{news.title}}</h3>
+                                        <h3 class="title">{{ news.title }}</h3>
                                     </ul>
                                 </div>
                             </div>
                         </a>
                         {% endfor %}
-
                     </div>
                 </div>
+                {% endif %}
+            
             </div>
+            {% endfor %}
         </div>
 
 

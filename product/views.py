@@ -25,55 +25,42 @@ from .filters import ProductFilter
 
 # Create your views here.
 
-# """ Define number of objects preview on Home page """
-def defineLength(object, number):
-    if len(object) < number:
-        return len(object)
-    else:
-        return number
-
+# Home page queries
 def Homepage(request):
     """ Products """
-    products = Product.objects.all()
-    selectedProd_1 = []
-    selectedProd_2 = []
-    # for i in range(defineLength(products, 4)):
-    #     selectedProd_1.append(products[i])
-    
-    # for i in range(5, 5 + defineLength(products, 4)):
-    #     selectedProd_2.append(products[i])
-
+    productsLength = len(Product.objects.all())
+    products = []
+    for p in range(productsLength, productsLength-8, -4):
+        products.append(Product.objects.all()[p-4:p])
     """ News """
-    news = News.objects.all()
-    selectedNews_1 = []
-    selectedNews_2 = []
 
-    # for i in range(defineLength(news, 4)):
-    #     selectedNews_1.append(news[i])
-
-    # for i in range(5, 5 + defineLength(news, 4)):
-    #     selectedNews_2.append(news[i])
-
+    news = []
+    for n in range(0, 8, 4):
+        news.append(News.objects.order_by('-pub_date')[n: n+4])
     """ Brand """
-    brands = Brand.objects.all()
-    selectedBrand_1 = []
-    selectedBrand_2 = []
-    # for i in range(defineLength(brands, 4)):
-    #     selectedBrand_1.append(brands[i])
-
-    # for i in range(5, 5 + defineLength(brands, 4)):
-    #     selectedBrand_2.append(brands[i])
+    brands = []
+    for b in range(0, 8, 4):
+        brands.append(Brand.objects.filter(brandCategory__contains='TREN')[b: b+4])
 
     context = {
-        'productList1': selectedProd_1,
-        'productList2': selectedProd_2,
-        'newsList1': selectedNews_1,
-        'newsList2': selectedNews_2,
-        'brandList1': selectedBrand_1,
-        'brandList2': selectedBrand_2,
+        'productList': products,
+        'newsList': news,
+        'brandList': brands,
     }
 
     return render(request, 'product/base_home.html', context)
+
+def navbarQueries(request):
+    trendBrand = Brand.objects.filter(brandCategory__contains="TREN")
+    highendBrand = Brand.objects.filter(brandCategory__contains="HIGH")
+    drugstoreBrand = Brand.objects.filter(brandCategory__contains="DRUG")
+
+    context = {
+        'trending': trendBrand,
+        'highend': highendBrand,
+        'drugstore': drugstoreBrand,
+    }
+    return render(request, 'product/base.html', context)
 
 # Search toolbar
 class SearchResults(generic.ListView):
@@ -131,7 +118,7 @@ def productDetail(request, product_id, slug):
     }
     return render(request, 'product/base_productDetail.html', context)
 
-# recommend product
+# Recommend product
 def Recommend(request):
     if request.method == 'GET':
         cleanser = Product.objects.filter(category="CLEANSE")
