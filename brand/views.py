@@ -14,13 +14,8 @@ class BrandList(generic.ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        brands = Brand.objects.all()
+        brands = Brand.objects.order_by("branding_name")
         return brands
-        """ brandsNameArr = []
-        for brand in brands:
-            name = brand.get_branding_name_display()
-            brandsNameArr.append(name)
-        return brandsNameArr """
         
         
 """Print all product in xxx brand """

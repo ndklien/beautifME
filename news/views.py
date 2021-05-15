@@ -10,8 +10,9 @@ class NewsListView(generic.ListView):
     model = News
     template_name = 'news/base_newsList.html'
     context_object_name = 'news_list'
+    paginate_by = 5
     def get_queryset(self):
-        return News.objects.all()
+        return News.objects.order_by('-pub_date')
 
 
 """ One Article preview """

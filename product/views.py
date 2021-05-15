@@ -83,7 +83,7 @@ class ProductListView(generic.ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        return Product.objects.all()
+        return Product.objects.order_by("product_name")
 
 """ Print product details """
 def productDetail(request, product_id, slug):
