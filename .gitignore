@@ -109,11 +109,15 @@ media/
 *.db
 *.pid
 
-/IE104_SC/settings/local.py
-
 # Ignore Django Migrations in Development if you are working on team
 
 # Only for Development only
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+IE104_SC/settings/local.py
+staticfiles/
+
+#Run environment
+manage.py
+IE104_SC/settings/__init__.py

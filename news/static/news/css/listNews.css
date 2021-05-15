@@ -17,8 +17,8 @@
 }
 .img{
     width: 90%;
-    height: 170px;
-    padding-top: 15px;
+    /* height: 170px; */
+    padding: 15px;
 }
 .infor{
     width: 75%;

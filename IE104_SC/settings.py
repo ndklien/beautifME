@@ -56,11 +56,9 @@ INSTALLED_APPS = [
     
     'django_filters',
     'bootstrap',
-    'fontawesome',
     'django_icons',
     'storages',
     'multiselectfield',
-    'django_summernote',
     'djrichtextfield',
 ]
 

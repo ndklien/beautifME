@@ -4,7 +4,9 @@
 
 {% block title %}{{ current_news }} | {% endblock title %}
 {% block header %}
-<link type="text/css" rel="stylesheet" href="{% static 'news/css/listNews.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'news/css/listNews.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'news/css/detailNews.css' %}" />
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,6 +20,7 @@
         <div class="listnews">
             <p class="detail_title">{{current_news.title}}</p>
             <p class="time">{{current_news.pub_date}}</p>
+            <p class="news-author">By {{ current_news.author }}</p>
             <img class="detail_img" src="{{ current_news.news_img.url }}">
             <p class="sumary">{{current_news.summary}}</p>
             <div class="detail_content">{{current_news.content|safe}}</div>

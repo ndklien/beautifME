@@ -12,8 +12,13 @@ from django.template.defaultfilters import slugify
 # Multiple Choice Field
 from multiselectfield import MultiSelectField
 # Rich Text Field
-from djrichtextfield.models import RichTextField
+# from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+# from djrichtextfield.models import RichTextField
 #pip install Pillow for image import
+
+# CK Editor
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -54,10 +59,11 @@ class Product(models.Model):
     brand = models.ForeignKey('brand.Brand', on_delete=models.CASCADE)
 
     #tom tat spham
-    summary = models.CharField(max_length=300, blank=False, null=False)
+    summary = models.TextField(max_length=300, blank=False, null=False)
 
     # Giai thich ve spham
-    description = RichTextField()
+    #description = RichTextField()
+    description = RichTextUploadingField(blank=True, null=True)
 
     #dung tich san pham
     product_size_in_ml = models.IntegerField(default=0, null=False) 
@@ -88,7 +94,9 @@ class Product(models.Model):
         return str(self.product_name)
 
     def get_absolute_url(self):
-        return reverse('product:product-detail', args=[str(self.id)])
+        slug = slugify(self.product_name)
+        return reverse('product:product-detail', args=[str(self.id), slug])
+        #return reverse('product:product-detail', args=[str(self.id)])
 
     def slug(self):
         return slugify(self.product_name)

@@ -18,7 +18,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
-# '127.0.0.1'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Application definition
 
@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     
     'django_filters',
     'bootstrap',
-    'fontawesome',
     'django_icons',
     'storages',
     'multiselectfield',
-    'django_summernote',
     'djrichtextfield',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 SITE_ID = 1
@@ -60,9 +60,9 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # Caching whole page
-    'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'IE104_SC.urls'
@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 USE_I18N = True
 
@@ -143,9 +143,25 @@ STATICFILES_DIR = (
 # Media configuration
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 MEDIA_URL = '/media/'
+# MEDIA_ROOT = 'media/'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+# CK Editor
+CKEDITOR_UPLOAD_PATH = "ckeditor"
+# CKEDITOR_BASEPATH = "/staticfiles/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
+
+AWS_QUERYSTRING_AUTH = True
+AWS_S3_BUCKET_AUTH = False
+AWS_QUERYSTRING_EXPIRE = '157784630'
+
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+# CKEDITOR_FORCE_JPEG_COMPRESSION = True
+# CKEDITOR_BROWSE_SHOW_DIRS = True
+
+# CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 LOGOUT_REDIRECT_URL = '/'
 
@@ -167,6 +183,9 @@ AWS_STORAGE_BUCKET_NAME = 'beautifme'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_QUERYSTRING_AUTH = True
+AWS_S3_BUCKET_AUTH = False
+AWS_QUERYSTRING_EXPIRE = 157784630
 
 #STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
@@ -205,4 +224,13 @@ CACHE = {
 }
 
 # Session Cache
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
+# CkEditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'toolbar': 'full',
+        # 'height': 300,
+        # 'width': 1000,
+    },
+}

@@ -8,6 +8,9 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <meta name="keywords" content="Recommend skincare routine, skincare routine, routine for beginners"/>
+    <meta name="keywords" content="Gợi ý chu trình dưỡng da, chu trình dưỡng da, chăm sóc da, chăm sóc da cho người mới bắt đầu"/>
 {% endblock header %}
 
 {% block content %}
@@ -38,8 +41,8 @@
             <div class="row">
                 {% for c in cleanserArr %}
 
-                <div class="column">
-                    <a href="/product/{{ c.id }}">
+                <div class="col-md-3 col-sm-6">
+                    <a href="/product/{{ c.id }}/{{ c.slug }}">
                         <div class="product-grid6">
                             <div class="product-image6">
 

@@ -5,8 +5,8 @@
 <html lang='en'>
 
 <head>
-    <title>{% block title %}{% endblock title %} Beautif</title>
-    <link rel="icon" href="{% static 'product/img/icon.png' %}" />
+    <title>{% block title %}{% endblock title %} beautifME</title>
+    <link rel="icon" href="{% static 'product/img/beautifME-avatar.jpg' %}" />
     <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> -->
     <link type="text/css" rel="stylesheet" href="{% static 'product/css/header.css' %}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -15,17 +15,17 @@
     <meta charset="UTF-8" />
 
     <!--Meta for Facebook-->
-    <meta property='og:site_name' content="beautifme.herokuapp.com" />
+    <meta property='og:site_name' content="beautifme.com" />
     <meta property='og:rich_attachment' content="true" />
     <meta property='og:type' content="website" />
-    <meta property='og:url' itemprop="url" content="https://beautifme.herokuapp.com"/>
+    <meta property='og:url' itemprop="url" content="https://www.beautifme.com"/>
     <!--Website Logo-->
     <meta property='og:image' itemprop="thumbnailUrl" content="" /> 
     <meta property='og:image:width' content="" />
     <meta property='og:image:height' content="" />
     <!--end Website Logo-->
     <meta content="beautifME - beauty in your way" itemprop="headline" property="og:title" />
-    <meta content="" itemprop="description" property="og:description" content=""/>
+    <meta itemprop="description" property="og:description" content="Recommend skincare routine"/>
     <!--end Meta for Facebook-->
     <meta name="copyright" content="beautifME" />
     <meta name="author" content="beautifME"/>
@@ -221,7 +221,7 @@
 
     <!--Body part-->
     {% block content %}
-    {% endblock %}
+    {% endblock content %}
     <!--Javascript -->
     <script type="text/javascript" src="{% static 'product/js/add.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
@@ -238,7 +238,7 @@
     <!-- FOOTER -->
     <footer class="footer-distributed">
         <div class="footer-left">
-            <h3>Beautif</h3>
+            <h3>beautifME</h3>
             <p class="footer-links">
                 <a href="{% url 'homepage' %}" class="link-1">Home</a>
                 <a href="{% url 'product:product-list' %}">Products</a>
@@ -246,7 +246,7 @@
                 <a href="{% url 'recommend' %}">Recommend</a>
                 <a href="{% url 'news:news-list' %}">News</a>
             </p>
-            <p class="footer-company-name">Beautif © 2020s</p>
+            <p class="footer-company-name">beautifME © 2020s</p>
         </div>
         <div class="footer-center">
             <div>
@@ -269,10 +269,10 @@
                 everyday.
             </p>
             <div class="footer-icons">
-                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com/beautifME"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-twitter"></i></a>
                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
+                <a href="https://github.com/ndklien/beautifME"><i class="fa fa-github"></i></a>
             </div>
         </div>
     </footer>
