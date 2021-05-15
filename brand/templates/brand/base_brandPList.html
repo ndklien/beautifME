@@ -24,8 +24,8 @@
         {% for product in products %}
         <!-- <li><a href="/product/{{ product.id }}">{{ product }}</a></li> -->
 
-        <div class="column">
-            <a href="/product/{{ product.id }}">
+        <div class="col-md-3 col-sm-6">
+            <a href="/product/{{ product.id }}/{{ product.slug }}">
                 <div class="product-grid6">
                     <div class="product-image6">
                         <img class="pic-1" src="{{ product.product_img.url }}" />
