@@ -17,6 +17,7 @@
 <div class="container">
     <h3 class="h3">Result{{ product_name|pluralize }}</h3>
     <hr />
+    {% if object_list %}
     <div class="row">
         {% for product in object_list %}
         <!-- <li><a href="/product/{{ product.id }}">{{ product }}</a></li> -->
@@ -37,9 +38,13 @@
                 </div>
             </a>
         </div>
-
         {% endfor %}
+        {% else %}
+        <div class="row">
+            <p>Uh oh, there are no results (ಥ﹏ಥ), please try again.</p>
+        </div>
     </div>
+    {% endif %}
 </div>
 
 
