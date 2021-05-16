@@ -13,7 +13,7 @@ Các bước thực hiện để chạy localhost: (tham khảo)
 * Bước 1: Clone project về thông qua câu lệnh `https://github.com/ndklien/beautifME.git`
 * Bước 2: (khuyến khích) Khởi tạo môi trường ảo virtualenv
   * Tạo một virtualenv `pip install virtualenv`
-  * Tạo virtualenv **virtualenv venv** với **venv** là tên của virtualenv
+  * Tạo virtualenv `virtualenv --python=python3.6 venv` với **venv** là tên của virtualenv
 * Bước 3: Cài đặt các package đi kèm với project: `pip install -r requirements.txt`
 * Bước 4: Điều chỉnh cài đặt project.
    * Tạo vô file tên local.py và thả vào trong folder IE104_SC/settings/ *local.py sẽ chứa thiết lập database chạy localhost và SECRET_KEY để chạy ứng dụng*
