@@ -224,7 +224,7 @@ a:hover {
 }
 
 .cbp-hrsub h4 {
-	color: #a18e86;
+	color: black;
 	padding: 2em 0 0.6em;
 	margin: 0;
 	font-size: 160%;
@@ -234,8 +234,7 @@ a:hover {
 	color: #999
 }
 
-
-nav .icon {
+.icon {
 	display: none;
 }
 
@@ -250,9 +249,6 @@ nav .icon {
 		width: 200px;
 		margin-left: 0px;
 	}
-	
-	
-	
 }
 
 @media screen and (max-width: 1195px) { 

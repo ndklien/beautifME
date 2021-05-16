@@ -95,8 +95,8 @@
     <div class="menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
             <div>
-                <a for="check" class="icon">
-                    <i href="javascript:void(0);" class="fa fa-bars" onclick="myFunction()"&#9776; ></i>
+                <a for="check" >
+                    <i href="javascript:void(0);" class="icon" class="fa fa-bars" onclick="myFunction()"&#9776; ></i>
                 </a>
             </div>
             <!--Vertical Menu-->
@@ -111,22 +111,27 @@
                             <!--Brand.1-->
                             <div>
                                 <h4>Trending</h4>
+                                {% if trending %}
                                 <ul>
                                     {% for brand in trending|slice:"6" %}
-                                    <li><a href="brand/{{ brand.id}}/{{ brand.slug }}"></a></li>
+                                    <li><a href="/brand/{{ brand.id}}/{{ brand.slug }}">{{ brand.branding_name }}</a></li>
                                     {% endfor %}
                                 </ul>
+                                {% endif %}
                             </div>
 
                             <!--Brand.2-->
                             <div>
                                 <h4>High-end</h4>
                                 <ul>
-                                    <li><a href="/brand/21/">Burberry</a></li>
+                                    {% for brand in highend|slice:"5" %}
+                                    <li><a href="/brand/{{ brand.id }}/{{ brand.slug }}">{{ brand.branding_name }}</a></li>
+                                    {% endfor %}
+                                    <!-- <li><a href="/brand/21/">Burberry</a></li>
                                     <li><a href="/brand/31/">Lancome</a></li>
                                     <li><a href="/brand/13/">Sulwhasoo</a></li>
                                     <li><a href="/brand/9/">La Mer</a></li>
-                                    <li><a href="/brand/8/">Drunk Elephant</a></li>
+                                    <li><a href="/brand/8/">Drunk Elephant</a></li> -->
                                 </ul>
                             </div>
 
@@ -134,13 +139,16 @@
                             <div>
                                 <h4>Drugstore</h4>
                                 <ul>
-                                    <li><a href="/brand/19/">Innisfree</a></li>
+                                    {% for brand in drugstore|slice:"7" %}
+                                    <li><a href="/brand/{{ brand.id }}/{{ brand.slug }}">{{ brand.branding_name }}</a></li>>
+                                    {% endfor %}
+                                    <!-- <li><a href="/brand/19/">Innisfree</a></li>
                                     <li><a href="/brand/20/">Biore</a></li>
                                     <li><a href="/brand/22/">Cetaphil</a></li>
                                     <li><a href="/brand/23/">Cerave</a></li>
                                     <li><a href="/brand/25/">DHC</a></li>
                                     <li><a href="/brand/28/">Hada Labo</a></li>
-                                    <li><a href="/brand/16/">Senka</a></li>
+                                    <li><a href="/brand/16/">Senka</a></li> -->
                                 </ul>
                             </div>
                         </div><!-- /cbp-hrsub-inner -->
