@@ -20,6 +20,7 @@
 <div class="container">
     <h3 class="h3">{{ brand.branding_name }} </h3>
     <hr />
+    {% if products %}
     <div class="row">
         {% for product in products %}
         <!-- <li><a href="/product/{{ product.id }}">{{ product }}</a></li> -->
@@ -43,6 +44,11 @@
 
         {% endfor %}
     </div>
+    {% else %}
+    <div class="row">
+        <p>There are no product in {{ brand.branding_name }} ヽ(・∀・)ﾉ</p>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock content %}

@@ -13,23 +13,28 @@
 
 <div class="listnews">
     {% if news_list %}
-        {% for news in news_list %}
-            <div class="news">
-                <div class="includeimg">
-                    <a href="/news/{{ news.id }}/{{ news.slug }}">
-                        <img class="img" src="{{ news.news_img.url }}" />
-                    </a>
-                </div>
-                <div class="infor">
-                    <a class="title_news" href="/news/{{ news.id }}/{{ news.slug }}">{{news.title}}</a>
-                    <p class="time">{{news.pub_date}}</p>
-                    <p class="news-author">By {{ news.author }}</p>
-                    <p>{{news.summary}}</p>
-                </div>
-            </div>
-        {% endfor %}
-    {% endif  %}
+    {% for news in news_list %}
+    <div class="news">
+        <div class="includeimg">
+            <a href="/news/{{ news.id }}/{{ news.slug }}">
+                <img class="img" src="{{ news.news_img.url }}" />
+            </a>
+        </div>
+        <div class="infor">
+            <a class="title_news" href="/news/{{ news.id }}/{{ news.slug }}">{{news.title}}</a>
+            <p class="time">{{ news.pub_date }}</p>
+            <p class="news-author">By {{ news.author }}</p>
+            <p>{{ news.summary }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="news">
+        <p>News is empty at the moment, please come back later for newest updates ( ´ ▽ ` )/</p>
+    </div>
+    {% endif %}
 </div>
+
 <div class="newsPagination">
     <span>
         {% if page_obj.has_previous %}
@@ -44,7 +49,7 @@
         {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}" class="space">Next</a>
         <a href="?page={{ page_obj.paginator.num_pages }}" class="space">Last &raquo;</a>
-    {% endif %}
+        {% endif %}
     </span>
 </div>
 
