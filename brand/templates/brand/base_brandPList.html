@@ -8,6 +8,24 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--Meta data -->
+<!--Meta OpenGraph-->
+<meta name="og:description" content="{{ brand.brandDescript }}" />
+<meta name="og:title" content="{{ brand }} | {{ brand.branding_name }}"/>
+<meta name="og:url" content="https://www.beautifme.com/brand/{{ brand.id }}/{{ brand.slug }}"/>
+<!--Meta keywords-->
+<meta name="keywords" content="recommend, skincare, skin care, skincare recommend, skincare recommend beautifme" />
+<meta name="keywords"
+    content="skincare routine for beginners, gợi ý chu trình chăm sóc da, gợi ý beautifme, dưỡng da beautifme" />
+<meta name="keywords" content="dưỡng da cơ bản beautifme, dưỡng da, skincare for beginners" />
+<meta name="keywords"
+    content="oily, dry, combination, acne prone, normal skin, aging skin, 30s, 20s, wrinkle, anti-aging" />
+<!--end Meta keywords-->
+<meta name="description" content="{{ brand.brandDescript }}" />
+<meta name="product_article_id" content="{{ brand.id }}" />
+<meta charset="UTF-8" />
+<!--end Meta data-->
 {% endblock header %}
 
 {% block content %}
@@ -32,8 +50,8 @@
                         <img class="pic-1" src="{{ product.product_img.url }}" />
                     </div>
                     <div class="product-content">
-                        <h3 class="title">{{product.product_name}}</h3>
-                        <div class="price">${{product.price}}</div>
+                        <h3 class="title">{{ product.product_name }}</h3>
+                        <div class="price">${{ product.price }}</div>
                     </div>
                     <ul class="social">
 

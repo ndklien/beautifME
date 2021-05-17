@@ -10,20 +10,32 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--Metadata tags-->
+<!--Meta OpenGraph-->
+<meta name="og:description" content="{{ current_news.summary }}" />
+<meta name="og:title" content="{{ brand }} | {{ current_news.title }}"/>
+<meta name="og:url" content="https://www.beautifme.com/news/{{ current_news.id }}/{{ current_news.slug }}"/>
+<!--Meta keywords-->
+<meta name="keywords" content="recommend, skincare, skin care, skincare recommend, skincare recommend beautifme" />
+<meta name="keywords"
+    content="skincare routine for beginners, gợi ý chu trình chăm sóc da, gợi ý beautifme, dưỡng da beautifme" />
+<meta name="keywords" content="dưỡng da cơ bản beautifme, dưỡng da, skincare for beginners" />
+<meta name="keywords"
+    content="oily, dry, combination, acne prone, normal skin, aging skin, 30s, 20s, wrinkle, anti-aging" />
+<!--end Meta keywords-->
 <meta name="news_article_id" content="{{ current_news.id }}" />
-
 <meta name="description" property="og:description" content='{{ current_news.summary }}' />
+<meta charset="UTF-8" />
+<!--end Meta data-->
 {% endblock header %}
 {% block content %}
-{% if current_news %}
+        {% if current_news %}
         <div class="listnews">
-            <p class="detail_title">{{current_news.title}}</p>
-            <p class="time">{{current_news.pub_date}}</p>
+            <p class="detail_title">{{ current_news.title }}</p>
+            <p class="time">{{ current_news.pub_date }}</p>
             <p class="news-author">By {{ current_news.author }}</p>
             <img class="detail_img" src="{{ current_news.news_img.url }}">
-            <p class="sumary">{{current_news.summary}}</p>
-            <div class="detail_content">{{current_news.content|safe}}</div>
+            <p class="sumary">{{ current_news.summary }}</p>
+            <div class="detail_content">{{ current_news.content|safe }}</div>
         </div>
-    {% endif %}
+        {% endif %}
 {% endblock content %}
