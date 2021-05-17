@@ -224,7 +224,7 @@ a:hover {
 }
 
 .cbp-hrsub h4 {
-	color: black;
+	color: #a18e86;
 	padding: 2em 0 0.6em;
 	margin: 0;
 	font-size: 160%;
@@ -234,7 +234,8 @@ a:hover {
 	color: #999
 }
 
-.icon {
+
+.cbp-hrmenu .icon {
 	display: none;
 }
 
@@ -249,6 +250,9 @@ a:hover {
 		width: 200px;
 		margin-left: 0px;
 	}
+	
+	
+	
 }
 
 @media screen and (max-width: 1195px) { 
@@ -271,30 +275,30 @@ a:hover {
 		width: 200px;
 		margin-left: 0px;
 	}
-	.cbp-hrmenu > ul> li > a{
+	.cbp-hrmenu.responsive > ul> li > a{
 		display: block;
 		margin-left: 0px;
 	}
-	.cbp-hrmenu > ul > li {
+	.cbp-hrmenu.responsive > ul > li {
 		display: flex;
 		padding-left: 0px;
 	}
-	.cbp-hrmenu .cbp-hrsub{
+	.cbp-hrmenu.responsive .cbp-hrsub{
 		display: none;
 	}
-	.cbp-hrmenu{
+	.cbp-hrmenu.responsive{
 		background-color: #a75535;
 	}
 	/* .cbp-hrmenu .icon {
 		background-color: #a75535;
 	} */
-	.cbp-hrmenu{
+	.cbp-hrmenu.responsive{
 		border-bottom: none;
 	}
-	.cbp-hrmenu > a{
+	.cbp-hrmenu.responsive > a{
 		margin-left: 0px;
 	}
-	.cbp-hrmenu .icon {
+	.cbp-hrmenu.responsive .icon {
 		display: flex;
 		margin-top: 20px;
 		padding-left: 10px;
@@ -303,7 +307,7 @@ a:hover {
 		cursor: pointer;
 		color: #fff;
 	} */
-	.cbp-hrmenu > div > a :hover{
+	.cbp-hrmenu.responsive > div > a :hover{
 		color: #fff;
 		cursor: pointer;
 		text-decoration: underline;
@@ -311,7 +315,7 @@ a:hover {
 	/* .containner{
 		z-index: -1;
 	} */
-	.cbp-hrmenu > ul > li> a :hover{
+	.cbp-hrmenu.responsive > ul > li> a :hover{
 		color: #fff;
 		cursor: pointer;
 		text-decoration: underline;
