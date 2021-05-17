@@ -6,6 +6,8 @@ ALLOWED_HOSTS = ['34.126.64.164', 'beautifme.com', '.beautifme.com']
 
 DEBUG = False
 
+SECURE_SSL_REDIRECT = True
+
 with open('/etc/config.json') as config_file:
         config = json.load(config_file)
 

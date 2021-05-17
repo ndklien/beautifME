@@ -1,9 +1,12 @@
+from django import template
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 # views related
 from django.views import generic
 from . import views
 from .models import Product
+from django.template import loader
 
 #class-based views
 from django.views import generic
@@ -22,7 +25,6 @@ from django.contrib.auth.models import User
 
 from .forms import pushCommentForms
 from .filters import ProductFilter
-
 # Create your views here.
 
 # Home page queries
@@ -30,8 +32,8 @@ def Homepage(request):
     """ Products """
     productsLength = len(Product.objects.all())
     products = []
-    for p in range(productsLength, productsLength-8, -4):
-        products.append(Product.objects.all()[p-4:p])
+    for p in range(productsLength-8, productsLength, 4):
+        products.append(Product.objects.all()[p:p+4])
     """ News """
 
     news = []
@@ -51,16 +53,21 @@ def Homepage(request):
     return render(request, 'product/base_home.html', context)
 
 def navbarQueries(request):
+    # Brand Navigation
     trendBrand = Brand.objects.filter(brandCategory__contains="TREN")
     highendBrand = Brand.objects.filter(brandCategory__contains="HIGH")
     drugstoreBrand = Brand.objects.filter(brandCategory__contains="DRUG")
 
-    context = {
+    # Product Navigation
+
+    context_nav = {
         'trending': trendBrand,
         'highend': highendBrand,
         'drugstore': drugstoreBrand,
     }
-    return render(request, 'product/base.html', context)
+    loader.get_template('product/base.html')
+    return HttpResponse(template.render(context_nav, request))
+    # return render(request, 'product/base.html', context_nav)
 
 # Search toolbar
 class SearchResults(generic.ListView):
@@ -128,11 +135,6 @@ def Recommend(request):
         sunFilter = ProductFilter(request.GET, queryset=Product.objects.filter(category="SUN")) 
 
         filterForm = ProductFilter(request.GET, queryset=Product.objects.all())
-
-        # cleanserArr = Recommend_result(cleanserFilter)
-        # removerArr = Recommend_result(removerFilter)
-        # moistArr = Recommend_result(moistFilter)
-        # sunArr = Recommend_result(sunFilter)
                 
         context = {
             'filterForm': filterForm,
@@ -144,16 +146,3 @@ def Recommend(request):
         }
     
     return render(request, 'product/base_recommend.html', context)
-
-
-# """ Hiển thị bốn sản phẩm trong recommend """
-def Recommend_result(result):
-    arr = []
-    count = 0
-    for c in result.qs:
-        if count < 4 :
-            arr.append(c)
-            count +=1
-        else:
-            break
-    return arr
