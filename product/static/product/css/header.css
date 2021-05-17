@@ -275,30 +275,30 @@ a:hover {
 		width: 200px;
 		margin-left: 0px;
 	}
-	.cbp-hrmenu.responsive > ul> li > a{
+	.cbp-hrmenu > ul> li > a{
 		display: block;
 		margin-left: 0px;
 	}
-	.cbp-hrmenu.responsive > ul > li {
+	.cbp-hrmenu > ul > li {
 		display: flex;
 		padding-left: 0px;
 	}
-	.cbp-hrmenu.responsive .cbp-hrsub{
+	.cbp-hrmenu .cbp-hrsub{
 		display: none;
 	}
-	.cbp-hrmenu.responsive{
+	.cbp-hrmenu{
 		background-color: #a75535;
 	}
 	/* .cbp-hrmenu .icon {
 		background-color: #a75535;
 	} */
-	.cbp-hrmenu.responsive{
+	.cbp-hrmenu{
 		border-bottom: none;
 	}
-	.cbp-hrmenu.responsive > a{
+	.cbp-hrmenu > a{
 		margin-left: 0px;
 	}
-	.cbp-hrmenu.responsive .icon {
+	.cbp-hrmenu .icon {
 		display: flex;
 		margin-top: 20px;
 		padding-left: 10px;
@@ -307,7 +307,7 @@ a:hover {
 		cursor: pointer;
 		color: #fff;
 	} */
-	.cbp-hrmenu.responsive > div > a :hover{
+	.cbp-hrmenu > div > a :hover{
 		color: #fff;
 		cursor: pointer;
 		text-decoration: underline;
@@ -315,7 +315,7 @@ a:hover {
 	/* .containner{
 		z-index: -1;
 	} */
-	.cbp-hrmenu.responsive > ul > li> a :hover{
+	.cbp-hrmenu > ul > li> a :hover{
 		color: #fff;
 		cursor: pointer;
 		text-decoration: underline;
