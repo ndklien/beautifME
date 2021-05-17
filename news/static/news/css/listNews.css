@@ -1,11 +1,17 @@
-.listnews{
+.listnews {
     padding-top: 50px;
     padding-left: 200px;
     padding-right: 200px;
     padding-bottom: 20px;
 }
+@media screen and (max-width:1000px) {
+    .listnews {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
 .news{
-    
     clear: left;
     height: 200px;
     width: 100%;
@@ -94,12 +100,27 @@ ul.breadcrumb {
     text-decoration: underline;
   }
 .newsPagination{
-    display: flex;
+    display: block;
     list-style: none;
     border-radius: .25rem;
     /* padding: 10px auto; */
     /* padding-left: 480px; */
     justify-content: center;
+    text-align: center;
+    padding-top: 50px;
+}
+
+@media screen and (max-width: 650px) {
+    .newsPagination{
+        display: block;
+        list-style: none;
+        border-radius: .25rem;
+        /* padding: 10px auto; */
+        /* padding-left: 480px; */
+        justify-content: center;
+        text-align: center;
+        padding-top: 50px;
+    }
 }
 
 .space{
