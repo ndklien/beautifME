@@ -323,7 +323,7 @@ input:focus, select:focus{
 
     .submitButton {
       margin-left: 0px;
-      width: 100px;
+      width: 100%;
       
     }
 }
