@@ -109,7 +109,7 @@ input[type='checkbox']:checked { filter: hue-rotate(913deg)  }
     margin: 0px ;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
     .signin-content {
         width: auto;
         margin: 20px;
