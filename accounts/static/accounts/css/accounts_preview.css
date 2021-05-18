@@ -136,16 +136,10 @@ input:focus{
     text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     .signin-content {
         width: auto;
         height: 700px;
-    }
-
-    input[type=text], input[type=email] {
-        width: 100%;
-        display: block;
-        margin-left: 0px;
     }
 
     .submitButton {
@@ -163,5 +157,11 @@ input:focus{
 @media screen and (max-width: 800px) {
     .form-group {
         text-align: left;
+    }
+
+    input[type=text], input[type=email] {
+        width: 100%;
+        display: block;
+        margin-left: 0px;
     }
 }
