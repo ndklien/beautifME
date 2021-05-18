@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.views.generic.base import TemplateView
 import product.views as productV, news.views as newsV, accounts.views as accountV
 import brand.views as Brand
 
@@ -70,7 +71,7 @@ urlpatterns = [
     # sitemap
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('site-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-
+    path("robots.txt", TemplateView.as_view(template_name="accounts/robots.txt", content_type="text/plain")),
 ]
 
 # if settings.dev.DEBUG:
