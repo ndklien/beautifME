@@ -33,6 +33,7 @@
 
 <div class="container">
     <div class="timeline">
+        {% if removerQ %}
         {# Makeup Remover List #}
         <div class="timeline-section">
             <div class="timeline-date">
@@ -58,12 +59,12 @@
                         </div>
                     </a>
                 </div>
-
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
 
-
+        {% if cleanserQ %}
         {# Cleanser List #}
         <div class="timeline-section">
             <div class="timeline-date">
@@ -91,7 +92,9 @@
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
 
+        {% if lotionQ %}
         {# Lotion List #}
         <div class="timeline-section">
             <div class="timeline-date">
@@ -117,12 +120,12 @@
                         </div>
                     </a>
                 </div>
-
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
 
-        
+        {% if moistQ %}
         {# Moisturizer List #}
         <div class="timeline-section">
             <div class="timeline-date">
@@ -151,7 +154,9 @@
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
 
+        {% if sunscreenQ %}
         {# Sunscreen List #}
         <div class="timeline-section">
             <div class="timeline-date">
@@ -179,6 +184,8 @@
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
+
     </div>
 </div>
 {% endblock content %}

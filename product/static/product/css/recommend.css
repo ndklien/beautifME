@@ -309,3 +309,21 @@ input:focus, select:focus{
   background: #ddd;
   color: #555;
 }
+
+@media screen and (max-width: 500px) {
+    .recommend-content {
+      width: auto;
+      margin: 20px;
+    }
+
+    .recommend-form {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+
+    .submitButton {
+      margin-left: 0px;
+      width: 100px;
+      
+    }
+}

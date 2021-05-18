@@ -301,7 +301,7 @@ a:hover {
 	}
 }
 
-@media screen and (max-width: 400px) { 
+@media screen and (max-width: 540px) { 
 	.head .logo {
 		display: none;
 	}
