@@ -124,3 +124,32 @@ input:focus{
     color: red;
     font-size: larger;
 }
+
+@media screen and (max-width: 500px) {
+    .signin-content {
+        width: auto;
+        margin: 20px;
+        font-size: smaller;
+    }
+
+    .signin-form {
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 95px;
+    }
+
+    h2.form-tittle {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    
+    input[type=text], input[type=email], input[type=password] {
+        margin: 0px;
+        display: block;
+        width: auto;
+    }
+
+    .submitButton {
+        width: auto;
+    }
+}
