@@ -111,27 +111,25 @@
                             <!--Brand.1-->
                             <div>
                                 <h4>Trending</h4>
-                                {% if trending %}
                                 <ul>
-                                    {% for brand in trending|slice:"6" %}
-                                    <li><a href="/brand/{{ brand.id}}/{{ brand.slug }}">{{ brand.branding_name }}</a></li>
-                                    {% endfor %}
+                                    <li><a href="/brand/31/cocoon">Cocoon</a></li>
+                                    <li><a href="/brand/24/klairs">Klairs</a></li>
+                                    <li><a href="/brand/8/neutrogena">Neutrogena</a></li>
+                                    <li><a href="/brand/26/make-prem">Make Pr:em</a></li>
+                                    <li><a href="/brand/13/obagi">Obagi</a></li>
+                                    <li><a href="/brand/30/derladie">Derladie</a></li>
                                 </ul>
-                                {% endif %}
                             </div>
 
                             <!--Brand.2-->
                             <div>
                                 <h4>High-end</h4>
                                 <ul>
-                                    {% for brand in highend|slice:"5" %}
-                                    <li><a href="/brand/{{ brand.id }}/{{ brand.slug }}">{{ brand.branding_name }}</a></li>
-                                    {% endfor %}
-                                    <!-- <li><a href="/brand/21/">Burberry</a></li>
-                                    <li><a href="/brand/31/">Lancome</a></li>
-                                    <li><a href="/brand/13/">Sulwhasoo</a></li>
-                                    <li><a href="/brand/9/">La Mer</a></li>
-                                    <li><a href="/brand/8/">Drunk Elephant</a></li> -->
+                                    <li><a href="/brand/5/sk-ii">SK-II</a></li>
+                                    <li><a href="/brand/3/skinceuticals">SkinCeuticals</a></li>
+                                    <li><a href="/brand/1/clinique"></a>Clinique</li>
+                                    <li><a href="/brand/37/laneige">Laneige</a></li>
+                                    <li><a href="/brand/15/la-roche-posay">La Roche-Posay</a></li>
                                 </ul>
                             </div>
 
@@ -139,16 +137,13 @@
                             <div>
                                 <h4>Drugstore</h4>
                                 <ul>
-                                    {% for brand in drugstore|slice:"7" %}
-                                    <li><a href="/brand/{{ brand.id }}/{{ brand.slug }}">{{ brand.branding_name }}</a></li>>
-                                    {% endfor %}
-                                    <!-- <li><a href="/brand/19/">Innisfree</a></li>
-                                    <li><a href="/brand/20/">Biore</a></li>
-                                    <li><a href="/brand/22/">Cetaphil</a></li>
-                                    <li><a href="/brand/23/">Cerave</a></li>
-                                    <li><a href="/brand/25/">DHC</a></li>
-                                    <li><a href="/brand/28/">Hada Labo</a></li>
-                                    <li><a href="/brand/16/">Senka</a></li> -->
+                                    <li><a href="/brand/35/innisfree">Innisfree</a></li>
+                                    <li><a href="/brand/12/biore">Biore</a></li>
+                                    <li><a href="/brand/22/cetaphil">Cetaphil</a></li>
+                                    <li><a href="/brand/16/cerave">Cerave</a></li>
+                                    <li><a href="/brand/6/cosrx">Cosrx</a></li>
+                                    <li><a href="/brand/32/hada-labo">Hada Labo</a></li>
+                                    <li><a href="/brand/16/">Senka</a></li>
                                 </ul>
                             </div>
                         </div><!-- /cbp-hrsub-inner -->
@@ -163,18 +158,18 @@
 
                             <!--Cleansing items-->
                             <div>
-                                <h4>Cleansing</h4>
+                                <h4>Makeup Remover</h4>
                                 <ul>
-                                    <li><a href="/product/1/">Bioderma Sébium H2O</a></li>
-                                    <li><a href="/product/3/">Ohui Miracle Moisture Cleansing Cream</a></li>
-                                    <li><a href="/product/36/">Senka All Clear Water Fresh</a></li>
+                                    <li><a href="/product/26/sensibio-h2o-micellar-water/">Bioderma Sensibio H2O Micellar Water</a></li>
+                                    <li><a href="/product/41/micellar-water-ultra-sensitive-skin/">La Roche-Posay Micellar Water</a></li>
+                                    <li><a href="/product/40/safe-me-relief-green-cleansing-water/">Make Pr:em Cleansing Water</a></li>
                                 </ul>
                                 <h4>Cleanser</h4>
                                 <ul>
-                                    <li><a href="/product/4/">CeraVe Hydrating Facial Cleanser</a></li>
-                                    <li><a href="/product/5/">La Roche-Posay Toleriane Cleanser</a></li>
-                                    <li><a href="/product/6/">La Mer The Cleansing Oil</a></li>
-                                    <li><a href="/product/73/">Biore Deep Pore Cleanser</a></li>
+                                    <li><a href="/product/18/hydrating-cream-to-foam-cleanser/">CeraVe Hydrating Facial Cleanser</a></li>
+                                    <li><a href="/product/17/toleriane-purifying-foaming-facial-wash/">La Roche-Posay Toleriane Cleanser</a></li>
+                                    <li><a href="/product/8/murad-clarifying-cleanser/">Murad Clarifying Cleanser</a></li>
+                                    <li><a href="/product/27/low-ph-good-morning-gel-cleanser/">Low pH Good Morning Gel Cleanser</a></li>
                                 </ul>
                             </div>
 
@@ -182,29 +177,29 @@
                             <div>
                                 <h4>Toner</h4>
                                 <ul>
-                                    <li><a href="/product/7/">Thayers Alcohol – Free Witch Hazel</a></li>
-                                    <li><a href="/product/8/">Huxley Toner Extract It</a></li>
-                                    <li><a href="/product/47">Murad Clarifying Toner</a></li>
+                                    <li><a href="/product/44/toner-5-glycolic-acid/">Toner 5% Glycolic Acid</a></li>
+                                    <li><a href="/product/15/the-ordinary-glycolic-acid-7-toning/">The Ordinary Glycolic Acid 7% Toning</a></li>
+                                    <li><a href="/product/30/hatomugi-skin-conditioner/">Hatomugi Skin Conditioner</a></li>
                                 </ul>
-                                <h4>Cream</h4>
+                                <h4>Moisturizer</h4>
                                 <ul>
-                                    <li><a href="/product/10/">Neutrogena Hydro Boost Water</a></li>
-                                    <li><a href="/product/15/">The Dewy Skin Cream</a></li>
-                                    <li><a href="/product/12/">Innisfree Jeju Cherry Blossom Cream</a></li>
-                                    <li><a href="/product/2/">Crème De La Mer</a></li>
+                                    <li><a href="/product/32/klairs-midnight-blue-calming-cream/">Klairs Midnight Blue Calming Cream</a></li>
+                                    <li><a href="/product/55/laneige-perfect-renew-eye-cream/">Laneige Perfect Renew Eye Cream</a></li>
+                                    <li><a href="/product/31/klairs-freshly-juiced-vitamin-e-mask/">Klairs Freshly Juiced Vitamin E Mask</a></li>
+                                    <li><a href="/product/49/bielenda-dr-medica-dermatological-anti-acne-face-cream-day-night/">Bielenda Dr Medica Cream Day Night</a></li>
                                 </ul>
                             </div>
 
                             <!--Suncare Products-->
                             <div>
-                                <h4>Sun care</h4>
+                                <h4>Sunscreen</h4>
                                 <ul>
-                                    <li><a href="/product/9/">Senka Perfect UV Milk</a></li>
-                                    <li><a href="/product/43/">OMI Sun Bears Mild Gel SPF35 PA++++</a></li>
-                                    <li><a href="/product/11/">Biore UV Aqua Rich Watery Essence</a></li>
-                                    <li><a href="/product/33">BIODERMA PHOTODERM LASER SPF 50+ CREAM</a></li>
-                                    <li><a href="/product/13/">Innisfree Tone Up No Sebum Sunscreen</a></li>
-                                    <li><a href="/product/85/">Siken Pore Perfecting Suncreen</a></li>
+                                    <li><a href="/product/58/woolworths-sunscreen-spf-50/">Woolworths Sunscreen Spf 50+</a></li>
+                                    <li><a href="/product/33/nivea-sun-uv-face-sensitive-soothing/">Nivea Sun UV Face Sensitive Soothing</a></li>
+                                    <li><a href="/product/11/biore-uv-bright-face-milk-spf50-pa/">Biore UV Bright Face Milk</a></li>
+                                    <li><a href="/product/34/eucerin-sun-gel-cream-oil-control-spf-50/">Eucerin Sun Gel Cream Oil Control</a></li>
+                                    <li><a href="/product/36/cell-fusion-c-toning-sunscreen-100/">Cell Fusion C Toning Sunscreen 100</a></li>
+                                    <li><a href="/product/21/la-roche-posay-anthelios-fluide-invisible-shaka-fluide-spf50/">La Roche-Posay Anthelios Fluide Invisible</a></li>
                                 </ul>
                             </div>
                         </div><!-- /cbp-hrsub-inner -->
