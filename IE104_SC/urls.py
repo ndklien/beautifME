@@ -72,6 +72,8 @@ urlpatterns = [
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('site-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", TemplateView.as_view(template_name="accounts/robots.txt", content_type="text/plain")),
+
+    re_path('djga/', include('google_analytics.urls')),
 ]
 
 # if settings.dev.DEBUG:
