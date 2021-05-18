@@ -627,4 +627,15 @@ margin-right: 7px;
     margin-right: auto;
     transform: scale(0.7);
   }
+
+  .main-productImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .columnDetail {
+    padding-left: 15px;
+  }
 }
