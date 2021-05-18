@@ -1,5 +1,5 @@
-h2 {
-    text-align: left;
+.form-title {
+    text-align: center;
     line-height: 1.66;
     margin: 0;
     margin-bottom: 30px;
@@ -34,8 +34,9 @@ h2 {
 
 .form-group {
     margin-bottom: 15px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     overflow: hidden; 
+    text-align: center;
 }
 
 .submitButton {
@@ -94,15 +95,15 @@ input:focus{
     display: block;    
 }
 .form-group li, .helptext {
-    margin-top:50px ;
-    margin-left:9px;
-    width : 500px;
+    margin-top: 50px ;
+    margin-left: -5px;
+    /* width : 500px; */
     visibility: hidden;
     border-radius:5px;
     position: absolute;
     z-index: 1;
     padding: 5px;
-    margin-top : 20px; 
+    margin-top : -34px; 
     opacity: 1;
     transition: opacity 0.5s;
 }
@@ -112,7 +113,12 @@ input:focus{
     opacity: 1;
 }
 
-.helptext {
+span.helptext::before {
+    content: '\A';
+    white-space: pre;
+}
+
+span.helptext {
     color: #a35735;
     font-weight: unset;
     font-size: 14px;
@@ -125,11 +131,16 @@ input:focus{
     font-size: larger;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1100px) {
+    .signin-content {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
     .signin-content {
         width: auto;
         margin: 20px;
-        font-size: smaller;
     }
 
     .signin-form {
@@ -138,18 +149,27 @@ input:focus{
         margin-bottom: 95px;
     }
 
-    h2.form-tittle {
-        text-align: center;
+    .form-group {
+        text-align: left;
+    }
+
+    .form-tittle {
         padding-bottom: 20px;
     }
     
     input[type=text], input[type=email], input[type=password] {
         margin: 0px;
         display: block;
-        width: auto;
+        width: 100%;
+        padding: 5px;
     }
 
     .submitButton {
-        width: auto;
+        width: 100%;
+    }
+
+    input[type=text] span.helptext, input[type=password] span.helptext {
+        margin-left: -5px;
+        margin-top: -30px;
     }
 }

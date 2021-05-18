@@ -136,7 +136,7 @@ input:focus{
     text-align: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .signin-content {
         width: auto;
         height: 700px;
@@ -158,5 +158,10 @@ input:focus{
 
     .form-group {
         margin-left: 0px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .sign-form {
+        text-align: left;
     }
 }
