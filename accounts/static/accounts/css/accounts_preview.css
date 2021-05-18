@@ -136,7 +136,7 @@ input:focus{
     text-align: center;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .signin-content {
         width: auto;
         height: 700px;
