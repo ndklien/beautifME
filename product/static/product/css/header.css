@@ -170,6 +170,12 @@ a:hover {
 	padding: 0 1.875em;
 }
 
+
+
+.cbp-hrsub-inner {
+	text-align: left;
+}
+
 .cbp-hrmenu > ul > li {
     display: inline-block;
     padding-left: 70px;
@@ -228,11 +234,11 @@ a:hover {
 }
 
 .cbp-hrsub h4 {
-	color: #a18e86;
+	color: #E4DEDC;
 	padding: 2em 0 0.6em;
 	margin: 0;
-	font-size: 160%;
-	font-weight: 300;
+	font-size: 150%;
+	font-weight: bold;
 }
 .cbp-hrmenu .icon{
 	color: #999
