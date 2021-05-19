@@ -46,11 +46,13 @@ def registration(request):
 # Return website when logged out.
 class LogoutView(generic.View):
 
-    template_name = 'accounts/logout.html'
+    # template_name = 'accounts/logout.html'
 
     def get(self, request):
         response = logout(request)
-        return render(response, self.template_name)
+        
+        return redirect('homepage')
+        # return render(response, self.template_name)
 
 def change_password(request):
     message = ''
