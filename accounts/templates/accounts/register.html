@@ -28,15 +28,20 @@
                     <!-- Input username and password -->
                     <div class="form-group">{{form.as_p}}</div>
                     <!-- Button Login in -->
-                    <input type="submit" class="submitButton" value="Register"/>
+                    <input type="submit" class="submitButton" value="Register" onclick="alertRegister()"/>
                     
                 </form>
     
             </div>
-            <div class="message-notification">
-                {{ message }}
-            </div>
-            
+            {% if messages %}
+                {% for m in messages %}
+                    {% if m.tags %}
+                    <script>  
+                        alert("{{ m }}");
+                    </script>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </div>
     {% endif %}
 

@@ -15,7 +15,7 @@
     <!-- Responsive website settings -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
-    
+
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -31,17 +31,17 @@
     <meta property='og:site_name' content="https://beautifme.com" />
     <meta property='og:rich_attachment' content="true" />
     <meta property='og:type' content="website" />
-    <meta property='og:url' itemprop="url" content="https://www.beautifme.com"/>
+    <meta property='og:url' itemprop="url" content="https://www.beautifme.com" />
     <!--Website Logo-->
-    <meta property='og:image' itemprop="thumbnailUrl" content="{% static '/product/img/Artboard.png' %}" /> 
+    <meta property='og:image' itemprop="thumbnailUrl" content="{% static '/product/img/Artboard.png' %}" />
     <meta property='og:image:width' content="960" />
     <meta property='og:image:height' content="540" />
     <!--end Website Logo-->
     <meta content="beautifME - beauty in your way" itemprop="headline" property="og:title" />
-    <meta itemprop="description" property="og:description" content="Recommend skincare routine"/>
+    <meta itemprop="description" property="og:description" content="Recommend skincare routine" />
     <!--end Meta for Facebook-->
     <meta name="copyright" content="beautifME" />
-    <meta name="author" content="beautifME"/>
+    <meta name="author" content="beautifME" />
     <meta name="robots" content="index, follow" />
     <meta name="geo.placename" content="Ho Chi Minh, Viet Nam" />
     <meta name="geo.region" content="VN-HCM" />
@@ -63,6 +63,10 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7WTCV3" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <!-- Messenger Chat plugin Code -->
+    <!-- Your Chat plugin code -->
+    <div class="fb-customerchat" attribution="biz_inbox" page_id="101738552013808">
+    </div>
     <!--Header part-->
     <div class="head">
         <!--Logo -->
@@ -89,14 +93,14 @@
 
             <div class="hello-user">
                 <a href="{% url 'accounts:accounts-preview' %}">Hello, {{ request.user }}</a>
-                <span class="logout-user"><a href="{% url 'logout' %}" >Logout</a></span>
+                <span class="logout-user"><a href="{% url 'logout' %}">Logout</a></span>
             </div>
-            
+
 
             {% else %}
 
             <p class="Login">
-                <a href="{% url 'login' %}">Log in</a> <span> | </span> 
+                <a href="{% url 'login' %}">Log in</a> <span> | </span>
                 <a href="{% url 'register' %}">Sign up</a>
             </p>
 
@@ -110,7 +114,7 @@
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
             <div>
                 <a for="check" class="icon">
-                    <i href="javascript:void(0);" class="fa fa-bars" onclick="myFunction()"&#9776; ></i>
+                    <i href="javascript:void(0);" class="fa fa-bars" onclick="myFunction()" &#9776;></i>
                 </a>
             </div>
             <!--Vertical Menu-->
@@ -174,16 +178,23 @@
                             <div>
                                 <h4>Makeup Remover</h4>
                                 <ul>
-                                    <li><a href="/product/26/sensibio-h2o-micellar-water/">Bioderma Sensibio H2O Micellar Water</a></li>
-                                    <li><a href="/product/41/micellar-water-ultra-sensitive-skin/">La Roche-Posay Micellar Water</a></li>
-                                    <li><a href="/product/40/safe-me-relief-green-cleansing-water/">Make Pr:em Cleansing Water</a></li>
+                                    <li><a href="/product/26/sensibio-h2o-micellar-water/">Bioderma Sensibio H2O
+                                            Micellar Water</a></li>
+                                    <li><a href="/product/41/micellar-water-ultra-sensitive-skin/">La Roche-Posay
+                                            Micellar Water</a></li>
+                                    <li><a href="/product/40/safe-me-relief-green-cleansing-water/">Make Pr:em Cleansing
+                                            Water</a></li>
                                 </ul>
                                 <h4>Cleanser</h4>
                                 <ul>
-                                    <li><a href="/product/18/hydrating-cream-to-foam-cleanser/">CeraVe Hydrating Facial Cleanser</a></li>
-                                    <li><a href="/product/17/toleriane-purifying-foaming-facial-wash/">La Roche-Posay Toleriane Cleanser</a></li>
-                                    <li><a href="/product/8/murad-clarifying-cleanser/">Murad Clarifying Cleanser</a></li>
-                                    <li><a href="/product/27/low-ph-good-morning-gel-cleanser/">Low pH Good Morning Gel Cleanser</a></li>
+                                    <li><a href="/product/18/hydrating-cream-to-foam-cleanser/">CeraVe Hydrating Facial
+                                            Cleanser</a></li>
+                                    <li><a href="/product/17/toleriane-purifying-foaming-facial-wash/">La Roche-Posay
+                                            Toleriane Cleanser</a></li>
+                                    <li><a href="/product/8/murad-clarifying-cleanser/">Murad Clarifying Cleanser</a>
+                                    </li>
+                                    <li><a href="/product/27/low-ph-good-morning-gel-cleanser/">Low pH Good Morning Gel
+                                            Cleanser</a></li>
                                 </ul>
                             </div>
 
@@ -192,15 +203,22 @@
                                 <h4>Toner</h4>
                                 <ul>
                                     <li><a href="/product/44/toner-5-glycolic-acid/">Toner 5% Glycolic Acid</a></li>
-                                    <li><a href="/product/15/the-ordinary-glycolic-acid-7-toning/">The Ordinary Glycolic Acid 7% Toning</a></li>
-                                    <li><a href="/product/30/hatomugi-skin-conditioner/">Hatomugi Skin Conditioner</a></li>
+                                    <li><a href="/product/15/the-ordinary-glycolic-acid-7-toning/">The Ordinary Glycolic
+                                            Acid 7% Toning</a></li>
+                                    <li><a href="/product/30/hatomugi-skin-conditioner/">Hatomugi Skin Conditioner</a>
+                                    </li>
                                 </ul>
                                 <h4>Moisturizer</h4>
                                 <ul>
-                                    <li><a href="/product/32/klairs-midnight-blue-calming-cream/">Klairs Midnight Blue Calming Cream</a></li>
-                                    <li><a href="/product/55/laneige-perfect-renew-eye-cream/">Laneige Perfect Renew Eye Cream</a></li>
-                                    <li><a href="/product/31/klairs-freshly-juiced-vitamin-e-mask/">Klairs Freshly Juiced Vitamin E Mask</a></li>
-                                    <li><a href="/product/49/bielenda-dr-medica-dermatological-anti-acne-face-cream-day-night/">Bielenda Dr Medica Cream Day Night</a></li>
+                                    <li><a href="/product/32/klairs-midnight-blue-calming-cream/">Klairs Midnight Blue
+                                            Calming Cream</a></li>
+                                    <li><a href="/product/55/laneige-perfect-renew-eye-cream/">Laneige Perfect Renew Eye
+                                            Cream</a></li>
+                                    <li><a href="/product/31/klairs-freshly-juiced-vitamin-e-mask/">Klairs Freshly
+                                            Juiced Vitamin E Mask</a></li>
+                                    <li><a
+                                            href="/product/49/bielenda-dr-medica-dermatological-anti-acne-face-cream-day-night/">Bielenda
+                                            Dr Medica Cream Day Night</a></li>
                                 </ul>
                             </div>
 
@@ -208,12 +226,19 @@
                             <div>
                                 <h4>Sunscreen</h4>
                                 <ul>
-                                    <li><a href="/product/58/woolworths-sunscreen-spf-50/">Woolworths Sunscreen Spf 50+</a></li>
-                                    <li><a href="/product/33/nivea-sun-uv-face-sensitive-soothing/">Nivea Sun UV Face Sensitive Soothing</a></li>
-                                    <li><a href="/product/11/biore-uv-bright-face-milk-spf50-pa/">Biore UV Bright Face Milk</a></li>
-                                    <li><a href="/product/34/eucerin-sun-gel-cream-oil-control-spf-50/">Eucerin Sun Gel Cream Oil Control</a></li>
-                                    <li><a href="/product/36/cell-fusion-c-toning-sunscreen-100/">Cell Fusion C Toning Sunscreen 100</a></li>
-                                    <li><a href="/product/21/la-roche-posay-anthelios-fluide-invisible-shaka-fluide-spf50/">La Roche-Posay Anthelios Fluide Invisible</a></li>
+                                    <li><a href="/product/58/woolworths-sunscreen-spf-50/">Woolworths Sunscreen Spf
+                                            50+</a></li>
+                                    <li><a href="/product/33/nivea-sun-uv-face-sensitive-soothing/">Nivea Sun UV Face
+                                            Sensitive Soothing</a></li>
+                                    <li><a href="/product/11/biore-uv-bright-face-milk-spf50-pa/">Biore UV Bright Face
+                                            Milk</a></li>
+                                    <li><a href="/product/34/eucerin-sun-gel-cream-oil-control-spf-50/">Eucerin Sun Gel
+                                            Cream Oil Control</a></li>
+                                    <li><a href="/product/36/cell-fusion-c-toning-sunscreen-100/">Cell Fusion C Toning
+                                            Sunscreen 100</a></li>
+                                    <li><a
+                                            href="/product/21/la-roche-posay-anthelios-fluide-invisible-shaka-fluide-spf50/">La
+                                            Roche-Posay Anthelios Fluide Invisible</a></li>
                                 </ul>
                             </div>
                         </div><!-- /cbp-hrsub-inner -->
@@ -246,7 +271,7 @@
     <script type="text/javascript" src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'product/js/header.js' %}"></script>
-    <script type="text/javascript" src="{% static 'product/js/add.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'product/js/add.js' %}"></script>
     <script type="text/javascript" src="{% static 'product/js/responsive.js' %}"></script>
     <script>
         $(function () {
