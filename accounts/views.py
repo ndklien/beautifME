@@ -1,3 +1,4 @@
+from django.contrib.messages.api import success
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.urls import reverse, reverse_lazy
@@ -17,6 +18,7 @@ from .models import UserAccount
 from django.contrib.auth.forms import PasswordChangeForm
 from .forms import RegisterForm, profileForm
 from django import forms
+from django.contrib import messages
 
 #For login and logout
 from .forms import RegisterForm, profileForm
@@ -26,19 +28,17 @@ from .forms import RegisterForm, profileForm
 #Registration function
 def registration(request):
     form = RegisterForm()
-    message = ''
 
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            message = 'Register succeed.'
+            messages.success(request, "Register succeed!")
         else:
-            message = 'Register failed.'
+            messages.success(request, "Register failed!")
 
     context = {
         "form": form,
-        'message': message,
     }
     return render(request, 'accounts/register.html', context)
     
@@ -55,42 +55,38 @@ class LogoutView(generic.View):
         # return render(response, self.template_name)
 
 def change_password(request):
-    message = ''
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            message = 'Change password succeed.'
+            messages.success(request, "Change password succeed!")
         else:
             form = PasswordChangeForm(user=request.user)
-            message = 'Change password failed.'
+            messages.success(request, "Change password failed!")
     else:
         form = PasswordChangeForm(user=request.user)
 
-    args = {'form': form, 'message': message}
+    args = {
+        'form': form, 
+    }
     return render(request, 'accounts/change_password.html', args)
 
  
 # View and Edit user Profile
 
 def view_editProfile(request):
-    # profile = request.user
-    # profile.first_name = request.POST.get('first_name')
-    # profile.last_name = request.POST.get('last_name')
-    message = ''
     if request.method == 'POST':
         form = profileForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            message = 'Save succeed.'
+            messages.success(request, "Save succeed.")
         else:
-            message = 'Save failed.'
+            messages.success(request, "Save failed!")
     else:
         form = profileForm(instance=request.user)
     context = {
         'form': form,
-        'message': message,
     }
     return render(request, 'accounts/accounts_preview.html', context)
 
