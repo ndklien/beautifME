@@ -15,30 +15,29 @@
     <li><a href="{% url 'homepage' %}">Home</a></li>
     <li><a href="{% url 'product:product-list' %}">Products</a></li>
 </ul>
+
+
 <div class="container">
     <h3 class="h3">Products </h3>
     <hr />
     {% if page_obj %}
     <div class="row">
         {% for product in page_obj %}
-        <!-- <li><a href="/product/{{ product.id }}">{{ product }}</a></li> -->
-
-        <div class="col-md-3 col-sm-6">
-            <a href="/product/{{ product.id }}/{{ product.slug }}">
-                <div class="product-grid6">
-                    <div class="product-image6">
-                        <img class="pic-1" src="{{ product.product_img.url }}" />
+            <div class="col-md-3 col-sm-6" style="z-index: -1000;">
+                <a href="/product/{{ product.id }}/{{ product.slug }}">
+                    <div class="product-grid6">
+                        <div class="product-image6">
+                            <img class="pic-1" src="{{ product.product_img.url }}" />
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title">{{ product.product_name }}</h3>
+                            <div class="price">${{ product.price }}</div>
+                        </div>
+                        <ul class="social">
+                        </ul>
                     </div>
-                    <div class="product-content">
-                        <h3 class="title">{{ product.product_name }}</h3>
-                        <div class="price">${{ product.price }}</div>
-                    </div>
-                    <ul class="social">
-                    </ul>
-                </div>
-            </a>
-        </div>
-
+                </a>
+            </div>
         {% endfor %}
     </div>
     {% else %}
