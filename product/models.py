@@ -26,6 +26,8 @@ SKINCOND_CHOICE = (
     ('SEN', 'Sensitive Skin'),
     ('ACNE', 'Acne Skin'), 
     ('AGE', 'Aging Skin'),
+    ('DULL', 'Dull Skin'),
+    ('FREC', 'Freckles'),
 )
 
 CATEGORY_CHOICE = (
@@ -40,6 +42,8 @@ CATEGORY_CHOICE = (
     ('SUN', 'Sun Care'),
     ('EXFOL', 'Exfoliators'),
     ('LIP', 'Lip Treatment'),
+    ('MIST', 'Mist Spray'),
+    ('OIL', 'Oil Moisturizing'),
 )
 
 SKINTYPE_CHOICE = (
@@ -47,7 +51,6 @@ SKINTYPE_CHOICE = (
     ('OIL', 'Oily Skin'),
     ('COMBI', 'Combination Skin'),
     ('NORM', 'Normal Skin'),
-    # ('ALL', 'All Skin Type'),
 )
 
 
