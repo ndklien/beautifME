@@ -8,6 +8,8 @@ DEBUG = False
 
 SECURE_SSL_REDIRECT = True
 
+PREPEND_WWWW = True
+
 with open('/etc/config.json') as config_file:
         config = json.load(config_file)
 
