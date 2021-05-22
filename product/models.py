@@ -118,7 +118,7 @@ class Comment(models.Model):
     #Noi dung comment
     content = models.TextField()
     #thoi gian dang bai
-    pub_date = models.DateTimeField(default=timezone.datetime.now())
+    pub_date = models.DateTimeField(auto_now_add=True)
     
     # Binh chon yeu/ghet binh luan
     vote_down = models.IntegerField(default=0)

@@ -15,7 +15,7 @@ class News(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     author = models.CharField(max_length=150, blank=True, null=True)
     news_img = models.ImageField(upload_to='news/static/news/images/')
-    pub_date = models.DateField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
     summary = models.TextField(max_length=250)
     content = RichTextUploadingField(null=True, blank=True)
 
