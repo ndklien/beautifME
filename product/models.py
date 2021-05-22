@@ -44,6 +44,9 @@ CATEGORY_CHOICE = (
     ('LIP', 'Lip Treatment'),
     ('MIST', 'Mist Spray'),
     ('OIL', 'Oil Moisturizing'),
+    ('PERFUME', 'Perfume'),
+    ('BODY', 'Body Care'),
+    ('HAIR', 'Hair Care'),
 )
 
 SKINTYPE_CHOICE = (
