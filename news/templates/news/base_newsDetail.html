@@ -33,10 +33,10 @@
 {% block content %}
         {% if current_news %}
         <div class="listnews">
-            <p class="detail_title">{{ current_news.title }}</p>
+            <h1 class="detail_title">{{ current_news.title }}</h1>
             <p class="time">{{ current_news.pub_date }}</p>
             <p class="news-author">By {{ current_news.author }}</p>
-            <img class="detail_img" src="{{ current_news.news_img.url }}">
+            <img class="detail_img" src="{{ current_news.news_img.url }}" alt="dưỡng da cùng beautifme | beautifme | skincare with beautifme for beginners">
             <p class="sumary">{{ current_news.summary }}</p>
             <div class="detail_content">{{ current_news.content|safe }}</div>
         </div>

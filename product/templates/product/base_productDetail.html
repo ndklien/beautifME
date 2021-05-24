@@ -51,12 +51,13 @@
 					<div class="columnImg">
 						<div class="detailImg">
 							<div class="detailImg" id="pic-1">
-								<img src="{{ product.product_img.url }}" class="main-productImg"  />
+								<img src="{{ product.product_img.url }}" class="main-productImg" alt="{{ product.product_name}}-{{ product.brand.branding_name}}-beautifme" />
 							</div>
 						</div>
 					</div>
 					<div class="columnDetail">
-						<h3 class="product-title">{{ product.product_name }}</h3>
+						<h4 class="h4"><a href="/brand/{{ product.brand.id }}/{{ product.brand.slug }}">{{ product.brand.branding_name }}</a></h4>
+						<h1 class="product-title">{{ product.product_name }}</h1>
 						<div class="rating">
 							<div class="stars">
 								<span class="iconify" data-icon="ant-design:like-filled" data-inline="false"
