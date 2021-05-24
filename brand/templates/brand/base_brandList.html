@@ -34,7 +34,7 @@
     <li><a href="{% url 'brand:brand-list' %}">Brand</a></li>
 </ul>
 <div class="container">
-    <h3 class="h3">Brands </h3>
+    <h1 class="h1">Brands </h1>
     <hr/>
     <div class="row">
         {% for brand in page_obj %}
@@ -44,7 +44,7 @@
                     <div class="product-grid6">
                         <div class="product-image6">
                             <img class="pic-1"
-                            src="{{ brand.brandImage.url }}" />
+                            src="{{ brand.brandImage.url }}" alt="{{ brand.branding_name }}-beautifme" />
                         </div>
                         <div class="product-content">
                             <h3 class="title"><a href="#">{{brand.branding_name }}</a></h3>   
