@@ -18,7 +18,7 @@
         <div class="numbertext">1 / 3</div>
         <picture>
             <source srcset="{% static 'product/img/img1.webp' %}" type="image/webp" />
-            <source srcset="{% static 'produdct/img/img1.png' %}" type="image/png"/>
+            <source srcset="{% static 'product/img/img1.png' %}" type="image/png"/>
             <img src="{% static 'product/img/img1.webp' %}" class="SlideImg" alt="beautifme slide 1 - beautif in your way">
     </div>
 
@@ -26,7 +26,7 @@
         <div class="numbertext">2 / 3</div>
         <picture>
             <source srcset="{% static 'product/img/img2.webp' %}" type="image/webp" />
-            <source srcset="{% static 'produdct/img/img2.png' %}" type="image/png"/>
+            <source srcset="{% static 'product/img/img2.png' %}" type="image/png"/>
             <img src="{% static 'product/img/img2.webp' %}" class="SlideImg" alt="beautifme slide 2 - beautif in your way">
         </picture>
 
@@ -36,7 +36,7 @@
         <div class="numbertext">3 / 3</div>
         <picture>
             <source srcset="{% static 'product/img/img3.webp' %}" type="image/webp" />
-            <source srcset="{% static 'produdct/img/img3.png' %}" type="image/png"/>
+            <source srcset="{% static 'product/img/img3.png' %}" type="image/png"/>
             <img src="{% static 'product/img/img3.png' %}" class="SlideImg" alt="beautifme slide 3 - beautif in your way">
         </picture>
     </div>
@@ -116,7 +116,11 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-                                        <img class="pic-1" src="{{ product.product_img.url }}">
+                                        <!-- <img class="pic-1" src="{{ product.product_img.url }}"> -->
+                                        <picture>
+                                            <source srcset="{{ product.product_img.url }}" type="image/webp"/>
+                                            <img class="pic-1" src="{{ product.product_img.url }}">
+                                        </picture>
                                     </div>
                                     <div class="product-content">
                                         <h3 class="title">{{ product.product_name }}</h3>
