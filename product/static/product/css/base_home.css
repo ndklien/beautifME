@@ -2,6 +2,11 @@
 body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
 
+.row {
+    margin-left: unset !important;
+    margin-right: unset !important;
+}
+
 
 /* Slideshow container */
 .slideshow-container {
