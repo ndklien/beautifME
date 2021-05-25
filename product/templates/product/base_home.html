@@ -64,11 +64,7 @@
         <div class="row">
             <div class="col-md-9">
                 <h3>
-                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span> -->
                     HOT PRODUCTS
-                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span> -->
                 </h3>
             </div>
             <div class="col-md-3">
@@ -95,7 +91,7 @@
                                     <div class="product-image6">
                                         <picture>
                                             <source srcset="{{ product.product_img.url }}" type="image/webp"/>
-                                            <img class="pic-1" src="{{ product.product_img.url }}">
+                                            <img class="pic-1" src="{{ product.product_img.url }}" class="lazyload">
                                         </picture>
                                     </div>
                                     <div class="product-content">
@@ -119,7 +115,7 @@
                                         <!-- <img class="pic-1" src="{{ product.product_img.url }}"> -->
                                         <picture>
                                             <source srcset="{{ product.product_img.url }}" type="image/webp"/>
-                                            <img class="pic-1" src="{{ product.product_img.url }}">
+                                            <img class="pic-1" src="{{ product.product_img.url }}" class="lazyload">
                                         </picture>
                                     </div>
                                     <div class="product-content">
@@ -145,11 +141,7 @@
         <div class="row">
             <div class="col-md-9">
                 <h3>
-                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span> -->
                     HOT BRANDS
-                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span> -->
                 </h3>
             </div>
             <div class="col-md-3">
@@ -174,7 +166,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-                                        <img class="pic-1" src="{{ brand.brandImage.url }}">
+                                        <img class="pic-1" src="{{ brand.brandImage.url }}" class="lazyload">
                                     </div>
                                     <div class="product-content">
                                         <h3 class="title">{{ brand.branding_name }}</h3>
@@ -193,7 +185,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-                                        <img class="pic-1" src="{{ brand.brandImage.url }}">
+                                        <img class="pic-1" src="{{ brand.brandImage.url }}" class="lazyload">
                                     </div>
                                     <div class="product-content">
                                         <h3 class="title">{{ brand.branding_name }}</h3>
@@ -218,11 +210,7 @@
         <div class="row">
             <div class="col-md-9">
                 <h3>
-                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span> -->
                     HOT NEWS
-                    <!-- <span class="iconify" data-icon="emojione:fire" data-inline="false"
-                        style="width: 30px; height: 30px;"></span> -->
                 </h3>
             </div>
             <div class="col-md-3">
@@ -247,7 +235,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-                                        <img class="pic-1" src="{{ news.news_img.url }}">
+                                        <img class="pic-1" src="{{ news.news_img.url }}" class="lazyload">
                                     </div>
                                     <div class="product-content">
                                         <h3 class="title">{{ news.title }}</h3>
@@ -266,7 +254,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="product-grid6">
                                     <div class="product-image6">
-                                        <img class="pic-1" src="{{ news.news_img.url }}">
+                                        <img class="pic-1" src="{{ news.news_img.url }}" class="lazyload">
                                     </div>
                                     <div class="product-content">
                                         <h3 class="title">{{ news.title }}</h3>
