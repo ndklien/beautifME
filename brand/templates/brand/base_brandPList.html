@@ -49,7 +49,7 @@
             <a href="/product/{{ product.id }}/{{ product.slug }}">
                 <div class="product-grid6">
                     <div class="product-image6">
-                        <img class="pic-1" src="{{ product.product_img.url }}" alt="{{ product.product_name }}-{{ product.brand.branding_name}}-beautifme" />
+                        <img class="pic-1 lazyload" src="{{ product.product_img.url }}" alt="{{ product.product_name }}-{{ product.brand.branding_name}}-beautifme" />
                     </div>
                     <div class="product-content">
                         <h3 class="title">{{ product.product_name }}</h3>
