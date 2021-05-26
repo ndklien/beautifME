@@ -13,7 +13,7 @@
 <!--Meta OpenGraph-->
 <meta name="og:description" content="{{ brand.brandDescript }}" />
 <meta name="og:title" content="{{ brand }} | {{ brand.branding_name }}"/>
-<meta name="og:url" content="https://www.beautifme.com/brand/{{ brand.id }}/{{ brand.slug }}"/>
+<meta name="og:url" content="https://www.beautifme.com/brand/{{ brand.id }}/{{ brand.slug }}/"/>
 <meta name="og:type" content="website"/>
 <meta name="og:img" content="{{ brand.brandImg.url }}">
 <!--Meta keywords-->
@@ -46,7 +46,7 @@
         <!-- <li><a href="/product/{{ product.id }}">{{ product }}</a></li> -->
 
         <div class="col-md-3 col-sm-6" style="position:unset">
-            <a href="/product/{{ product.id }}/{{ product.slug }}">
+            <a href="/product/{{ product.id }}/{{ product.slug }}/">
                 <div class="product-grid6">
                     <div class="product-image6">
                         <img class="pic-1 lazyload" src="{{ product.product_img.url }}" alt="{{ product.product_name }}-{{ product.brand.branding_name}}-beautifme" />
