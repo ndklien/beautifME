@@ -84,7 +84,11 @@ def view_editProfile(request):
         else:
             messages.success(request, "Save failed!")
     else:
-        form = profileForm(instance=request.user)
+        if (request.user.is_authenticated):
+            form = profileForm(instance=request.user)
+        else:
+            return redirect('login') 
+            
     context = {
         'form': form,
     }
